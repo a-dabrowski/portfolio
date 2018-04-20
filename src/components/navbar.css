@@ -1,0 +1,47 @@
+.menu {
+    z-index: 5;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+}
+
+.menu li, .menu a {
+    display: block;
+}
+
+.menu li{
+    width: 25%;
+    padding: .5em 0;   
+    transition: border-color .5s;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+    .menu li, .menu a {
+        font-size: .7em;
+    }
+}
+
+.menu li {
+    background-color: #222;
+    border-bottom: 5px solid transparent;
+}
+
+.menu li:hover {
+    border-color: white;
+}
