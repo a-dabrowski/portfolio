@@ -135,7 +135,7 @@ const stack = [
   {
     name: "NPM",
     fill: "#CB3837",
-    path: "M0,0h18v6H9v1H5V6H0V0z M1,5h2V2h1v3h1V1H1V5z M6,1v5h2V5h2V1H6z M8,2h1v2H8V2z M11,1v4h2V2h1v3h1V2h1v3h1V1H11z",
+    path: "M0,128V0H128V128ZM24.07,23.99V103.82h40.34V40.64H87.91v63.19H103.92V23.99Z",
     description: "",
   },
 
@@ -143,7 +143,7 @@ const stack = [
 
 
 const Technology = props => (
-  <div className="test">
+  <div className="carousel__item">
   <h4>{props.name}</h4>
   <svg  viewBox="0 0 128 128">
     <path 
@@ -159,9 +159,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <header className="App-header" id="start">
+        <header className="header" id="start">
           <Navbar />
-          <h1 className="App-title" id="about">
+          <h1 className="title--main" id="about">
             Hello, my name is Adam Dąbrowski
           </h1>
           <p>
@@ -180,7 +180,7 @@ class App extends Component {
         </header>
         <main>
           <section>
-          <h2 className="App-title" id="projects" >
+          <h2 className="title" id="projects" >
             Here are some of the projects I've finished so far
           </h2>
           <ul className="list">
@@ -188,10 +188,10 @@ class App extends Component {
           </ul>
           </section>
           <section>
-          <h2 className="App-title" id="technologies">Technologies I've worked with</h2>
+          <h2 className="title" id="technologies">Technologies I've worked with</h2>
           <ul className="carousel">
           <CenterSlider>
-            {stack.map(el =><li><Technology name={el.name} fill={el.fill} path={el.path} description={el.description}/></li>)}
+            {stack.map(el =><li><Technology name={el.name} fill={el.fill} path={el.path} description={el.description} /></li>)}
           </CenterSlider>  
           </ul>
           </section>

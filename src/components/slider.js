@@ -8,7 +8,7 @@ class CenterSlider extends Component {
       centerPadding: '60px',
       slidesToShow: 5,
       autoplay: true,
-      autoplayspeed: 1500,
+      autoplaySpeed: 1500,
       arrows: false,
       responsive: [
         {
