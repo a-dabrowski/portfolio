@@ -11,7 +11,7 @@ const projects = [
     demo: "https://codepen.io/adam_dabrowski/full/ezJPVZ/",
     code: "https://github.com/a-dabrowski/random-quote-generator",
     description:
-      "One of my first projects using external API to fetch data and display the results."
+      "One of my first projects where I've learn how to use AJAX to fetch data from external API and display the results."
   },
   {
     name: "Movie Ranking",
@@ -19,14 +19,14 @@ const projects = [
     demo: "https://a-dabrowski.github.io/movie-ranking",
     code: "https://github.com/a-dabrowski/movie-ranking",
     description:
-      "This page connects to external demo API and displays movies and their score. User can vote on each of movies and their vote will be posted to API using POST method."
+      "This page connects to external demo API (it's a mock API on Heroku, so initial load takes a while) and renders movie posters and their score. User can vote on each of movies and their vote will be posted to API using POST method. Also user can see votes distribution (I built modal window for that)."
   },
   {
     name: "TicTacToe Game",
     image: "img/screen/tictac.png",
     demo: "https://codepen.io/adam_dabrowski/full/zwpgNw/",
     code: "https://github.com/a-dabrowski/tic-tac-toe-game",
-    description: "Tic Tac Toe game for 1 or 2 players"
+    description: "Tic Tac Toe game for 1 or 2 players built in vanilla JS. This project gave me a chance to implement mock logic in app that responds to player moves and determines winner."
   },
   {
     name: "Simon Game",
@@ -41,7 +41,7 @@ const projects = [
     image: "img/screen/monochrome.png",
     demo: "https://a-dabrowski.github.io/monochrome-psdtemplate",
     code: "https://github.com/a-dabrowski/monochrome-psdtemplate",
-    description: "PSD to HTML project with template provided by Anckor agency"
+    description: "PSD to HTML project with template provided by Anckor agency where I could going through the process of putting project into  HTML and CSS code."
   },
   {
     name: "Weather Web App",
@@ -49,15 +49,15 @@ const projects = [
     demo: "https://a-dabrowski.github.io/weather-web-app",
     code: "https://github.com/a-dabrowski/weather-web-app",
     description:
-      "Weather Web App using AJAX call. Background changes accordingly to current weather."
+      "Weather Web App using AJAX call. Background changes accordingly to current weather with background class change."
   },
-  // {
-  //   name: "ES5 Calculator",
-  //   image: "img/screen/calculator.png",
-  //   demo: "https://a-dabrowski.github.io/JavaScript-Calculator/",
-  //   code: "https://github.com/a-dabrowski/JavaScript-Calculator",
-  //   description: "Simple calculator built with ES5 JavaScript on table layout."
-  // },
+  {
+    name: "ES5 Calculator",
+    image: "img/screen/calculator.png",
+    demo: "https://a-dabrowski.github.io/JavaScript-Calculator/",
+    code: "https://github.com/a-dabrowski/JavaScript-Calculator",
+    description: "Simple calculator built with vanilla ES5 JavaScript on table layout. It was an opportunity to learn how to tackle big task (functional calculator) to smaller functions (listen to button clicks, perform adding, substraction etc) and connect it all together."
+  },
   // {
   //   name: "Pomodoro Clock",
   //   image: "img/screen/randomquote.png",
@@ -73,14 +73,6 @@ const projects = [
   //   description:
   //     "Here's one of my first projects using external API and displaying the results."
   // },
-  // {
-  //   name: "Random Quote Generator",
-  //   image: "img/screen/randomquote.png",
-  //   demo: "codepen.com",
-  //   code: "https://github.com/a-dabrowski/",
-  //   description:
-  //     "Here's one of my first projects using external API and displaying the results."
-  // }
 ];
 
 const stack = [
@@ -165,17 +157,16 @@ class App extends Component {
             Hello, my name is Adam Dąbrowski
           </h1>
           <p>
-            I love creating Web Apps but I'm hungry for commercial, real life
-            projects where I could work within passionate team of developers and
-            designers.
-            </p>
-            <p>What makes me "tick" about web development is creating
-            tangible (at least as tangibile as Web goes) product that user can
-            interact with and delight, while completing his goals.
+            Currently, I'm working full-time as a SEM / PaidSocial specialist. For over a year I've been learning Front-End development with FreeCodeCamp, books and tutorials on Udemy and Codecademy.
           </p>
           <p>
-            I would love to work in Scrum team working on projects that have the potential to reshape the world :)
-          </p>
+            I'd love to put my skills to real life
+            projects where I could work within passionate team of developers and
+            designers and learn from them while contributing to building useful, great projects that help users achieve their goals.
+            </p>
+            <p>
+              In my spare time I take photographs (you can check my <a href="https://www.instagram.com/adam_dabrowski/">Instagram</a>), ride a bike and keep me and my plants hydrated :)
+              </p>
         </header>
         <main>
           <section id="projects">

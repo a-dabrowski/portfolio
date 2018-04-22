@@ -10,7 +10,7 @@ class Navbar extends Component {
           <ul className="menu">
           <li><Scrollchor to="#about">About</Scrollchor></li>
           <li><Scrollchor to="#projects">Projects</Scrollchor></li>
-          <li><Scrollchor to="#technologies">Technologies</Scrollchor></li>
+          <li><Scrollchor to="#technologies">Technology</Scrollchor></li>
           </ul>
           </nav>
       </div>
