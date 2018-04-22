@@ -1,6 +1,8 @@
 .header {
   background-color: #222;
   color: white;
+  background: url('./images/thomas-verbruggen.jpg') center no-repeat;
+  background-size: cover; 
 }
 
 .title--main {
@@ -22,8 +24,9 @@
 
 .carousel {
   overflow: hidden;
-  width: 90%;
-  margin: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .carousel__item {

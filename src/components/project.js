@@ -6,7 +6,7 @@ class Project extends Component {
   render() {
     return (
       <li className="project">
-        <h2>{this.props.data.name}</h2>
+        <h3>{this.props.data.name}</h3>
         <div className="screenshot"><img src={this.props.data.image} alt="" /></div>
         <a className="project__link" href={this.props.data.demo} target="_blank">
         <span>Demo</span>

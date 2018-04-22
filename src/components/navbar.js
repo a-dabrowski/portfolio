@@ -8,7 +8,6 @@ class Navbar extends Component {
       <div>
         <nav>
           <ul className="menu">
-          <li><Scrollchor to="#start">Start</Scrollchor></li>
           <li><Scrollchor to="#about">About</Scrollchor></li>
           <li><Scrollchor to="#projects">Projects</Scrollchor></li>
           <li><Scrollchor to="#technologies">Technologies</Scrollchor></li>

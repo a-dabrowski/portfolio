@@ -2,7 +2,8 @@
   display: block;
   margin: 20px;
   width: 320px;
-  height: 450px;
+  /* height: 450px; */
+  min-height: 450px;
   transition: all 0.3s;
   position: relative;
   box-shadow: 6px 10px 20px rgba(0, 0, 0, 0.1);
@@ -49,7 +50,7 @@
 }
 
 .screenshot {
-  height: 30%;
+  max-height: 30%;
   overflow: hidden;
 }
 

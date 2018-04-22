@@ -58,13 +58,13 @@ const projects = [
   //   code: "https://github.com/a-dabrowski/JavaScript-Calculator",
   //   description: "Simple calculator built with ES5 JavaScript on table layout."
   // },
-  {
-    name: "Pomodoro Clock",
-    image: "img/screen/randomquote.png",
-    demo: "https://codepen.io/adam_dabrowski/full/WOMQKw",
-    code: "https://github.com/a-dabrowski/",
-    description: "Simple pomodoro clock built with React. It was an opportunity to get familiar with React state and props."
-  },
+  // {
+  //   name: "Pomodoro Clock",
+  //   image: "img/screen/randomquote.png",
+  //   demo: "https://codepen.io/adam_dabrowski/full/WOMQKw",
+  //   code: "https://github.com/a-dabrowski/",
+  //   description: "Simple pomodoro clock built with React. It was an opportunity to get familiar with React state and props."
+  // },
   // {
   //   name: "Wikipedia Search",
   //   image: "img/screen/randomquote.png",
@@ -73,14 +73,14 @@ const projects = [
   //   description:
   //     "Here's one of my first projects using external API and displaying the results."
   // },
-  {
-    name: "Random Quote Generator",
-    image: "img/screen/randomquote.png",
-    demo: "codepen.com",
-    code: "https://github.com/a-dabrowski/",
-    description:
-      "Here's one of my first projects using external API and displaying the results."
-  }
+  // {
+  //   name: "Random Quote Generator",
+  //   image: "img/screen/randomquote.png",
+  //   demo: "codepen.com",
+  //   code: "https://github.com/a-dabrowski/",
+  //   description:
+  //     "Here's one of my first projects using external API and displaying the results."
+  // }
 ];
 
 const stack = [
@@ -159,7 +159,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <header className="header" id="start">
+        <header className="header">
           <Navbar />
           <h1 className="title--main" id="about">
             Hello, my name is Adam Dąbrowski
@@ -176,19 +176,18 @@ class App extends Component {
           <p>
             I would love to work in Scrum team working on projects that have the potential to reshape the world :)
           </p>
-
         </header>
         <main>
-          <section>
-          <h2 className="title" id="projects" >
+          <section id="projects">
+          <h2 className="title">
             Here are some of the projects I've finished so far
           </h2>
           <ul className="list">
             {projects.map(el => <Project data={el} />)}
           </ul>
           </section>
-          <section>
-          <h2 className="title" id="technologies">Technologies I've worked with</h2>
+          <section id="technologies">
+          <h2 className="title">Technologies I've worked with</h2>
           <ul className="carousel">
           <CenterSlider>
             {stack.map(el =><li><Technology name={el.name} fill={el.fill} path={el.path} description={el.description} /></li>)}
