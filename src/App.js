@@ -5,14 +5,14 @@ import CenterSlider from "./components/slider.js";
 import "./App.css";
 
 const projects = [
-  {
-    name: "Random Quote Generator",
-    image: "img/screen/randomquote.png",
-    demo: "https://codepen.io/adam_dabrowski/full/ezJPVZ/",
-    code: "https://github.com/a-dabrowski/random-quote-generator",
-    description:
-      "One of my first projects where I've learn how to use AJAX to fetch data from external API and display the results."
-  },
+  // {
+  //   name: "Random Quote Generator",
+  //   image: "img/screen/randomquote.png",
+  //   demo: "https://codepen.io/adam_dabrowski/full/ezJPVZ/",
+  //   code: "https://github.com/a-dabrowski/random-quote-generator",
+  //   description:
+  //     "One of my first projects where I've learn how to use AJAX to fetch data from external API and display the results."
+  // },
   {
     name: "Movie Ranking",
     image: "img/screen/movieranking.png",
