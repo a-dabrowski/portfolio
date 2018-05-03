@@ -207,16 +207,16 @@ class App extends Component {
               </CenterSlider>
             </ul>
           </section>
-          <section id="contact">
+          {/*<section id="contact">
             <h2 className="title">
               Contact
             </h2>
             <p className="center-text">
               If you would like to contact me go ahead and e-mail me at{" "}
               <strong>ad.adam.dabrowski AT gmail.com</strong>
-              <a className="call-to-action" href="img/screen/CV.pdf">Download CV</a>
+              <a className="call-to-action" href="images/CV.pdf">Download CV</a>
             </p>
-          </section>
+              </section>*/}
           <footer>
             <h6>Build with React by Adam Dąbrowski</h6>
           </footer>
