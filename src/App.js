@@ -51,7 +51,7 @@ const projects = [
     demo: "https://a-dabrowski.github.io/weather-web-app",
     code: "https://github.com/a-dabrowski/weather-web-app",
     description:
-      "Weather Web App using AJAX call. Background changes accordingly to current weather with background class change."
+      "Weather Web App using AJAX call. User's position is fetched with Geolocation API. These coordinates are sent to OpenWeather API that returns current temperature and weather condition (rain/snow etc.). Background changes accordingly to current weather by CSS class change. Use can tobble between Fahrenheit and Celsius temperature."
   },
   {
     name: "ES5 Calculator",
@@ -70,11 +70,11 @@ const projects = [
   // },
   {
     name: "Wikipedia Search",
-    image: "img/screen/randomquote.png",
+    image: "img/screen/wiki.png",
     demo: "https://a-dabrowski.github.io/wiki-viewer/app",
     code: "https://github.com/a-dabrowski/wiki-viewer",
     description:
-      "Here's one of my first projects using external API and displaying the results."
+      "In this project user writes query which is sent to Wikipedia API. Response (list of articles matching query) is then rendered below with title, brief description and link to article."
   },
 ];
 
@@ -162,19 +162,18 @@ class App extends Component {
           <h1 className="title--main" id="about">
             Hello, my name is Adam Dąbrowski
           </h1>
-          <p>
+          <p className="header__paragraph">
             Currently, I'm working full-time as a SEM / PaidSocial specialist.
-            For over a year I've been learning Front-End development with
-            FreeCodeCamp, books and tutorials on Udemy and Codecademy. I've been working on projects from FreeCodeCamp curriculum (some of which are listed in section below) and whenever I see an opportunity to solve a problem with JavaScript I take it. So far I was able to improve my workflow and automate some repetitive tasks, which saved time not only for me, but my collagues.
-            To check my repositories, you can check my <a href="https://github.com/a-dabrowski">Github</a> account.
+            For over a year I've been learning Front-End development from
+            FreeCodeCamp, books and tutorials on Udemy and Codecademy. I've been working on projects from FreeCodeCamp curriculum (some of which are listed in section below) and whenever I see an opportunity to solve a problem with JavaScript in my current job I take it. So far I was able to improve my workflow and automate some repetitive tasks, which saves time for me and my colleagues.
+            To check my repositories, go to my <a href="https://github.com/a-dabrowski">Github</a> account.
           </p>
-          <p>
-            I'd love to put my skills to real life projects where I could work
-            within passionate team of developers and designers and learn from
-            them while contributing to building useful, great projects that help
+          <p className="header__paragraph">
+            I'd love to put my skills to test in real life projects where I could work
+            on a team of developers building useful, great projects that help
             users achieve their goals.
           </p>
-          <p>
+          <p className="header__paragraph">
             In my spare time I take photographs (you can check my{" "}
             <a href="https://www.instagram.com/adam_dabrowski/">Instagram</a>{" "}
             and <a href="https://500px.com/adamdabrowski">500PX</a> feed), ride
