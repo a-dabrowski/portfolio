@@ -162,7 +162,9 @@ class App extends Component {
           <h1 className="title--main" id="about">
             Hello, my name is Adam Dąbrowski
           </h1>
+
           <p className="header__paragraph">
+           <img className="header__image" src="img/adam.jpg" alt="Adam Dabrowski"/>
             Currently, I'm working full-time as a SEM / PaidSocial specialist.
             For over a year I've been learning Front-End development from
             FreeCodeCamp, books and tutorials on Udemy and Codecademy. I've been working on projects from FreeCodeCamp curriculum (some of which are listed in section below) and whenever I see an opportunity to solve a problem with JavaScript in my current job I take it. So far I was able to improve my workflow and automate some repetitive tasks, which saves time for me and my colleagues.

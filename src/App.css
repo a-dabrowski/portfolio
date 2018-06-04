@@ -65,3 +65,11 @@ strong::before {
 .header__paragraph{
   line-height: 1.5em;
 }
+
+.header__image {
+  width: 150px;
+  border-radius: 50%;
+  float: left;
+  margin: 10px;
+  shape-outside: circle(50%);
+}
