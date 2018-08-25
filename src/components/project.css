@@ -2,12 +2,18 @@
   display: block;
   margin: 20px 5px;
   width: 320px;
-  height: 500px;
+  /* height: 500px; */
   transition: all 0.3s;
   position: relative;
   box-shadow: 6px 10px 20px rgba(0, 0, 0, 0.1);
   background-color: white;
   text-align: center;
+}
+
+@media screen and (min-width: 500px) {
+  .project {
+    height: 500px;
+  }
 }
 
 .project:hover {
