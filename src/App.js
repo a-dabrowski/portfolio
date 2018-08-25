@@ -51,7 +51,7 @@ const projects = [
     demo: "https://a-dabrowski.github.io/weather-web-app",
     code: "https://github.com/a-dabrowski/weather-web-app",
     description:
-      "Weather Web App using AJAX call. User's position is fetched with Geolocation API. These coordinates are sent to OpenWeather API that returns current temperature and weather condition (rain/snow etc.). Background changes accordingly to current weather by CSS class change. Use can tobble between Fahrenheit and Celsius temperature."
+      "Weather Web App using AJAX call. User's position is fetched with Geolocation API. These coordinates are sent to OpenWeather API that returns current temperature and weather condition (rain/snow etc.). Background changes accordingly to current weather by CSS class change. User can toggle between Fahrenheit and Celsius temperature."
   },
   {
     name: "ES5 Calculator",
@@ -165,14 +165,18 @@ class App extends Component {
 
           <p className="header__paragraph">
            <img className="header__image" src="img/adam.jpg" alt="Adam Dabrowski"/>
-            Currently, I'm working full-time as a SEM / PaidSocial specialist.
-            For over a year I've been learning Front-End development from
-            FreeCodeCamp, books and tutorials on Udemy and Codecademy. I've been working on projects from FreeCodeCamp curriculum (some of which are listed in section below) and whenever I see an opportunity to solve a problem with JavaScript in my current job I take it. So far I was able to improve my workflow and automate some repetitive tasks, which saves time for me and my colleagues.
+            I'm a self-taught developer, currently working @DaftCode in Warsaw, Poland.
+            I've been learning Front-End technologies from
+            FreeCodeCamp, books and tutorials provided by Udemy and Codecademy. Before working full-time @DaftCode, I've been working on projects from FreeCodeCamp curriculum and ideas I've come up with myself, which I still work on in my spare time (my current personal side project is stock prices scraper). 
+            </p>
+            <p className="header__paragraph">
+            I'm a huge fan JavaScript and every technology surrounding it (frameworks, NodeJS etc.).
+            So far I was able to improve my workflow with it and automate some repetitive tasks, which saves time for me and my colleagues.
             To check my repositories, go to my <a href="https://github.com/a-dabrowski">Github</a> account.
           </p>
           <p className="header__paragraph">
-            I'd love to put my skills to test in real life projects where I could work
-            on a team of developers building useful, great projects that help
+            I love putting my skills to test in real life projects where I can work
+            with a team of developers building useful, great projects that help
             users achieve their goals.
           </p>
           <p className="header__paragraph">
