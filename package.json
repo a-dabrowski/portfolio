@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "^1.1.4",
-    "react-scrollchor": "^5.0.1",
-    "react-slick": "^0.23.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "^1.1.5",
+    "react-scrollchor": "^5.1.0",
+    "react-slick": "^0.23.2",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
