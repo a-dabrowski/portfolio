@@ -1,0 +1,26 @@
+.testimonial {
+  max-width: 500px;
+  background: green;
+  padding: 24px;
+  margin: 32px;
+}
+
+.testimonial__title {
+  font-weight: 800;
+ font-size: 20px; 
+}
+
+.testimonial__img {
+  border-radius: 999px;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.testimonial__img img {
+  position: absolute;
+  width: 100%;
+  top: -50%;
+}

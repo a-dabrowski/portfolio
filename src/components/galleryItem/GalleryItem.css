@@ -1,0 +1,62 @@
+.subject {
+  display: block;
+  margin: 20px 5px;
+  width: 320px;
+  height: 500px; 
+  height: 70vh;
+  transition: all 0.3s;
+  position: relative;
+  box-shadow: 6px 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  text-align: center;
+}
+
+
+.subject:hover {
+  box-shadow: 6px 20px 20px rgba(0, 0, 0, 0.3);
+  transform: translate(0, -20px);
+}
+
+/* Prevents hover unhover loop while cursor is on bottom edge */
+.subject:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 20px;
+}
+
+.subject img {
+  height: 100%;
+}
+
+.subject__link {
+  display: inline-block;
+  width: 40%;
+  padding: 0.5em 0;
+  margin: 10px 5px;
+  color: black;
+  background-clip: text;
+  border: 5px solid rgba(255, 130, 130, 1);
+  transition: all 1s;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.subject__link:hover{
+  border-radius: 30px;
+}
+
+.subject__desc {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.hero-image {
+  height: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+

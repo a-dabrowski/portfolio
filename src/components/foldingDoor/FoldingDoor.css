@@ -1,0 +1,33 @@
+
+.folding-door {
+  height: 80vh;
+  width: 280px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: auto;
+  align-items: center;
+  overflow:hidden;
+  margin: 0;
+  background-position: center;
+  background-size: cover;
+}
+
+.folding-door__title {
+  display: block; 
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.folding-door__desc {
+  margin: 10px;
+  z-index: 2;
+}
+
+.folding-door__image {
+  height: 100%;
+  position: absolute;
+  top: -25%;
+}

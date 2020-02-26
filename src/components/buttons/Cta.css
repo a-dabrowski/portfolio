@@ -1,0 +1,13 @@
+.btn-cta{
+  background-image: linear-gradient(to right, #d38312, #a83279);
+  padding: 10px 25px;
+  border: none;
+  min-width: 70%;
+  border-radius: 200px;
+  margin: 30px;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-family: "Quicksand";
+}
