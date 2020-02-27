@@ -1,6 +1,6 @@
 # VIM
-*/**.swp
-*/**.swo
+**/*.swp
+**/*.swo
 *.vim
 # YARN lock, we use NPM here
 yarn-lock.json
