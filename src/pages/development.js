@@ -8,6 +8,10 @@ import Navbar from "../components/navbar"
 import CenterSlider from "../components/slider"
 import "./App.css"
 
+import AboutIcon from "../../content/assets/svg/account.svg";
+import ProjectsIcon from "../../content/assets/svg/projects.svg";
+import TechnologyIcon from "../../content/assets/svg/computer.svg";
+
 const links = [
   {
     name: "about",
