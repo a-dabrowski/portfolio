@@ -1,0 +1,24 @@
+$skew-padding: calc(0.09719 * 100vw);
+.diagonal-container {
+  position: relative;
+  padding: $skew-padding 0;
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(45deg, #654ea3, #eaafc8);   
+    transform: skewY(-11deg);
+
+  }
+  &__content {
+    position: relative;
+    max-width: 50em;
+    margin: 0 auto;
+    &--skew {
+      transform: skewY(-11deg);
+    }
+  }
+}
