@@ -12,6 +12,8 @@ import AboutIcon from "../../content/assets/svg/account.svg";
 import ProjectsIcon from "../../content/assets/svg/projects.svg";
 import TechnologyIcon from "../../content/assets/svg/computer.svg";
 
+import Author from "../assets/images/adam.jpg";
+
 const links = [
   {
     name: "about",
@@ -190,7 +192,7 @@ const PhotographyIndex = ({ data, location }) => {
           <p className="header__paragraph">
             <img
               className="header__image"
-              src="img/adam.jpg"
+              src={Author}
               alt="Adam Dabrowski"
             />
             I'm a self-taught developer, currently working @DaftCode in Warsaw,
