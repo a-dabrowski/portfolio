@@ -1,0 +1,60 @@
+{
+  "projects": [
+    {
+      "name": "Random Quote Generator",
+      "image": "./screen/randomquote.png",
+      "demo": "https://a-dabrowski.github.io/random-quote-generator",
+      "code": "https://github.com/a-dabrowski/random-quote-generator",
+      "description": "One of my first projects where I've learnt how to use jQuery AJAX to fetch data from external API and display the results. Currently it uses Fetch API."
+    },
+    {
+      "name": "Movie Ranking",
+      "image": "./screen/movieranking.png",
+      "demo": "https://a-dabrowski.github.io/movie-ranking",
+      "code": "https://github.com/a-dabrowski/movie-ranking",
+      "description": "This page connects to external demo API (it's a mock API on Heroku, so initial load takes a while) and renders movie posters and their score. User can vote on each of movies and their vote will be posted to API using POST method. Also user can see votes distribution (I built modal window for that)."
+    },
+    {
+      "name": "TicTacToe Game",
+      "image": "./screen/tictac.png",
+      "demo": "https://codepen.io/adam_dabrowski/full/zwpgNw/",
+      "code": "https://github.com/a-dabrowski/tic-tac-toe-game",
+      "description": "Tic Tac Toe game for 1 or 2 players built in vanilla JS. This project gave me a chance to implement mock logic in app that responds to player moves and determines winner."
+    },
+    {
+      "name": "Simon Game",
+      "image": "./screen/simon.png",
+      "demo": "https://a-dabrowski.github.io/simon-game-vanillaJS",
+      "code": "https://github.com/a-dabrowski/simon-game-vanillaJS",
+      "description": "Game creates sequence of sounds, player needs to recreate it. When player makes a mistake, sequence is repeated, unless Strict mode is enabled. In that case game resets."
+    },
+    {
+      "name": "PSD template",
+      "image": "./screen/monochrome.png",
+      "demo": "https://a-dabrowski.github.io/monochrome-psdtemplate",
+      "code": "https://github.com/a-dabrowski/monochrome-psdtemplate",
+      "description": "PSD to HTML project with template provided by Anckor agency where I could going through the process of putting project into  HTML and CSS code."
+    },
+    {
+      "name": "Weather Web App",
+      "image": "./screen/weather.png",
+      "demo": "https://a-dabrowski.github.io/weather-web-app",
+      "code": "https://github.com/a-dabrowski/weather-web-app",
+      "description": "Weather Web App using AJAX call. User's position is fetched with Geolocation API. These coordinates are sent to OpenWeather API that returns current temperature and weather condition (rain/snow etc.). Background changes accordingly to current weather by CSS class change. User can toggle between Fahrenheit and Celsius temperature."
+    },
+    {
+      "name": "ES5 Calculator",
+      "image": "./screen/calculator.png",
+      "demo": "https://a-dabrowski.github.io/JavaScript-Calculator/",
+      "code": "https://github.com/a-dabrowski/JavaScript-Calculator",
+      "description": "Simple calculator built with vanilla ES5 JavaScript on table layout. It was an opportunity to learn how to tackle big task (functional calculator) to smaller functions (listen to button clicks, perform adding, substraction etc) and connect it all together."
+    },
+    {
+      "name": "Wikipedia Search",
+      "image": "./screen/wiki.png",
+      "demo": "https://a-dabrowski.github.io/wiki-viewer/app",
+      "code": "https://github.com/a-dabrowski/wiki-viewer",
+      "description": "In this project user writes query which is sent to Wikipedia API. Response (list of articles matching query) is then rendered below with title, brief description and link to article."
+    }
+  ]
+}

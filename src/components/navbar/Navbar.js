@@ -15,7 +15,7 @@ class Navbar extends Component {
                   <li>
                     <Scrollchor to={`#${e.name}`}>
                       <span className="menu__link-text">{e.name}</span>
-                      <img src={ Icon } alt="Icon" />
+                      {Icon} 
                     </Scrollchor>
                   </li>
                 )}
