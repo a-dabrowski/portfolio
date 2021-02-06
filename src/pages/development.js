@@ -1,13 +1,9 @@
-import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 
-import React, { Component } from "react"
+import React from "react"
 import Project from "../components/project"
 import Navbar from "../components/navbar"
-import CenterSlider from "../components/slider"
-import "./App.css"
 
 import AboutIcon from "../../content/assets/svg/account.svg"
 import ProjectsIcon from "../../content/assets/svg/projects.svg"

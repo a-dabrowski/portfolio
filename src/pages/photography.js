@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import { MinimalButton } from "../components/buttons";
 
 const PhotographyIndex = ({ data, location}) => {
   return (
@@ -10,6 +10,7 @@ const PhotographyIndex = ({ data, location}) => {
       <SEO title="Photography section" />
       <div>
         Hello PhotographyIndex
+        <MinimalButton>Hello</MinimalButton>
       </div>
     </Layout>
   )
