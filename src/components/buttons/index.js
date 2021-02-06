@@ -1,3 +1,4 @@
 import ShowMore from './ShowMore.js';
 import Cta from './Cta.js';
-export {ShowMore, Cta};
+import MinimalButton from './MinimalButton.js';
+export {ShowMore, Cta, MinimalButton};
