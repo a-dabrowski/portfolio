@@ -7,7 +7,8 @@ html {
 }
 
 body {
-		margin: 0
+		margin: 0;
+    font-family: 'Hepta Slab'
 }
 
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary {
@@ -204,7 +205,6 @@ html {
 
 body {
 		color: hsla(0,0%,0%,0.9);
-		font-family: 'Fira Code',monospace;
 		font-weight: 400;
 		word-wrap: break-word;
 		font-kerning: normal;
@@ -668,7 +668,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 a {
-		box-shadow: 0 1px 0 0 currentColor;
 		color: #007acc;
 		text-decoration: none;
 }

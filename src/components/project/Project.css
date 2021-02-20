@@ -54,7 +54,9 @@
 }
 
 .project__desc {
-  font-family: 'Quicksand', sans-serif;
+  padding: 8px;
+  height: 12em;
+  overflow: hidden;
 }
 
 .screenshot {

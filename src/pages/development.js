@@ -3,7 +3,6 @@ import SEO from "../components/seo"
 
 import React from "react"
 import Project from "../components/project"
-import Navbar from "../components/navbar"
 
 import AboutIcon from "../../content/assets/svg/account.svg"
 import ProjectsIcon from "../../content/assets/svg/projects.svg"
@@ -44,10 +43,9 @@ const PhotographyIndex = ({ data, location }) => {
       <SEO title="Development section" />
       <div>
         <header className="header">
-          <Navbar links={links} />
-          <h1 className="title--main" id="about">
+          <h2 className="title--main" id="about">
             Hello, my name is Adam Dąbrowski
-          </h1>
+          </h2>
 
           <p className="header__paragraph">
             <img className="header__image" src={Author} alt="Adam Dabrowski" />

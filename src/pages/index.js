@@ -1,12 +1,23 @@
 import React from "react"
 import { Link } from "gatsby"
+import { MinimalButton } from "../components/buttons"
 
 const MainPage = () => {
   return (
-    <div>
-      <Link to="/photography">Fotografia</Link>
-      <Link to="/development">Development</Link>
-      <Link to="/recommended">Polecane materiały</Link>
+    <div className="flex flex-col">
+      <h1>Adam Dąbrowski</h1>
+      <Link className="m-auto mt-8 text-center" to="/photography">
+        <MinimalButton>Fotografia</MinimalButton>
+      </Link>
+      <Link className="m-auto mt-8 text-center" to="/development">
+        <MinimalButton>Development</MinimalButton>
+      </Link>
+      <Link className="m-auto mt-8 text-center" to="/recommended">
+        <MinimalButton>Polecane materiały</MinimalButton>
+      </Link>
+      <Link className="m-auto mt-8 text-center" to="/blog">
+        <MinimalButton>Blog</MinimalButton>
+      </Link>
     </div>
   )
 }

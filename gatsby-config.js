@@ -10,11 +10,28 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-sass',
+    'gatsby-plugin-postcss',
+		{
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        stages: ['develop'],
+        extensions: ['js', 'jsx'],
+        exclude: ['node_modules', '.cache', 'public'],
+        // Any eslint-webpack-plugin options below
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/assets/photography`,
+        name: `photography`,
       },
     },
     {
