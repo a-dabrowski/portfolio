@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {Cta} from '../../components/buttons';
+import React, { Component } from 'react';
+import { Cta } from '../../components/buttons';
 import './GalleryItem.css';
 
 export default class GalleryItem extends Component {
   render() {
-    const {name, image, description} = this.props.data;
+    const { name, image, description } = this.props.data;
     return (
       <li className="subject">
         <h3 className="subject__title">{this.props.data.name}</h3>
