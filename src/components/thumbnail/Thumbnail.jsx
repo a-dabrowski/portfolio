@@ -3,8 +3,8 @@ import Image from 'gatsby-image';
 
 import Styles from './Thumbnail.module.scss';
 
-export const Thumbnail = ({ source }) => (
-  <div className={Styles.thumbnail}>
+export const Thumbnail = ({ source, handleOpen, index }) => (
+  <div onClick={() => handleOpen(index)} className={Styles.thumbnail}>
     <Image fluid={source} />
   </div>
 );
