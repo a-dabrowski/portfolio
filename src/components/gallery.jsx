@@ -23,7 +23,6 @@ const Gallery = ({ images }) => {
   const handlePrev = (index, length) => (e) => {
     setActiveImage((index - 1 + length) % length);
   };
-  console.log(images, 'images');
 
   return (
     <div>
