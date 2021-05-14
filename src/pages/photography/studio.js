@@ -1,10 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout';
-import Gallery from '../components/gallery';
-import SEO from '../components/seo';
-import { MinimalButton } from '../components/buttons';
+import Layout from '../../components/layout';
+import Gallery from '../../components/gallery';
+import SEO from '../../components/seo';
+import { MinimalButton } from '../../components/buttons';
 
 const PhotographyIndex = ({ data, location }) => {
   return (
@@ -20,13 +20,13 @@ const PhotographyIndex = ({ data, location }) => {
 };
 export default PhotographyIndex;
 
-export const photoQuery = graphql`
-  query PhotoData {
+export const balkanQuery = graphql`
+  query PhotoBalkan {
     allFile(
       filter: {
         extension: { eq: "jpg" }
         sourceInstanceName: { eq: "photography" }
-        relativeDirectory: { eq: "paulina" }
+        relativeDirectory: { eq: "balkan" }
       }
     ) {
       edges {
