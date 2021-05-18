@@ -25,7 +25,7 @@ const Gallery = ({ images }) => {
   };
 
   return (
-    <div className="flex flex-col items-center sm:flex-row">
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 place-items-center">
       {images?.map((el, index) => (
         <Thumbnail
           index={index}
