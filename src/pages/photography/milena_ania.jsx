@@ -1,32 +1,33 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import Layout from '../../components/layout';
 import Gallery from '../../components/gallery';
 import SEO from '../../components/seo';
 import { MinimalButton } from '../../components/buttons';
 
-const PhotographyIndex = ({ data, location }) => {
+const StudioPhotography = ({ data, location }) => {
   return (
-    <Layout location={location} title="Fotografia">
-      <SEO title="Photography section" />
-      <div>
-        Hello PhotographyIndex
-        <MinimalButton>Hello</MinimalButton>
+    <Layout location={location} title="Fotografia Studyjna">
+      <SEO title="Studio photography showcase" />
+      <div className="flex flex-col">
         <Gallery images={data.allFile.edges} />
+        <Link className="m-auto mt-8 text-center" to="/photography">
+          <MinimalButton>Powrót</MinimalButton>
+        </Link>
       </div>
     </Layout>
   );
 };
-export default PhotographyIndex;
+export default StudioPhotography;
 
-export const balkanQuery = graphql`
-  query PhotoBalkan {
+export const StudioPhotographyQuery = graphql`
+  query PhotoMilenaAnia {
     allFile(
       filter: {
         extension: { eq: "jpg" }
         sourceInstanceName: { eq: "photography" }
-        relativeDirectory: { eq: "balkan" }
+        relativeDirectory: { eq: "milena_ania" }
       }
     ) {
       edges {

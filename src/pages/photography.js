@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import Gallery from '../components/gallery';
@@ -10,10 +10,21 @@ const PhotographyIndex = ({ data, location }) => {
   return (
     <Layout location={location} title="Fotografia">
       <SEO title="Photography section" />
-      <div>
-        Hello PhotographyIndex
-        <MinimalButton>Hello</MinimalButton>
+      <div className="flex flex-col">
+        <h2>Galerie zdjęć</h2>
         <Gallery images={data.allFile.edges} />
+        <Link className="m-auto mt-8 text-center" to="/photography/milenia_ania">
+          <MinimalButton>Milena i Ania</MinimalButton>
+        </Link>
+        <Link className="m-auto mt-8 text-center" to="/photography/paulina">
+          <MinimalButton>Paulina</MinimalButton>
+        </Link>
+        <Link className="m-auto mt-8 text-center" to="/photography/studio">
+          <MinimalButton>Zdjęcia w studio</MinimalButton>
+        </Link>
+        <Link className="m-auto mt-8 text-center" to="/photography/offer">
+          <MinimalButton>Oferta</MinimalButton>
+        </Link>
       </div>
     </Layout>
   );
