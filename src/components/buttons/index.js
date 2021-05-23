@@ -1,4 +1,5 @@
-import ShowMore from './ShowMore.js';
-import Cta from './Cta.js';
-import MinimalButton from './MinimalButton.js';
-export {ShowMore, Cta, MinimalButton};
+import ShowMore from './ShowMore';
+import Cta from './Cta';
+import MinimalButton from './MinimalButton';
+import ImageButton from './ImageButton.jsx';
+export {ImageButton, ShowMore, Cta, MinimalButton};

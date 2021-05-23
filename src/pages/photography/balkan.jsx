@@ -6,9 +6,9 @@ import Gallery from '../../components/gallery';
 import SEO from '../../components/seo';
 import { MinimalButton } from '../../components/buttons';
 
-const StudioPhotography = ({ data, location }) => {
-  return (
-    <Layout location={location} title="F.R.I.E.N.D.S">
+const BalkanPhotography = ({ data, location }) => 
+  (
+    <Layout location={location} title="Balkan">
       <SEO title="Studio photography showcase" />
       <div className="flex flex-col">
         <Gallery images={data.allFile.edges} />
@@ -18,16 +18,16 @@ const StudioPhotography = ({ data, location }) => {
       </div>
     </Layout>
   );
-};
-export default StudioPhotography;
+
+export default BalkanPhotography;
 
 export const StudioPhotographyQuery = graphql`
-  query PhotoStudio {
+  query BalkanPhotography {
     allFile(
       filter: {
         extension: { eq: "jpg" }
         sourceInstanceName: { eq: "photography" }
-        relativeDirectory: { eq: "studio_friends" }
+        relativeDirectory: { eq: "balkan" }
       }
     ) {
       edges {

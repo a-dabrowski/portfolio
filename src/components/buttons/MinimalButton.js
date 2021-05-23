@@ -1,9 +1,8 @@
 import React from "react";
 
-import "./MinimalButton.scss";
 const Cta = ({isFull, children, isFixedWidth}) => {
   return (
-    <button className={`minimal-button ${isFixedWidth && 'sm:w-72'}`}>
+    <button className={`p-6 uppercase transition bg-white text-black hover:bg-black hover:text-white border-solid border-2 border-black ${isFixedWidth && 'sm:w-72'}`}>
       {children}
     </button>
   );

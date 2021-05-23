@@ -8,7 +8,7 @@ import { MinimalButton } from '../../components/buttons';
 
 const StudioPhotography = ({ data, location }) => {
   return (
-    <Layout location={location} title="Fotografia Studyjna">
+    <Layout location={location} title="Paulina">
       <SEO title="Studio photography showcase" />
       <div className="flex flex-col">
         <Gallery images={data.allFile.edges} />

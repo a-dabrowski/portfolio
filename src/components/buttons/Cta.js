@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import "./Cta.css";
 const Cta = (props) => {
   return (
