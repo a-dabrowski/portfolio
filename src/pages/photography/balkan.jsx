@@ -21,26 +21,18 @@ const BalkanPhotography = ({ data, location }) =>
 
 export default BalkanPhotography;
 
-export const StudioPhotographyQuery = graphql`
-  query BalkanPhotography {
-    allFile(
-      filter: {
-        extension: { eq: "jpg" }
-        sourceInstanceName: { eq: "photography" }
-        relativeDirectory: { eq: "balkan" }
-      }
-    ) {
-      edges {
-        node {
-          id
-          childImageSharp {
-            fluid(maxWidth: 900) {
-              ...GatsbyImageSharpFluid
-              presentationWidth
-            }
-          }
+export const StudioPhotographyQuery = graphql`query BalkanPhotography {
+  allFile(
+    filter: {extension: {eq: "jpg"}, sourceInstanceName: {eq: "photography"}, relativeDirectory: {eq: "balkan"}}
+  ) {
+    edges {
+      node {
+        id
+        childImageSharp {
+          gatsbyImageData(width: 900, layout: CONSTRAINED)
         }
       }
     }
   }
+}
 `;

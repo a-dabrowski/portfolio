@@ -31,7 +31,7 @@ const Gallery = ({ images }) => {
           index={index}
           key={el.node.id}
           handleOpen={handleOpen}
-          source={el.node.childImageSharp.fluid}
+          source={el.node.childImageSharp.gatsbyImageData}
         />
       ))}
       {isShowLightbox && activeImage !== null && (
