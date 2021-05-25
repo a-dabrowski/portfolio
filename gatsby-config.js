@@ -2,10 +2,11 @@ module.exports = {
   siteMetadata: {
     title: `Caught Varyat`,
     author: `Adam Dąbrowski`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `Strona prezentująca działania Adam Dąbrowski Caught Varyat`,
+    siteUrl: `https://a-dabrowski.github.io`,
     social: {
       twitter: `Dabrowski_AD`,
+      instagram: `adam_dabrowski`,
     },
   },
   plugins: [
@@ -76,20 +77,20 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: 'UA-113648395-1',
       },
     },
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Caugt Varyat Creations`,
+        short_name: `CVC`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/favicons/ad_mono.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
