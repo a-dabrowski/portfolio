@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MinimalButton component renders properly 1`] = `
+<DocumentFragment>
+  <button
+    class="p-6 uppercase transition bg-white text-black hover:bg-black hover:text-white border-solid border-2 border-black undefined"
+  >
+    Button test
+  </button>
+</DocumentFragment>
+`;
