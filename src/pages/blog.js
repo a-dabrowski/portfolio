@@ -12,9 +12,6 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Link to="/photography">Fotografia</Link>
-      <Link to="/development">Development</Link>
-      <Link to="/recommended">Polecane materiały</Link>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
