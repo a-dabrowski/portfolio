@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Caught Varyat`,
+    title: `Adam Dąbrowski Studio`,
     author: `Adam Dąbrowski`,
-    description: `Strona prezentująca działania Adam Dąbrowski Caught Varyat`,
-    siteUrl: `https://a-dabrowski.github.io`,
+    description: `Strona prezentująca działania Adama Dąbrowskiego`,
+    siteUrl: `https://dabrowski.studio`,
     social: {
       twitter: `Dabrowski_AD`,
       instagram: `adam_dabrowski`,

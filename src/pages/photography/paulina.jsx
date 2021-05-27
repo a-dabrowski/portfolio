@@ -12,7 +12,7 @@ const StudioPhotography = ({ data, location }) => {
       <SEO title="Studio photography showcase" />
       <div className="flex flex-col">
         <Gallery images={data.allFile.edges} />
-        <Link className="m-auto mt-8 text-center" to="/photography">
+        <Link className="m-auto mt-8 text-center" to="/">
           <MinimalButton>Powrót</MinimalButton>
         </Link>
       </div>
@@ -29,7 +29,7 @@ export const StudioPhotographyQuery = graphql`query PhotoPaulina {
       node {
         id
         childImageSharp {
-          gatsbyImageData(width: 900, layout: CONSTRAINED)
+          gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
         }
       }
     }
