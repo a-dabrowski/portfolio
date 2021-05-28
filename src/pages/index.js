@@ -10,7 +10,7 @@ import { ImageButton, MinimalButton } from '../components/buttons';
 const PhotographyIndex = ({ data, location }) => (
   <Layout location={location} title="Fotografia">
     <SEO title="Adam Dąbrowski Fotografia" />
-    <div className="flex flex-row flex-wrap">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
       <Link className="m-auto mt-8 text-center" to="/photography/milena_ania">
         <ImageButton image={data.milena.publicURL}>Milena Ania</ImageButton>
       </Link>

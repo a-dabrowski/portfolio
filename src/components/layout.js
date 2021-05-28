@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 
 import Header from './header';
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
-  const isMainPage = window.location.pathname === '/';
+  const [isMainPage, setIsMainPage] = useState(false);
+
+  useEffect(() => {
+    setIsMainPage(window.location.pathname === '/');
+  });
 
   return (
-    <div className="max-w-screen-lg m-a py-0 px-5 mt-2">
+    <div className="max-w-screen-lg m-auto py-0 px-5 mt-4">
       <header>
         <div className="flex flex-row justify-between">
           {isMainPage ? (
