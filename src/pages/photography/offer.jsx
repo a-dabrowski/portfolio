@@ -28,8 +28,7 @@ const OfferPhotography = ({ data, location }) => (
         <li>Tworzymy zdjęcia wspólnie</li>
         <li>
           Dokonuję podstawowej obróbki i selekcji zdjęć, przesyłam je do
-          selekcji, wybrane zdjęcia zostaną dokładniej dopieszczone (poprawa
-          niesfornych włosów, nie ma mowy o robieniu budyniu na twarzy 😉)
+          selekcji, wybrane zdjęcia zostaną dokładniej dopieszczone.
         </li>
       </ol>
       <PhotographyForm />
