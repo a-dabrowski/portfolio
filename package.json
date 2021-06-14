@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
+    "classnames": "^2.3.1",
     "gatsby": "^2.30.2",
     "gatsby-background-image": "^1.5.3",
     "gatsby-image": "^2.9.0",
