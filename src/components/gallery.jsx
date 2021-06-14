@@ -6,6 +6,7 @@ import Lightbox from '../components/lightbox';
 const Gallery = ({ images }) => {
   const [isShowLightbox, setShowLightbox] = useState(false);
   const [activeImage, setActiveImage] = useState(null);
+  const [lastActiveImage, setLastActiveImage] = useState(null);
 
   const handleClose = () => {
     setShowLightbox(false);
@@ -15,13 +16,16 @@ const Gallery = ({ images }) => {
   const handleOpen = (index) => {
     setShowLightbox(true);
     setActiveImage(index);
+    setLastActiveImage(index);
   };
 
   const handleNext = (index, length) => (e) => {
     setActiveImage((index + 1) % length);
+    setLastActiveImage((index + 1) % length);
   };
   const handlePrev = (index, length) => (e) => {
     setActiveImage((index - 1 + length) % length);
+    setLastActiveImage((index - 1 + length) % length);
   };
 
   return (
@@ -29,6 +33,7 @@ const Gallery = ({ images }) => {
       {images?.map((el, index) => (
         <Thumbnail
           index={index}
+          isActive={index === lastActiveImage}
           key={el.node.id}
           handleOpen={handleOpen}
           source={el.node.childImageSharp.gatsbyImageData}

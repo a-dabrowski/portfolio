@@ -12,11 +12,11 @@ const Layout = ({ location, title, children }) => {
   });
 
   return (
-    <div className="max-w-screen-lg m-auto py-0 px-5 mt-4">
-      <header>
-        <div className="flex flex-row justify-between">
+    <div>
+      <header className="p-4">
+        <div className="flex flex-row justify-between items-center">
           {isMainPage ? (
-            <h3 className="m-0 inline mr-3">Adam Dąbrowski</h3>
+            <h3 className="m-auto flex-grow mr-3">Adam Dąbrowski Fotografia</h3>
           ) : (
             <Link
               to="/"
@@ -26,7 +26,7 @@ const Layout = ({ location, title, children }) => {
                 color: `inherit`,
               }}
             >
-              <h3 className="m-0 inline mr-3">Adam Dąbrowski</h3>
+              <h3 className="m-auto inline mr-3">Adam Dąbrowski Fotografia</h3>
             </Link>
           )}
 
@@ -54,8 +54,8 @@ const Layout = ({ location, title, children }) => {
           </div>
         </div>
       </header>
-      <main>{children}</main>
-      <footer className="mt-4">
+      <main className="max-w-screen-lg m-auto py-0 px-5">{children}</main>
+      <footer className="text-center p-4">
         © {new Date().getFullYear()} - Built with ☕ by Adam Dąbrowski
       </footer>
     </div>

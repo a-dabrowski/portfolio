@@ -7,16 +7,16 @@ export const MainMenu = () => {
   return (
     <div className="flex flex-col">
       <h2 className="text-center">Adam Dąbrowski</h2>
-      <Link className="m-auto mt-8 text-center" to="/">
+      <Link className="m-auto mt-4 text-center" to="/">
         <MinimalButton isFixedWidth>Fotografia</MinimalButton>
       </Link>
-      <Link className="m-auto mt-8 text-center" to="/development">
+      <Link className="m-auto mt-4 text-center" to="/development">
         <MinimalButton isFixedWidth>Development</MinimalButton>
       </Link>
-      <Link className="m-auto mt-8 text-center" to="/recommended">
+      <Link className="m-auto mt-4 text-center" to="/recommended">
         <MinimalButton isFixedWidth>Polecane materiały</MinimalButton>
       </Link>
-      <Link className="m-auto mt-8 text-center" to="/blog">
+      <Link className="m-auto mt-4 text-center" to="/blog">
         <MinimalButton isFixedWidth>Blog</MinimalButton>
       </Link>
       <Contact />
