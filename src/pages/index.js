@@ -27,6 +27,11 @@ const PhotographyIndex = ({ data, location }) => (
           Bałkany
         </ImageButton>
       </Link>
+      <Link className="m-auto mt-8 text-center" to="/photography/milena_neon">
+        <ImageButton image={data.milenaNeon.publicURL}>
+          Milena
+        </ImageButton>
+      </Link>
     </div>
     <div className="flex flex-col">
       <Link className="m-auto mt-8 text-center" to="/photography/offer">
@@ -66,6 +71,13 @@ export const PhotoAllQuery = graphql`
       extension: { eq: "jpg" }
       sourceInstanceName: { eq: "photography" }
       relativeDirectory: { eq: "milena_ania" }
+    ) {
+      publicURL
+    }
+    milenaNeon: file(
+      extension: { eq: "jpg" }
+      sourceInstanceName: { eq: "photography" }
+      relativeDirectory: { eq: "milena_neon" }
     ) {
       publicURL
     }
