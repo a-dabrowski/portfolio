@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap');
+
 html {
 		font-family: sans-serif;
 		-ms-text-size-adjust: 100%;
@@ -8,7 +10,7 @@ html {
 
 body {
 		margin: 0;
-    font-family: 'Hepta Slab'
+    font-family: 'Roboto';
 }
 
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary {
