@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Styles from './ImageButton.module.scss';
-
 const ImageButton = ({ image, children, handleClick }) => (
   <button
     className={`group transition relative h-32 w-48 sm:h-96 sm:w-96 bg-center bg-cover bg-top cursor-pointer bg-blend-overlay`}
