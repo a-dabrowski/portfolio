@@ -11,6 +11,31 @@ const PhotographyIndex = ({ data, location }) => (
   <Layout location={location} title="Fotografia">
     <SEO title="Adam Dąbrowski Fotografia" />
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <Link className="m-auto mt-8 text-center" to="/photography/zamoyskich_nadia">
+        <ImageButton image={data.zamoyskichNadia.publicURL}>
+          Nadia - Pałac Zamoyskich
+        </ImageButton>
+      </Link>
+      <Link className="m-auto mt-8 text-center" to="/photography/zamoyskich_klaudia">
+        <ImageButton image={data.zamoyskichKlaudia.publicURL}>
+          Klaudia - Pałac Zamoyskich
+        </ImageButton>
+      </Link>
+      <Link className="m-auto mt-8 text-center" to="/photography/fort_bema_agata">
+        <ImageButton image={data.bemaAnna.publicURL}>
+          Anna - Fort Bema
+        </ImageButton>
+      </Link>
+      <Link className="m-auto mt-8 text-center" to="/photography/fort_bema_agata">
+        <ImageButton image={data.bemaAgata.publicURL}>
+          Agata - Fort Bema
+        </ImageButton>
+      </Link>
+      <Link className="m-auto mt-8 text-center" to="/photography/fort_bema_wiktoria">
+        <ImageButton image={data.bemaWiktoria.publicURL}>
+          Wiktoria - Fort Bema
+        </ImageButton>
+      </Link>
       <Link className="m-auto mt-8 text-center" to="/photography/milena_ania">
         <ImageButton image={data.milena.publicURL}>Milena Ania</ImageButton>
       </Link>
@@ -46,6 +71,41 @@ export default PhotographyIndex;
 
 export const PhotoAllQuery = graphql`
   query StartPageQuery {
+    zamoyskichNadia: file(
+      extension: { eq: "jpg" }
+      sourceInstanceName: { eq: "photography" }
+      relativeDirectory: { eq: "zamoyskich_nadia" }
+    ) {
+      publicURL
+    }
+    zamoyskichKlaudia: file(
+      extension: { eq: "jpg" }
+      sourceInstanceName: { eq: "photography" }
+      relativeDirectory: { eq: "zamoyskich_klaudia" }
+    ) {
+      publicURL
+    }
+    bemaAnna: file(
+      extension: { eq: "jpg" }
+      sourceInstanceName: { eq: "photography" }
+      relativeDirectory: { eq: "fort_bema_anna" }
+    ) {
+      publicURL
+    }
+    bemaAgata: file(
+      extension: { eq: "jpg" }
+      sourceInstanceName: { eq: "photography" }
+      relativeDirectory: { eq: "fort_bema_agata" }
+    ) {
+      publicURL
+    }
+    bemaWiktoria: file(
+      extension: { eq: "jpg" }
+      sourceInstanceName: { eq: "photography" }
+      relativeDirectory: { eq: "fort_bema_wiktoria" }
+    ) {
+      publicURL
+    }
     paulina: file(
       extension: { eq: "jpg" }
       sourceInstanceName: { eq: "photography" }
