@@ -1,6 +1,6 @@
 import React from 'react';
-import LightboxReact from 'lightbox-react';
-import 'lightbox-react/style.css';
+import LightboxReact from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
 import NonStretchedImage from './nonStretchedImage';
 
