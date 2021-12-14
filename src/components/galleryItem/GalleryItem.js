@@ -1,3 +1,4 @@
+// TODO deprecate
 import React, { Component } from 'react';
 import { Cta } from '../../components/buttons';
 import './GalleryItem.css';
