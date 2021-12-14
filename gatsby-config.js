@@ -12,6 +12,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-sass',
     'gatsby-plugin-postcss',
+    'gatsby-plugin-image',
 		{
       resolve: 'gatsby-plugin-eslint',
       options: {
@@ -80,7 +81,6 @@ module.exports = {
         trackingId: 'UA-113648395-1',
       },
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
