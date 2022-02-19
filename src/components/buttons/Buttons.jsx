@@ -46,7 +46,7 @@ const Button = ({ variant, children }) => {
         </button>
       );
     default:
-      return <button>test</button>;
+      return <button>{children}</button>;
   }
 };
 
