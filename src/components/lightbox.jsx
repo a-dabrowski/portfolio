@@ -14,7 +14,7 @@ const Lightbox = ({
 	const array = [];
 
 	images.forEach((image) =>
-		array.push(<NonStretchedImage image={image.node.childImageSharp.gatsbyImageData} />)
+    array.push(image.node.childImageSharp.gatsbyImageData.images.fallback.src)
 	);
 
 	return (
