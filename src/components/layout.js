@@ -12,7 +12,7 @@ const Layout = ({ location, title, children }) => {
   });
 
   return (
-    <div>
+    <div className="bg-white">
       <header className="p-4">
         <div className="flex flex-row justify-between items-center">
           {isMainPage ? (
