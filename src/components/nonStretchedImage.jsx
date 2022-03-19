@@ -6,7 +6,7 @@ const NonStretchedImage = (props) => {
 
   normalizedProps = {
     ...props,
-    imgStyle: { objectFit: "contain" },
+    imgStyle: { objectFit: 'contain' },
     style: {
       ...(props.style || {}),
       //maxWidth: props.fluid.presentationWidth,

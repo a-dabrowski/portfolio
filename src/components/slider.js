@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Slider from "react-slick";
+import React, { Component } from 'react';
+import Slider from 'react-slick';
 
 class CenterSlider extends Component {
   render() {
@@ -17,8 +17,8 @@ class CenterSlider extends Component {
             arrows: false,
             centerMode: true,
             centerPadding: '40px',
-            slidesToShow: 3
-          }
+            slidesToShow: 3,
+          },
         },
         {
           breakpoint: 480,
@@ -26,14 +26,13 @@ class CenterSlider extends Component {
             arrows: false,
             centerMode: true,
             centerPadding: '50px',
-            slidesToShow: 1.5
-          }
-        }
-      ]
+            slidesToShow: 1.5,
+          },
+        },
+      ],
     };
     return <Slider {...settings}>{this.props.children}</Slider>;
   }
 }
-
 
 export default CenterSlider;

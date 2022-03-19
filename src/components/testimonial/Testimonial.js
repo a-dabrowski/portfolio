@@ -1,9 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import "./Testimonial.css";
+import './Testimonial.css';
 
 export default (props) => {
-  
   return (
     <div className="testimonial">
       <h3 className="testimonial__title">
@@ -16,5 +15,4 @@ export default (props) => {
       <p className="testionial__opinion">{props.opinion}</p>
     </div>
   );
-
 };

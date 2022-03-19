@@ -6,7 +6,9 @@ const ImageButton = ({ image, children, handleClick }) => (
     onClick={handleClick}
     style={{ backgroundImage: `url("${image}")` }}
   >
-    <span className="absolute bottom-3 left-3 transition uppercase bg-white p-2 text-black group-hover:text-white group-hover:bg-black">{children}</span>
+    <span className="absolute bottom-3 left-3 transition uppercase bg-white p-2 text-black group-hover:text-white group-hover:bg-black">
+      {children}
+    </span>
   </button>
 );
 
