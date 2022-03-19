@@ -21,18 +21,23 @@ const FortBemaWiktoriaPhotography = ({ data, location }) => {
 };
 export default FortBemaWiktoriaPhotography;
 
-export const FortBemaWiktoriaQuery = graphql`query FortBemaWiktoria {
-  allFile(
-    filter: {extension: {eq: "jpg"}, sourceInstanceName: {eq: "photography"}, relativeDirectory: {eq: "fort_bema_wiktoria"}}
-  ) {
-    edges {
-      node {
-        id
-        childImageSharp {
-          gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+export const FortBemaWiktoriaQuery = graphql`
+  query FortBemaWiktoria {
+    allFile(
+      filter: {
+        extension: { eq: "jpg" }
+        sourceInstanceName: { eq: "photography" }
+        relativeDirectory: { eq: "fort_bema_wiktoria" }
+      }
+    ) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+          }
         }
       }
     }
   }
-}
 `;

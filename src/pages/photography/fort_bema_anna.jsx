@@ -21,18 +21,23 @@ const FortBemaAnnaPhotography = ({ data, location }) => {
 };
 export default FortBemaAnnaPhotography;
 
-export const FortBemaAnnaQuery = graphql`query AnnaFortBema {
-  allFile(
-    filter: {extension: {eq: "jpg"}, sourceInstanceName: {eq: "photography"}, relativeDirectory: {eq: "fort_bema_anna"}}
-  ) {
-    edges {
-      node {
-        id
-        childImageSharp {
-          gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+export const FortBemaAnnaQuery = graphql`
+  query AnnaFortBema {
+    allFile(
+      filter: {
+        extension: { eq: "jpg" }
+        sourceInstanceName: { eq: "photography" }
+        relativeDirectory: { eq: "fort_bema_anna" }
+      }
+    ) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+          }
         }
       }
     }
   }
-}
 `;

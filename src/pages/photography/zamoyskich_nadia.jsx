@@ -21,18 +21,23 @@ const ZamoyskichNadiaPhotography = ({ data, location }) => {
 };
 export default ZamoyskichNadiaPhotography;
 
-export const ZamoyskichNadiaQuery = graphql`query ZamoyskichNadia {
-  allFile(
-    filter: {extension: {eq: "jpg"}, sourceInstanceName: {eq: "photography"}, relativeDirectory: {eq: "zamoyskich_nadia"}}
-  ) {
-    edges {
-      node {
-        id
-        childImageSharp {
-          gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+export const ZamoyskichNadiaQuery = graphql`
+  query ZamoyskichNadia {
+    allFile(
+      filter: {
+        extension: { eq: "jpg" }
+        sourceInstanceName: { eq: "photography" }
+        relativeDirectory: { eq: "zamoyskich_nadia" }
+      }
+    ) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+          }
         }
       }
     }
   }
-}
 `;
