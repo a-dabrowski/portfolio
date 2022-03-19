@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 const style = {
   menu: {
@@ -40,9 +41,9 @@ export function MenuContainer({ children }) {
 export function MenuItem({ children, href }) {
   return (
     <div className="p-2">
-      <a className={style.item} href={href}>
+      <Link className={style.item} to={href}>
         {children}
-      </a>
+      </Link>
     </div>
   );
 }

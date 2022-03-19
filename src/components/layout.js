@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 
+import { Menu, MenuContainer, MenuItem } from './curtainMenu';
 import Header from './header';
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   const [isMainPage, setIsMainPage] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsMainPage(window.location.pathname === '/');
@@ -13,6 +15,14 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div>
+      <Menu open={isMenuOpen} transition="left">
+        <MenuContainer>
+          <MenuItem href="/">Strona Główna</MenuItem>
+          <MenuItem href="/photography/offer">Oferta</MenuItem>
+          <MenuItem href="/photography">Portfolio</MenuItem>
+          <MenuItem href="/">O Mnie</MenuItem>
+        </MenuContainer>
+      </Menu>
       <header className="p-4">
         <div className="flex flex-row justify-between items-center">
           {isMainPage ? (

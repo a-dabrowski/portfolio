@@ -13,14 +13,14 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
-		{
+    {
       resolve: 'gatsby-plugin-eslint',
       options: {
         stages: ['develop'],
         extensions: ['js', 'jsx'],
         exclude: ['node_modules', '.cache', 'public'],
         // Any eslint-webpack-plugin options below
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -44,7 +44,7 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
           include: /assets\/svg/,
@@ -98,4 +98,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

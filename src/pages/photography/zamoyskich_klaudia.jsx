@@ -21,18 +21,23 @@ const ZamoyskichKlaudiaPhotography = ({ data, location }) => {
 };
 export default ZamoyskichKlaudiaPhotography;
 
-export const ZamoyskichKlaudiaQuery = graphql`query ZamoyskichKlaudia {
-  allFile(
-    filter: {extension: {eq: "jpg"}, sourceInstanceName: {eq: "photography"}, relativeDirectory: {eq: "zamoyskich_klaudia"}}
-  ) {
-    edges {
-      node {
-        id
-        childImageSharp {
-          gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+export const ZamoyskichKlaudiaQuery = graphql`
+  query ZamoyskichKlaudia {
+    allFile(
+      filter: {
+        extension: { eq: "jpg" }
+        sourceInstanceName: { eq: "photography" }
+        relativeDirectory: { eq: "zamoyskich_klaudia" }
+      }
+    ) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+          }
         }
       }
     }
   }
-}
 `;

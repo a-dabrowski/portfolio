@@ -19,19 +19,24 @@ const StudioPhotography = ({ data, location }) => (
 );
 export default StudioPhotography;
 
-export const StudioPhotographyQuery = graphql`query PhotoMilenaAnia {
-  allFile(
-    filter: {extension: {eq: "jpg"}, sourceInstanceName: {eq: "photography"}, relativeDirectory: {eq: "milena_ania"}}
-  ) {
-    edges {
-      node {
-        publicURL
-        id
-        childImageSharp {
-          gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+export const StudioPhotographyQuery = graphql`
+  query PhotoMilenaAnia {
+    allFile(
+      filter: {
+        extension: { eq: "jpg" }
+        sourceInstanceName: { eq: "photography" }
+        relativeDirectory: { eq: "milena_ania" }
+      }
+    ) {
+      edges {
+        node {
+          publicURL
+          id
+          childImageSharp {
+            gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+          }
         }
       }
     }
   }
-}
 `;

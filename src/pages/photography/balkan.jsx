@@ -6,33 +6,37 @@ import Gallery from '../../components/gallery';
 import SEO from '../../components/seo';
 import { MinimalButton } from '../../components/buttons';
 
-const BalkanPhotography = ({ data, location }) => 
-  (
-    <Layout location={location} title="Balkan">
-      <SEO title="Studio photography showcase" />
-      <div className="flex flex-col">
-        <Gallery images={data.allFile.edges} />
-        <Link className="m-auto mt-8 text-center" to="/">
-          <MinimalButton>Powrót</MinimalButton>
-        </Link>
-      </div>
-    </Layout>
-  );
+const BalkanPhotography = ({ data, location }) => (
+  <Layout location={location} title="Balkan">
+    <SEO title="Studio photography showcase" />
+    <div className="flex flex-col">
+      <Gallery images={data.allFile.edges} />
+      <Link className="m-auto mt-8 text-center" to="/">
+        <MinimalButton>Powrót</MinimalButton>
+      </Link>
+    </div>
+  </Layout>
+);
 
 export default BalkanPhotography;
 
-export const StudioPhotographyQuery = graphql`query BalkanPhotography {
-  allFile(
-    filter: {extension: {eq: "jpg"}, sourceInstanceName: {eq: "photography"}, relativeDirectory: {eq: "balkan"}}
-  ) {
-    edges {
-      node {
-        id
-        childImageSharp {
-          gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+export const StudioPhotographyQuery = graphql`
+  query BalkanPhotography {
+    allFile(
+      filter: {
+        extension: { eq: "jpg" }
+        sourceInstanceName: { eq: "photography" }
+        relativeDirectory: { eq: "balkan" }
+      }
+    ) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+          }
         }
       }
     }
   }
-}
 `;

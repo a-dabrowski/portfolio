@@ -1,41 +1,41 @@
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
-import React from "react"
-import Project from "../components/project"
+import React from 'react';
+import Project from '../components/project';
 
-import AboutIcon from "../../content/assets/svg/account.svg"
-import ProjectsIcon from "../../content/assets/svg/projects.svg"
-import TechnologyIcon from "../../content/assets/svg/computer.svg"
+import AboutIcon from '../../content/assets/svg/account.svg';
+import ProjectsIcon from '../../content/assets/svg/projects.svg';
+import TechnologyIcon from '../../content/assets/svg/computer.svg';
 
-import ProjectsJSON from "../../content/development/projects.json"
-import StackJSON from "../../content/development/stack.json"
+import ProjectsJSON from '../../content/development/projects.json';
+import StackJSON from '../../content/development/stack.json';
 
-import Author from "../assets/images/adam.jpg"
+import Author from '../assets/images/adam.jpg';
 
 const links = [
   {
-    name: "about",
+    name: 'about',
     icon: <AboutIcon />,
   },
   {
-    name: "projects",
+    name: 'projects',
     icon: <ProjectsIcon />,
   },
   {
-    name: "technologies",
+    name: 'technologies',
     icon: <TechnologyIcon />,
   },
-]
+];
 
-const Technology = props => (
+const Technology = (props) => (
   <div className="carousel__item">
     <h4>{props.name}</h4>
     <svg viewBox="0 0 128 128">
-      <path d={props.path} fill={props.fill || ""} />
+      <path d={props.path} fill={props.fill || ''} />
     </svg>
   </div>
-)
+);
 
 const PhotographyIndex = ({ data, location }) => {
   return (
@@ -61,7 +61,7 @@ const PhotographyIndex = ({ data, location }) => {
             I'm a huge fan JavaScript and every technology surrounding it
             (frameworks, NodeJS etc.). So far I was able to improve my workflow
             with it and automate some repetitive tasks, which saves time for me
-            and my colleagues. To check my repositories, go to my{" "}
+            and my colleagues. To check my repositories, go to my{' '}
             <a href="https://github.com/a-dabrowski">Github</a> account.
           </p>
           <p className="header__paragraph">
@@ -70,8 +70,8 @@ const PhotographyIndex = ({ data, location }) => {
             help users achieve their goals.
           </p>
           <p className="header__paragraph">
-            In my spare time I take photographs (you can check my{" "}
-            <a href="https://www.instagram.com/adam_dabrowski/">Instagram</a>{" "}
+            In my spare time I take photographs (you can check my{' '}
+            <a href="https://www.instagram.com/adam_dabrowski/">Instagram</a>{' '}
             and <a href="https://500px.com/adamdabrowski">500PX</a> feed), ride
             a bike and keep me and my plants hydrated :)
           </p>
@@ -82,7 +82,7 @@ const PhotographyIndex = ({ data, location }) => {
               Here are some of the projects I've finished so far
             </h2>
             <ul className="list">
-              {ProjectsJSON.projects.map(el => (
+              {ProjectsJSON.projects.map((el) => (
                 <Project data={el} />
               ))}
             </ul>
@@ -90,7 +90,7 @@ const PhotographyIndex = ({ data, location }) => {
           <section id="technologies">
             <h2 className="title">Technologies I've worked with</h2>
             <ul className="carousel">
-              {StackJSON.stack.map(el => (
+              {StackJSON.stack.map((el) => (
                 <li>
                   <Technology
                     name={el.name}
@@ -108,6 +108,6 @@ const PhotographyIndex = ({ data, location }) => {
         </main>
       </div>
     </Layout>
-  )
-}
-export default PhotographyIndex
+  );
+};
+export default PhotographyIndex;

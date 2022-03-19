@@ -5,29 +5,30 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image";
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const Bio = () => {
-  const data = useStaticQuery(graphql`query BioQuery {
-  avatar: file(absolutePath: {regex: "/profile-pic.jpg/"}) {
-    childImageSharp {
-      gatsbyImageData(width: 50, height: 50, layout: FIXED)
-    }
-  }
-  site {
-    siteMetadata {
-      author
-      social {
-        twitter
+  const data = useStaticQuery(graphql`
+    query BioQuery {
+      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 50, height: 50, layout: FIXED)
+        }
+      }
+      site {
+        siteMetadata {
+          author
+          social {
+            twitter
+          }
+        }
       }
     }
-  }
-}
-`)
+  `);
 
-  const { author, social } = data.site.siteMetadata
+  const { author, social } = data.site.siteMetadata;
   return (
     <div
       style={{
@@ -44,7 +45,8 @@ const Bio = () => {
         }}
         imgStyle={{
           borderRadius: `50%`,
-        }} />
+        }}
+      />
       <p>
         Written by <strong>{author}</strong> who lives and works in San
         Francisco building useful things.
@@ -55,6 +57,6 @@ const Bio = () => {
       </p>
     </div>
   );
-}
+};
 
-export default Bio
+export default Bio;

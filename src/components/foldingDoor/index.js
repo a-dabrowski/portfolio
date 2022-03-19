@@ -1,3 +1,3 @@
-import FoldingDoor from "./FoldingDoor.js";
+import FoldingDoor from './FoldingDoor.js';
 
 export default FoldingDoor;

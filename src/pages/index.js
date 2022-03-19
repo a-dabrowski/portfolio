@@ -11,27 +11,42 @@ const PhotographyIndex = ({ data, location }) => (
   <Layout location={location} title="Fotografia">
     <SEO title="Adam Dąbrowski Fotografia" />
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-      <Link className="m-auto mt-8 text-center" to="/photography/zamoyskich_nadia">
+      <Link
+        className="m-auto mt-8 text-center"
+        to="/photography/zamoyskich_nadia"
+      >
         <ImageButton image={data.zamoyskichNadia.publicURL}>
           Nadia - Pałac Zamoyskich
         </ImageButton>
       </Link>
-      <Link className="m-auto mt-8 text-center" to="/photography/zamoyskich_klaudia">
+      <Link
+        className="m-auto mt-8 text-center"
+        to="/photography/zamoyskich_klaudia"
+      >
         <ImageButton image={data.zamoyskichKlaudia.publicURL}>
           Klaudia - Pałac Zamoyskich
         </ImageButton>
       </Link>
-      <Link className="m-auto mt-8 text-center" to="/photography/fort_bema_agata">
+      <Link
+        className="m-auto mt-8 text-center"
+        to="/photography/fort_bema_agata"
+      >
         <ImageButton image={data.bemaAnna.publicURL}>
           Anna - Fort Bema
         </ImageButton>
       </Link>
-      <Link className="m-auto mt-8 text-center" to="/photography/fort_bema_agata">
+      <Link
+        className="m-auto mt-8 text-center"
+        to="/photography/fort_bema_agata"
+      >
         <ImageButton image={data.bemaAgata.publicURL}>
           Agata - Fort Bema
         </ImageButton>
       </Link>
-      <Link className="m-auto mt-8 text-center" to="/photography/fort_bema_wiktoria">
+      <Link
+        className="m-auto mt-8 text-center"
+        to="/photography/fort_bema_wiktoria"
+      >
         <ImageButton image={data.bemaWiktoria.publicURL}>
           Wiktoria - Fort Bema
         </ImageButton>
@@ -48,14 +63,10 @@ const PhotographyIndex = ({ data, location }) => (
         </ImageButton>
       </Link>
       <Link className="m-auto mt-8 text-center" to="/photography/balkan">
-        <ImageButton image={data.balkan.publicURL}>
-          Bałkany
-        </ImageButton>
+        <ImageButton image={data.balkan.publicURL}>Bałkany</ImageButton>
       </Link>
       <Link className="m-auto mt-8 text-center" to="/photography/milena_neon">
-        <ImageButton image={data.milenaNeon.publicURL}>
-          Milena
-        </ImageButton>
+        <ImageButton image={data.milenaNeon.publicURL}>Milena</ImageButton>
       </Link>
     </div>
     <div className="flex flex-col">
