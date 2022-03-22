@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 
 import { Menu, MenuContainer, MenuItem } from './curtainMenu';
 import Header from './header';
+import CloseIcon from '../assets/svg/xmark-solid.svg';
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
@@ -11,8 +12,11 @@ const Layout = ({ location, title, children }) => {
   return (
     <>
       <Menu open={isMenuOpen} transition="top">
-        <button className="absolute t-0 r-0" onClick={() => setMenuOpen(false)}>
-          Close
+        <button
+          className="absolute top-3 right-3 text-gray-400 hover:text-white"
+          onClick={() => setMenuOpen(false)}
+        >
+          <CloseIcon className="fill-current" width="24"/>
         </button>
         <MenuContainer>
           <MenuItem href="/">Strona Główna</MenuItem>
