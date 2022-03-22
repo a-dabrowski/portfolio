@@ -6,16 +6,14 @@ import Header from './header';
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
-  const [isMainPage, setIsMainPage] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    setIsMainPage(window.location.pathname === '/');
-  });
-
   return (
-    <div>
-      <Menu open={isMenuOpen} transition="left">
+    <>
+      <Menu open={isMenuOpen} transition="top">
+        <button className="absolute t-0 r-0" onClick={() => setMenuOpen(false)}>
+          Close
+        </button>
         <MenuContainer>
           <MenuItem href="/">Strona Główna</MenuItem>
           <MenuItem href="/photography/offer">Oferta</MenuItem>
@@ -23,44 +21,22 @@ const Layout = ({ location, title, children }) => {
           <MenuItem href="/">O Mnie</MenuItem>
         </MenuContainer>
       </Menu>
-      <header className="p-4">
+      <header className="p-4 border-b">
         <div className="flex flex-row justify-between items-center">
-          {isMainPage ? (
-            <h3 className="m-auto flex-grow mr-3">Adam Dąbrowski Fotografia</h3>
-          ) : (
-            <Link
-              to="/"
-              className="no-underline hover:underline"
-              style={{
-                boxShadow: `none`,
-                color: `inherit`,
-              }}
-            >
-              <h3 className="m-auto inline mr-3">Adam Dąbrowski Fotografia</h3>
-            </Link>
-          )}
-
+          <Link
+            to="/"
+            className="no-underline hover:underline"
+            style={{
+              boxShadow: `none`,
+              color: `inherit`,
+            }}
+          >
+            <h3 className="m-auto inline mr-3">Adam Dąbrowski Fotografia</h3>
+          </Link>
           <div className="flex flex-col sm:flex-row">
-            <Link
-              className="no-underline hover:underline mr-3 mb-3 uppercase"
-              style={{
-                boxShadow: `none`,
-                color: `inherit`,
-              }}
-              to={`/photography/offer`}
-            >
-              Oferta
-            </Link>
-            <Link
-              className="no-underline hover:underline mr-3 mb-3 uppercase"
-              style={{
-                boxShadow: `none`,
-                color: `inherit`,
-              }}
-              to={`/`}
-            >
-              Portfolio zdjęć
-            </Link>
+            <button className="uppercase" onClick={() => setMenuOpen(true)}>
+              Menu
+            </button>
           </div>
         </div>
       </header>
@@ -68,7 +44,7 @@ const Layout = ({ location, title, children }) => {
       <footer className="text-center p-4">
         © {new Date().getFullYear()} - Built with ☕ by Adam Dąbrowski
       </footer>
-    </div>
+    </>
   );
 };
 
