@@ -43,12 +43,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
       <nav>
         <ul
+          className="p-0 grid grid-cols-1 place-items-center sm:grid-cols-3"
           style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
             listStyle: `none`,
-            padding: 0,
           }}
         >
           <li>
@@ -57,6 +54,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 ← {previous.frontmatter.title}
               </Link>
             )}
+          </li>
+          <li>
+            <Link to="/" rel="next">
+              Home
+            </Link>
           </li>
           <li>
             {next && (

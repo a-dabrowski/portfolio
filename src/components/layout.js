@@ -19,10 +19,10 @@ const Layout = ({ location, title, children }) => {
           <CloseIcon className="fill-current" width="24"/>
         </button>
         <MenuContainer>
-          <MenuItem href="/">Strona Główna</MenuItem>
-          <MenuItem href="/photography/offer">Oferta</MenuItem>
-          <MenuItem href="/photography">Portfolio</MenuItem>
-          <MenuItem href="/">O Mnie</MenuItem>
+          <MenuItem href="/">Homepage</MenuItem>
+          <MenuItem href="/photography/offer">Photography Services</MenuItem>
+          <MenuItem href="/photography">Photography Portfolio</MenuItem>
+          <MenuItem href="/">About Me</MenuItem>
         </MenuContainer>
       </Menu>
       <header className="p-4 border-b">

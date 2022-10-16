@@ -14,7 +14,7 @@ const Bio = () => {
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          gatsbyImageData(width: 50, height: 50, layout: FIXED)
+          gatsbyImageData(width: 150, height: 150, layout: FIXED)
         }
       }
       site {
@@ -22,6 +22,7 @@ const Bio = () => {
           author
           social {
             twitter
+            instagram
           }
         }
       }
@@ -31,28 +32,31 @@ const Bio = () => {
   const { author, social } = data.site.siteMetadata;
   return (
     <div
-      style={{
-        display: `flex`,
-      }}
+      className="flex flex-col items-center"
     >
       <GatsbyImage
         image={data.avatar.childImageSharp.gatsbyImageData}
         alt={author}
         style={{
           marginBottom: 0,
-          minWidth: 50,
+          minWidth: 100,
+          minHeight: 100,
           borderRadius: `100%`,
         }}
         imgStyle={{
           borderRadius: `50%`,
         }}
       />
-      <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
+      <p className="ml-2">
+        Written by <strong>{author}</strong> who lives and works in 
+        Warsaw creating things.
         {` `}
         <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
+          Twitter
+        </a>
+        {` `}
+        <a href={`https://twitter.com/${social.instagram}`}>
+          Instagram
         </a>
       </p>
     </div>
