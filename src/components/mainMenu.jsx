@@ -8,13 +8,13 @@ export const MainMenu = () => {
     <div className="flex flex-col">
       <h2 className="text-center">Adam Dąbrowski</h2>
       <Link className="m-auto mt-4 text-center" to="/">
-        <MinimalButton isFixedWidth>Fotografia</MinimalButton>
+        <MinimalButton isFixedWidth>Photography</MinimalButton>
       </Link>
       <Link className="m-auto mt-4 text-center" to="/development">
         <MinimalButton isFixedWidth>Development</MinimalButton>
       </Link>
       <Link className="m-auto mt-4 text-center" to="/recommended">
-        <MinimalButton isFixedWidth>Polecane materiały</MinimalButton>
+        <MinimalButton isFixedWidth>Recommended materials</MinimalButton>
       </Link>
       <Link className="m-auto mt-4 text-center" to="/blog">
         <MinimalButton isFixedWidth>Blog</MinimalButton>
