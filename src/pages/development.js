@@ -44,7 +44,7 @@ const PhotographyIndex = ({ data, location }) => {
       <div>
         <header className="header">
           <h2 className="title--main" id="about">
-            Hello, my name is Adam Dąbrowski
+            Hello, my name is Adam Dabrowski
           </h2>
 
           <p className="header__paragraph">
@@ -103,7 +103,7 @@ const PhotographyIndex = ({ data, location }) => {
             </ul>
           </section>
           <footer>
-            <h6>Build with React by Adam Dąbrowski</h6>
+            <h6>Build with React by Adam Dabrowski</h6>
           </footer>
         </main>
       </div>

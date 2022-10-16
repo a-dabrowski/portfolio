@@ -6,7 +6,7 @@ import { Contact } from './contact';
 export const MainMenu = () => {
   return (
     <div className="flex flex-col">
-      <h2 className="text-center">Adam Dąbrowski</h2>
+      <h2 className="text-center">Adam Dabrowski</h2>
       <Link className="m-auto mt-4 text-center" to="/">
         <MinimalButton isFixedWidth>Photography</MinimalButton>
       </Link>

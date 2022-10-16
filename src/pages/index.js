@@ -8,15 +8,15 @@ import SEO from '../components/seo';
 import { ImageButton, MinimalButton } from '../components/buttons';
 
 const PhotographyIndex = ({ data, location }) => (
-  <Layout location={location} title="Fotografia">
-    <SEO title="Adam Dąbrowski Fotografia" />
+  <Layout location={location} title="Photography">
+    <SEO title="Adam Dabrowski | Photography" />
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
       <Link
         className="m-auto mt-8 text-center"
         to="/photography/zamoyskich_nadia"
       >
         <ImageButton image={data.zamoyskichNadia.publicURL}>
-          Nadia - Pałac Zamoyskich
+          Nadia - Zamoyskich Palace
         </ImageButton>
       </Link>
       <Link
@@ -24,7 +24,7 @@ const PhotographyIndex = ({ data, location }) => (
         to="/photography/zamoyskich_klaudia"
       >
         <ImageButton image={data.zamoyskichKlaudia.publicURL}>
-          Klaudia - Pałac Zamoyskich
+          Klaudia - Zamoyskich Palace
         </ImageButton>
       </Link>
       <Link
@@ -63,7 +63,7 @@ const PhotographyIndex = ({ data, location }) => (
         </ImageButton>
       </Link>
       <Link className="m-auto mt-8 text-center" to="/photography/balkan">
-        <ImageButton image={data.balkan.publicURL}>Bałkany</ImageButton>
+        <ImageButton image={data.balkan.publicURL}>Balkans</ImageButton>
       </Link>
       <Link className="m-auto mt-8 text-center" to="/photography/milena_neon">
         <ImageButton image={data.milenaNeon.publicURL}>Milena</ImageButton>
@@ -71,7 +71,7 @@ const PhotographyIndex = ({ data, location }) => (
     </div>
     <div className="flex flex-col">
       <Link className="m-auto mt-8 text-center" to="/photography/offer">
-        <MinimalButton>Zapisy na sesję</MinimalButton>
+        <MinimalButton>Sign up for your session</MinimalButton>
       </Link>
     </div>
     <Contact />

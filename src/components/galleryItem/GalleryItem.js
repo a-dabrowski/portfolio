@@ -16,7 +16,7 @@ export default class GalleryItem extends Component {
         )}
         <p className="subject__desc">{this.props.data.description}</p>
         <p className="subject__desc">{this.props.children}</p>
-        <Cta>Więcej...</Cta>
+        <Cta>More...</Cta>
       </li>
     );
   }

@@ -7,28 +7,22 @@ import PhotographyForm from '../../components/photoForm';
 import { MinimalButton } from '../../components/buttons';
 
 const OfferPhotography = ({ data, location }) => (
-  <Layout location={location} title="Oferta fotograficzna">
+  <Layout location={location} title="Photography Offer">
     <SEO title="Photography offer" />
     <div>
-      <h3>Oferta</h3>
-      <p>
-        Zapraszam na sesje w studio i plenerze. Jeśli macie jakiś pomysł, który
-        marzy Wam się zrobić, napiszcie o nim w formularzu, niezależnie od tego
-        czy wiecie wszystko ze szczegółami czy macie tylko zamysł. Jak macie
-        jakiś zamysł z jakiegoś zdjęcia lub obrazu, prześlijcie link do niego.
-      </p>
-      <h4>Jak wygląda proces?</h4>
+      <h3>Offer</h3>
+      <h4>How does the process look like?</h4>
       <ol className="mx-0">
-        <li>Kontakt przez formularz</li>
+        <li>Contact through form</li>
         <li>
-          Omawiamy szczegóły sesji: miejsce, koncepcję, co robimy z makijażem i
-          stylizacją, czy będzie potrzeba zmiany ubrań itp.
+          We decide on details: place, concept, make-up and styles. Whether we
+          need to acount for clothes change or not etc.
         </li>
-        <li>Ustalamy termin po wpłacie zaliczki</li>
-        <li>Tworzymy zdjęcia wspólnie</li>
+        <li>We decide on date of photo session after downpayment</li>
+        <li>Photo shoot</li>
         <li>
-          Dokonuję podstawowej obróbki i selekcji zdjęć, przesyłam je do
-          selekcji, wybrane zdjęcia zostaną dokładniej dopieszczone.
+          I'm making subtle retouch and selection of photographies. Then I send
+          them to you for approval. After that I take care of advanced retouch.
         </li>
       </ol>
       <PhotographyForm />

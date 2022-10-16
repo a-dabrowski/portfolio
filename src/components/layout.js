@@ -35,7 +35,7 @@ const Layout = ({ location, title, children }) => {
               color: `inherit`,
             }}
           >
-            <h3 className="m-auto inline mr-3">Adam Dąbrowski Fotografia</h3>
+            <h3 className="m-auto inline mr-3">Adam Dabrowski Fotografia</h3>
           </Link>
           <div className="flex flex-col sm:flex-row">
             <button className="uppercase" onClick={() => setMenuOpen(true)}>
@@ -46,7 +46,7 @@ const Layout = ({ location, title, children }) => {
       </header>
       <main className="max-w-screen-lg m-auto py-0 px-5">{children}</main>
       <footer className="text-center p-4">
-        © {new Date().getFullYear()} - Built with ☕ by Adam Dąbrowski
+        © {new Date().getFullYear()} - Built with ☕ by Adam Dabrowski
       </footer>
     </>
   );

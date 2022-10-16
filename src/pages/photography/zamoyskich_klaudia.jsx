@@ -8,12 +8,12 @@ import { MinimalButton } from '../../components/buttons';
 
 const ZamoyskichKlaudiaPhotography = ({ data, location }) => {
   return (
-    <Layout location={location} title="Klaudia - Pałac Zamoyskich">
+    <Layout location={location} title="Klaudia - Zamoyskich Palace">
       <SEO title="Studio photography showcase" />
       <div className="flex flex-col">
         <Gallery images={data.allFile.edges} />
         <Link className="m-auto mt-8 text-center" to="/">
-          <MinimalButton>Powrót</MinimalButton>
+          <MinimalButton>Back</MinimalButton>
         </Link>
       </div>
     </Layout>

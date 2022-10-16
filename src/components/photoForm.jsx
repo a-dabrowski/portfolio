@@ -10,7 +10,7 @@ export const PhotographyForm = () => (
     marginHeight="0"
     marginWidth="0"
   >
-    Ładuję…
+    Loading...
   </iframe>
 );
 

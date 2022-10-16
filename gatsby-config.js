@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Adam Dąbrowski Studio`,
-    author: `Adam Dąbrowski`,
-    description: `Strona prezentująca działania Adama Dąbrowskiego`,
+    title: `Adam Dabrowski Studio`,
+    author: `Adam Dabrowski`,
+    description: `Webpage to showcase work of Adam Dabrowski`,
     siteUrl: `https://dabrowski.studio`,
     social: {
       twitter: `Dabrowski_AD`,

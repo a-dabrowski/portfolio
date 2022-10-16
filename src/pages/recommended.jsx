@@ -8,10 +8,10 @@ import SEO from '../components/seo';
 import { ImageButton, MinimalButton } from '../components/buttons';
 
 const RecommendedIndex = ({ data, location }) => (
-  <Layout location={location} title="Polecane materiały">
+  <Layout location={location} title="Recommended materials">
     <SEO title="Recommended Content" />
     <div className="flex flex-row flex-wrap">
-      <h1>Sekcja w budowie</h1>
+      <h1>Section in development</h1>
     </div>
     <Contact />
   </Layout>
