@@ -13,6 +13,7 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
+    'gatsby-plugin-robots-txt',
     {
       resolve: 'gatsby-plugin-eslint',
       options: {
