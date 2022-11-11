@@ -29,18 +29,10 @@ const PhotographyIndex = ({ data, location }) => (
       </Link>
       <Link
         className="m-auto mt-8 text-center"
-        to="/photography/fort_bema_agata"
+        to="/photography/fort_bema_anna"
       >
         <ImageButton image={data.bemaAnna.publicURL}>
           Anna - Fort Bema
-        </ImageButton>
-      </Link>
-      <Link
-        className="m-auto mt-8 text-center"
-        to="/photography/fort_bema_agata"
-      >
-        <ImageButton image={data.bemaAgata.publicURL}>
-          Agata - Fort Bema
         </ImageButton>
       </Link>
       <Link
@@ -100,13 +92,6 @@ export const PhotoAllQuery = graphql`
       extension: { eq: "jpg" }
       sourceInstanceName: { eq: "photography" }
       relativeDirectory: { eq: "fort_bema_anna" }
-    ) {
-      publicURL
-    }
-    bemaAgata: file(
-      extension: { eq: "jpg" }
-      sourceInstanceName: { eq: "photography" }
-      relativeDirectory: { eq: "fort_bema_agata" }
     ) {
       publicURL
     }
