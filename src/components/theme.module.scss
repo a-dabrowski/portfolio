@@ -1,0 +1,19 @@
+@import './colors.scss';
+
+$main-background: $pal-background;
+$main-action: $pal-orange;
+$main-action-strong: $pal-yellow;
+$main-bright: $pal-white;
+$main-dark: $pal-navy;
+
+.container {
+  background-color: $pal-background;
+}
+
+.cta {
+  background-color: $pal-orange;
+}
+
+.attention {
+  background-color: $pal-yellow;
+}
