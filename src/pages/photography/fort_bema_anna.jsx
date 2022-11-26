@@ -25,7 +25,7 @@ export const FortBemaAnnaQuery = graphql`
   query AnnaFortBema {
     allFile(
       filter: {
-        extension: { eq: "jpg" }
+        extension: { eq: "webp" }
         sourceInstanceName: { eq: "photography" }
         relativeDirectory: { eq: "fort_bema_anna" }
       }

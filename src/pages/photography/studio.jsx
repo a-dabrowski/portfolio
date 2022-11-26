@@ -25,7 +25,7 @@ export const StudioPhotographyQuery = graphql`
   query PhotoStudio {
     allFile(
       filter: {
-        extension: { eq: "jpg" }
+        extension: { eq: "webp" }
         sourceInstanceName: { eq: "photography" }
         relativeDirectory: { eq: "studio_friends" }
       }

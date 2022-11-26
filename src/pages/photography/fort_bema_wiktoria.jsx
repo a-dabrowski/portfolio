@@ -25,7 +25,7 @@ export const FortBemaWiktoriaQuery = graphql`
   query FortBemaWiktoria {
     allFile(
       filter: {
-        extension: { eq: "jpg" }
+        extension: { eq: "webp" }
         sourceInstanceName: { eq: "photography" }
         relativeDirectory: { eq: "fort_bema_wiktoria" }
       }

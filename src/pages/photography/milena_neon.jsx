@@ -24,7 +24,7 @@ export const StudioPhotographyQuery = graphql`
   query MilenaNeonPhotography {
     allFile(
       filter: {
-        extension: { eq: "jpg" }
+        extension: { eq: "webp" }
         sourceInstanceName: { eq: "photography" }
         relativeDirectory: { eq: "milena_neon" }
       }
