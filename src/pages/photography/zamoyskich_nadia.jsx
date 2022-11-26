@@ -25,7 +25,7 @@ export const ZamoyskichNadiaQuery = graphql`
   query ZamoyskichNadia {
     allFile(
       filter: {
-        extension: { eq: "jpg" }
+        extension: { eq: "webp" }
         sourceInstanceName: { eq: "photography" }
         relativeDirectory: { eq: "zamoyskich_nadia" }
       }

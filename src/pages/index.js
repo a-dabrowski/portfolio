@@ -75,63 +75,63 @@ export default PhotographyIndex;
 export const PhotoAllQuery = graphql`
   query StartPageQuery {
     zamoyskichNadia: file(
-      extension: { eq: "jpg" }
+      extension: { eq: "webp" }
       sourceInstanceName: { eq: "photography" }
       relativeDirectory: { eq: "zamoyskich_nadia" }
     ) {
       publicURL
     }
     zamoyskichKlaudia: file(
-      extension: { eq: "jpg" }
+      extension: { eq: "webp" }
       sourceInstanceName: { eq: "photography" }
       relativeDirectory: { eq: "zamoyskich_klaudia" }
     ) {
       publicURL
     }
     bemaAnna: file(
-      extension: { eq: "jpg" }
+      extension: { eq: "webp" }
       sourceInstanceName: { eq: "photography" }
       relativeDirectory: { eq: "fort_bema_anna" }
     ) {
       publicURL
     }
     bemaWiktoria: file(
-      extension: { eq: "jpg" }
+      extension: { eq: "webp" }
       sourceInstanceName: { eq: "photography" }
       relativeDirectory: { eq: "fort_bema_wiktoria" }
     ) {
       publicURL
     }
     paulina: file(
-      extension: { eq: "jpg" }
+      extension: { eq: "webp" }
       sourceInstanceName: { eq: "photography" }
       relativeDirectory: { eq: "paulina" }
     ) {
       publicURL
     }
     balkan: file(
-      extension: { eq: "jpg" }
+      extension: { eq: "webp" }
       sourceInstanceName: { eq: "photography" }
       relativeDirectory: { eq: "balkan" }
     ) {
       publicURL
     }
     studioFriends: file(
-      extension: { eq: "jpg" }
+      extension: { eq: "webp" }
       sourceInstanceName: { eq: "photography" }
       relativeDirectory: { eq: "studio_friends" }
     ) {
       publicURL
     }
     milena: file(
-      extension: { eq: "jpg" }
+      extension: { eq: "webp" }
       sourceInstanceName: { eq: "photography" }
       relativeDirectory: { eq: "milena_ania" }
     ) {
       publicURL
     }
     milenaNeon: file(
-      extension: { eq: "jpg" }
+      extension: { eq: "webp" }
       sourceInstanceName: { eq: "photography" }
       relativeDirectory: { eq: "milena_neon" }
     ) {

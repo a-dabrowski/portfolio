@@ -23,7 +23,7 @@ export const StudioPhotographyQuery = graphql`
   query PhotoMilenaAnia {
     allFile(
       filter: {
-        extension: { eq: "jpg" }
+        extension: { eq: "webp" }
         sourceInstanceName: { eq: "photography" }
         relativeDirectory: { eq: "milena_ania" }
       }
