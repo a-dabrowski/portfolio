@@ -17,7 +17,7 @@ const Layout = ({ location, title, children }) => {
           className="absolute top-3 right-3 text-gray-400 hover:text-white"
           onClick={() => setMenuOpen(false)}
         >
-          <CloseIcon className="fill-current" width="24"/>
+          <CloseIcon className="fill-current" width="24" />
         </button>
         <MenuContainer>
           <MenuItem href="/">Homepage</MenuItem>

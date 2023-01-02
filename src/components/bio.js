@@ -31,9 +31,7 @@ const Bio = () => {
 
   const { author, social } = data.site.siteMetadata;
   return (
-    <div
-      className="flex flex-col items-center"
-    >
+    <div className="flex flex-col items-center">
       <GatsbyImage
         image={data.avatar.childImageSharp.gatsbyImageData}
         alt={author}
@@ -48,16 +46,12 @@ const Bio = () => {
         }}
       />
       <p className="ml-2">
-        Written by <strong>{author}</strong> who lives and works in 
-        Warsaw creating things.
+        Written by <strong>{author}</strong> who lives and works in Warsaw
+        creating things.
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          Twitter
-        </a>
+        <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>
         {` `}
-        <a href={`https://twitter.com/${social.instagram}`}>
-          Instagram
-        </a>
+        <a href={`https://twitter.com/${social.instagram}`}>Instagram</a>
       </p>
     </div>
   );

@@ -3,7 +3,7 @@ import { Form, Field } from 'react-final-form';
 import { MinimalButton } from './buttons/MinimalButton';
 
 const onSubmit = (values) => {
-  values['form-name'] = 'photo_contact';
+  values['form-name'] = 'photoContact';
 
   const formData = new FormData();
   const entries = Object.keys(values);

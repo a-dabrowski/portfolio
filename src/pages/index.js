@@ -3,7 +3,6 @@ import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import Contact from '../components/contact';
-import Gallery from '../components/gallery';
 import SEO from '../components/seo';
 import { ImageButton, MinimalButton } from '../components/buttons';
 

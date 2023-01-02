@@ -7,3 +7,6 @@ start:
 
 build:
 	gatsby build
+
+format:
+	prettier --write "**/*.{js,jsx,json,md}"
