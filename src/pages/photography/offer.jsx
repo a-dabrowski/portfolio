@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import Layout from '../../components/layout';
 import SEO from '../../components/seo';
 import PhotographyForm from '../../components/photoForm';
-import { MinimalButton } from '../../components/buttons';
+import ContactForm from '../../components/contactForm';
 
 const OfferPhotography = ({ data, location }) => (
   <Layout location={location} title="Photography Offer">
@@ -25,6 +24,7 @@ const OfferPhotography = ({ data, location }) => (
           them to you for approval. After that I take care of advanced retouch.
         </li>
       </ol>
+      <ContactForm />
       <PhotographyForm />
     </div>
   </Layout>

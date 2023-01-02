@@ -1,11 +1,18 @@
 import React from 'react';
 
-const MinimalButton = ({ isFull, children, isFixedWidth }) => {
+const MinimalButton = ({
+  isFull,
+  children,
+  isFixedWidth,
+  className,
+  disabled,
+}) => {
   return (
     <button
-      className={`p-6 uppercase transition bg-white text-black hover:bg-black hover:text-white border-solid border-2 border-black ${
-        isFixedWidth && 'sm:w-72'
-      }`}
+      disabled={disabled || false}
+      className={`px-6 py-4 uppercase transition bg-white text-black hover:bg-black hover:text-white border-solid border-2 border-black disabled:bg-gray-300 disabled:text-gray-600 disabled:cursor-not-allowed ${
+        isFixedWidth ? 'sm:w-72' : ''
+      } ${className || ''}`}
     >
       {children}
     </button>
