@@ -112,10 +112,7 @@ export const ContactForm = () => {
             )}
           />
           <div className="flex justify-center pt-4">
-            <MinimalButton
-              onClick={form.submit}
-              disabled={pristine}
-            >
+            <MinimalButton onClick={form.submit} disabled={pristine}>
               Send Form
             </MinimalButton>
             <MinimalButton

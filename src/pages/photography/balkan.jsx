@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 
 import Layout from '../../components/layout';
-import Gallery from '../../components/gallery';
+import SimpleGallery from '../../components/swiper';
 import SEO from '../../components/seo';
 import { MinimalButton } from '../../components/buttons';
 
@@ -10,7 +10,7 @@ const BalkanPhotography = ({ data, location }) => (
   <Layout location={location} title="Balkan">
     <SEO title="Studio photography showcase" />
     <div className="flex flex-col">
-      <Gallery images={data.allFile.edges} />
+      <SimpleGallery galleryID="balkas" images={data.allFile.edges} />
       <Link className="m-auto mt-8 text-center" to="/">
         <MinimalButton>Back</MinimalButton>
       </Link>
@@ -32,8 +32,19 @@ export const StudioPhotographyQuery = graphql`
       edges {
         node {
           id
-          childImageSharp {
+
+          # Alias 1: Your original full-size settings
+          full: childImageSharp {
             gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+          }
+
+          # Alias 2: The new thumbnail version
+          thumbnail: childImageSharp {
+            gatsbyImageData(
+              width: 200 # Much smaller width
+              layout: CONSTRAINED
+              placeholder: BLURRED
+            )
           }
         }
       }
