@@ -1,0 +1,58 @@
+import React from 'react';
+import { graphql, Link, PageProps } from 'gatsby';
+
+import Layout from '../../components/layout';
+import SEO from '../../components/seo';
+import SimpleGallery from '../../components/swiper';
+import { MinimalButton } from '../../components/buttons';
+import { GalleryPageData } from '../../types';
+
+const FortBemaAnnaPhotography = ({
+  data,
+  location,
+}: PageProps<GalleryPageData>) => {
+  return (
+    <Layout location={location} title="Anna - FortBema">
+      <SEO title="Studio photography showcase" />
+      <div className="flex flex-col">
+        <SimpleGallery galleryID="fortbemaanna" images={data.allFile.edges} />
+        <Link className="m-auto mt-8 text-center" to="/">
+          <MinimalButton>Back</MinimalButton>
+        </Link>
+      </div>
+    </Layout>
+  );
+};
+export default FortBemaAnnaPhotography;
+
+export const FortBemaAnnaQuery = graphql`
+  query AnnaFortBema {
+    allFile(
+      filter: {
+        extension: { eq: "webp" }
+        sourceInstanceName: { eq: "photography" }
+        relativeDirectory: { eq: "fort_bema_anna" }
+      }
+    ) {
+      edges {
+        node {
+          id
+
+          # Alias 1: Your original full-size settings
+          full: childImageSharp {
+            gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+          }
+
+          # Alias 2: The new thumbnail version
+          thumbnail: childImageSharp {
+            gatsbyImageData(
+              width: 200 # Much smaller width
+              layout: CONSTRAINED
+              placeholder: BLURRED
+            )
+          }
+        }
+      }
+    }
+  }
+`;

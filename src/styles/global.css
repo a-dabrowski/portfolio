@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@theme {
+  --color-rich: #80011f;
+  --color-cream: #9e9a8d;
+
+  --color-sand: #b38f6f;
+  --color-obsidian: #161616;
+
+  --color-chery: #301c1b;
+  --color-chocolate: #3f2a0d;
+
+
+  --color-burgundy: #64303d;
+  --color-pastel-blue: #c3dbe7;
+
+  --color-oxford: #002147;
+  --color-tan: #d2b48c;
+
+  --color-espresso: #3e2723;
+  --color-pumpkin: #f0660a;
+
+  --color-navy: #251a66;
+  --color-juice: #e5f518;
+}

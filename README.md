@@ -2,7 +2,6 @@
 
 `make start` initiates HMR for development on `localhost:8000`
 
-
 ## Issues
 
 ### Problem with sharp while running gatsby commands
@@ -14,6 +13,7 @@ Remove `node_modules` and `package-lock.json`. Make sure that you are running No
 This project uses `webp` format images for publishment. Run script from `/scripts/convert_to_webp.sh` to convert jpg images.
 
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.
