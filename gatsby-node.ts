@@ -20,7 +20,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     };
   }>(
     `
-      {
+      query AllBlogPosts {
         allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 1000) {
           edges {
             node {
