@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CenterSlider component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="mock-slider"
+  >
+    <div>
+      Slide A
+    </div>
+    <div>
+      Slide B
+    </div>
+    <div>
+      Slide C
+    </div>
+  </div>
+</DocumentFragment>
+`;

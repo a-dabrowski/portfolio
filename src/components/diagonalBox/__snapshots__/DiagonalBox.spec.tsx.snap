@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiagonalBox component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="diagonal-container"
+  >
+    <div
+      class="diagonal-container__content diagonal-container__content--skew"
+    >
+      <p>
+        Test
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

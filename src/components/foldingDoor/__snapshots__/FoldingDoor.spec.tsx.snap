@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FoldingDoor component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="folding-door"
+    style="background-image: url("/images/gallery.jpg");"
+  >
+    <h2
+      class="folding-door__title"
+    >
+      Gallery Title
+    </h2>
+    <p
+      class="folding-door__desc"
+    >
+      A beautiful gallery
+    </p>
+  </div>
+</DocumentFragment>
+`;
