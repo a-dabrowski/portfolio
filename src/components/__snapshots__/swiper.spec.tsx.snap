@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SimpleGallery component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="pswp-gallery flex flex-wrap"
+    id="test-gallery"
+  >
+    <a
+      class="p-4"
+      data-pswp-height="1333"
+      data-pswp-width="2000"
+      href="/static/test-full.webp"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <img
+        alt=""
+        src="/static/test-thumb.webp"
+      />
+    </a>
+    <a
+      class="p-4"
+      data-pswp-height="1500"
+      data-pswp-width="2000"
+      href="/static/test-full-2.webp"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <img
+        alt=""
+        src="/static/test-thumb-2.webp"
+      />
+    </a>
+  </div>
+</DocumentFragment>
+`;

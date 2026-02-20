@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cta component matches snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="btn btn-cta"
+  >
+    Call to Action
+  </button>
+</DocumentFragment>
+`;

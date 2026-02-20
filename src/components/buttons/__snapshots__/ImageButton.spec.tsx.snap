@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageButton component matches snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="group transition relative h-32 w-48 sm:h-96 sm:w-96 bg-center bg-cover cursor-pointer bg-blend-overlay"
+    style="background-image: url("/test-image.jpg");"
+  >
+    <span
+      class="absolute bottom-3 left-3 transition uppercase bg-white p-2 text-black group-hover:text-white group-hover:bg-black"
+    >
+      View Gallery
+    </span>
+  </button>
+</DocumentFragment>
+`;

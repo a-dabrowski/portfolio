@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component matches snapshot 1`] = `
+<DocumentFragment>
+  <h3>
+    Section Header
+  </h3>
+</DocumentFragment>
+`;

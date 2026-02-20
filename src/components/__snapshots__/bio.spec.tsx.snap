@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bio component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-col items-center"
+  >
+    <img
+      alt="Adam Dabrowski"
+      data-testid="gatsby-image"
+      imgstyle="[object Object]"
+      src="test-image.jpg"
+      style="margin-bottom: 0px; min-width: 100px; min-height: 100px; border-radius: 100%;"
+    />
+    <p
+      class="ml-2"
+    >
+      Written by 
+      <strong>
+        Adam Dabrowski
+      </strong>
+       who lives and works in Warsaw creating things. 
+      <a
+        href="https://twitter.com/Dabrowski_AD"
+      >
+        Twitter
+      </a>
+       
+      <a
+        href="https://twitter.com/adam_dabrowski"
+      >
+        Instagram
+      </a>
+    </p>
+  </div>
+</DocumentFragment>
+`;

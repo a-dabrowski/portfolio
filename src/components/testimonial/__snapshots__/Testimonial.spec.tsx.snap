@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testimonial component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="testimonial"
+  >
+    <h3
+      class="testimonial__title"
+    >
+      Great oneJohn Doe
+    </h3>
+    <div
+      class="testimonial__img"
+    >
+      <img
+        alt="Person"
+        src="/images/john.jpg"
+      />
+    </div>
+    <p
+      class="testionial__opinion"
+    >
+      Great work and amazing results!
+    </p>
+  </div>
+</DocumentFragment>
+`;

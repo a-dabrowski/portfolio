@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Blog Index Page matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="overflow-x-hidden md:overflow-hidden transition-all duration-700 fixed z-10 top-0 left-0 bg-black w-full h-0"
+    >
+      <button
+        class="absolute top-3 right-3 text-gray-400 hover:text-white"
+      >
+        <test-file-stub
+          classname="fill-current"
+          width="24"
+        />
+      </button>
+      <div
+        class="relative top-1/4 w-full text-center mt-8"
+      >
+        <div
+          class="p-2"
+        >
+          <a
+            class="text-3xl text-gray-400 cursor-pointer hover:text-white"
+            href="/"
+          >
+            Homepage
+          </a>
+        </div>
+        <div
+          class="p-2"
+        >
+          <a
+            class="text-3xl text-gray-400 cursor-pointer hover:text-white"
+            href="/photography/offer"
+          >
+            Photography Services
+          </a>
+        </div>
+        <div
+          class="p-2"
+        >
+          <a
+            class="text-3xl text-gray-400 cursor-pointer hover:text-white"
+            href="/photography"
+          >
+            Photography Portfolio
+          </a>
+        </div>
+        <div
+          class="p-2"
+        >
+          <a
+            class="text-3xl text-gray-400 cursor-pointer hover:text-white"
+            href="/"
+          >
+            About Me
+          </a>
+        </div>
+      </div>
+    </div>
+    <header
+      class="p-4 border-b bg-white"
+    >
+      <div
+        class="flex flex-row justify-between items-center"
+      >
+        <a
+          class="no-underline hover:underline"
+          href="/"
+          style="box-shadow: none; color: inherit;"
+        >
+          <h3
+            class="m-auto inline mr-3"
+          >
+            Dabrowski Studio
+          </h3>
+        </a>
+        <div
+          class="flex flex-col sm:flex-row"
+        >
+          <button
+            class="uppercase"
+          >
+            Menu
+          </button>
+        </div>
+      </div>
+    </header>
+    <main
+      class="max-w-screen-lg m-auto py-0 px-5"
+    >
+      <article>
+        <header>
+          <h3>
+            <a
+              href="/hello-world/"
+              style="box-shadow: none;"
+            >
+              Hello World
+            </a>
+          </h3>
+          <small>
+            May 01, 2015
+          </small>
+        </header>
+        <section>
+          <p>
+            My first blog post
+          </p>
+        </section>
+      </article>
+      <article>
+        <header>
+          <h3>
+            <a
+              href="/new-beginnings/"
+              style="box-shadow: none;"
+            >
+              New Beginnings
+            </a>
+          </h3>
+          <small>
+            May 28, 2015
+          </small>
+        </header>
+        <section>
+          <p>
+            Second post excerpt...
+          </p>
+        </section>
+      </article>
+    </main>
+    <footer
+      class="text-center p-4"
+    >
+      © 2026 - Built with ☕ by Adam Dabrowski
+    </footer>
+  </div>
+</DocumentFragment>
+`;
