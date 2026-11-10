@@ -20,7 +20,11 @@ export const mockGalleryImage = {
         width: 2000,
         height: 1333,
         images: {
-          fallback: { src: '/static/test-full.webp' },
+          fallback: {
+            src: '/static/test-full.webp',
+            srcSet:
+              '/static/test-full-500.webp 500w,\n/static/test-full.webp 2000w',
+          },
         },
       },
     },

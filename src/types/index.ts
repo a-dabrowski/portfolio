@@ -22,8 +22,10 @@ export interface GalleryPageData {
   };
 }
 
-export interface FileQueryNode {
-  publicURL: string;
+export interface ImageFileNode {
+  childImageSharp: {
+    gatsbyImageData: IGatsbyImageData;
+  };
 }
 
 export interface SiteMetadata {

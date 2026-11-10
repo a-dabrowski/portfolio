@@ -2777,6 +2777,8 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
+type HomeTileFragment = { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null };
+
 type MilenaNeonPhotographyQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -2805,7 +2807,7 @@ type PortraitIndexQueryQuery = { readonly allFile: { readonly edges: ReadonlyArr
 type StartPageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type StartPageQueryQuery = { readonly zamoyskichNadia: { readonly publicURL: string | null } | null, readonly zamoyskichKlaudia: { readonly publicURL: string | null } | null, readonly bemaAnna: { readonly publicURL: string | null } | null, readonly bemaWiktoria: { readonly publicURL: string | null } | null, readonly paulina: { readonly publicURL: string | null } | null, readonly balkan: { readonly publicURL: string | null } | null, readonly studioFriends: { readonly publicURL: string | null } | null, readonly milena: { readonly publicURL: string | null } | null, readonly milenaNeon: { readonly publicURL: string | null } | null };
+type StartPageQueryQuery = { readonly zamoyskichNadia: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly zamoyskichKlaudia: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly bemaAnna: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly bemaWiktoria: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly paulina: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly balkan: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly studioFriends: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly milena: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly milenaNeon: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
 
 type ZamoyskichKlaudiaQueryVariables = Exact<{ [key: string]: never; }>;
 
