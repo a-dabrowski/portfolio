@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql, PageProps } from 'gatsby';
+import { Link, graphql, HeadProps, PageProps } from 'gatsby';
 
 import Bio from '../components/bio';
 import Layout from '../components/layout';
@@ -29,10 +29,6 @@ const BlogPostTemplate = ({
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
       <article className={Styles.post}>
         <header>
           <h1
@@ -90,6 +86,15 @@ const BlogPostTemplate = ({
 };
 
 export default BlogPostTemplate;
+
+export const Head = ({ data }: HeadProps<BlogPostData>) => (
+  <SEO
+    title={data.markdownRemark.frontmatter.title}
+    description={
+      data.markdownRemark.frontmatter.description || data.markdownRemark.excerpt
+    }
+  />
+);
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {

@@ -8,7 +8,6 @@ import { GalleryPageData } from '../../types';
 
 const PortraitIndex = ({ data, location }: PageProps<GalleryPageData>) => (
   <Layout location={location} title="Portraits">
-    <SEO title="Adam Dabrowski | Portrait Photography" />
     <h2>PORTRAIT PHOTOGRAPHY</h2>
     <SimpleGallery galleryID="portrait" images={data.allFile.edges} />
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
@@ -16,6 +15,8 @@ const PortraitIndex = ({ data, location }: PageProps<GalleryPageData>) => (
 );
 
 export default PortraitIndex;
+
+export const Head = () => <SEO title="Adam Dabrowski | Portrait Photography" />;
 
 export const PortraitIndexQuery = graphql`
   query PortraitIndexQuery {
@@ -30,9 +31,9 @@ export const PortraitIndexQuery = graphql`
         node {
           id
 
-          # Alias 1: Your original full-size settings
+          # Lightbox image. q80 measured 73% smaller than q100 (sources are already lossy WebP)
           full: childImageSharp {
-            gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+            gatsbyImageData(width: 2000, quality: 80, layout: CONSTRAINED)
           }
 
           # Alias 2: The new thumbnail version
@@ -40,7 +41,6 @@ export const PortraitIndexQuery = graphql`
             gatsbyImageData(
               width: 200 # Much smaller width
               layout: CONSTRAINED
-              placeholder: BLURRED
             )
           }
         }

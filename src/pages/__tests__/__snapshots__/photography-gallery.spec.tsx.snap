@@ -4,7 +4,7 @@ exports[`Photography Gallery Page (Balkan) matches snapshot 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="overflow-x-hidden md:overflow-hidden transition-all duration-700 fixed z-10 top-0 left-0 bg-black w-full h-0"
+      class="overflow-x-hidden md:overflow-hidden fixed inset-0 z-10 bg-black transition-[transform,visibility] duration-300 ease-out -translate-y-full invisible"
     >
       <button
         class="absolute top-3 right-3 text-gray-400 hover:text-white"
@@ -100,6 +100,8 @@ exports[`Photography Gallery Page (Balkan) matches snapshot 1`] = `
           <a
             class="p-4"
             data-pswp-height="1333"
+            data-pswp-srcset="/static/test-full-500.webp 500w,
+/static/test-full.webp 2000w"
             data-pswp-width="2000"
             href="/static/test-full.webp"
             rel="noreferrer"
@@ -107,7 +109,11 @@ exports[`Photography Gallery Page (Balkan) matches snapshot 1`] = `
           >
             <img
               alt=""
+              decoding="async"
+              height="133"
+              loading="lazy"
               src="/static/test-thumb.webp"
+              width="200"
             />
           </a>
           <a
@@ -120,7 +126,11 @@ exports[`Photography Gallery Page (Balkan) matches snapshot 1`] = `
           >
             <img
               alt=""
+              decoding="async"
+              height="150"
+              loading="lazy"
               src="/static/test-thumb-2.webp"
+              width="200"
             />
           </a>
         </div>
@@ -130,6 +140,7 @@ exports[`Photography Gallery Page (Balkan) matches snapshot 1`] = `
         >
           <button
             class="px-6 py-4 uppercase transition bg-white text-black hover:bg-black hover:text-white border-solid border-2 border-black disabled:bg-gray-300 disabled:text-gray-600 disabled:cursor-not-allowed  "
+            type="button"
           >
             Back
           </button>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import BlogPostTemplate from '../blog-post';
+import BlogPostTemplate, { Head } from '../blog-post';
 import {
   mockLocation,
   mockBlogPost,
@@ -103,5 +103,22 @@ describe('BlogPost Template', () => {
   it('matches snapshot', () => {
     const { asFragment } = renderTemplate();
     expect(asFragment()).toMatchSnapshot();
+  });
+});
+
+describe('BlogPost Head', () => {
+  it('uses the post title as the page title', () => {
+    const { container } = render(
+      <Head
+        data={mockData}
+        location={mockLocation}
+        pageContext={mockPageContext}
+        params={{}}
+        serverData={{}}
+      />
+    );
+    expect(container.querySelector('title')).toHaveTextContent(
+      'Hello World | Adam Dabrowski Studio'
+    );
   });
 });

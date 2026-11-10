@@ -3,11 +3,27 @@
   margin: 20px 5px;
   width: 320px;
   /* height: 500px; */
-  transition: all 0.3s;
+  transition: transform 0.3s;
   position: relative;
   box-shadow: 6px 10px 20px rgba(0, 0, 0, 0.1);
   background-color: white;
   text-align: center;
+}
+
+/* Hover shadow lives on a pseudo-element and fades in via opacity, which the
+   compositor handles; animating box-shadow itself repaints every frame. */
+.project::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: 6px 20px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.project:hover::after {
+  opacity: 1;
 }
 
 @media screen and (min-width: 500px) {
@@ -17,7 +33,6 @@
 }
 
 .project:hover {
-  box-shadow: 6px 20px 20px rgba(0, 0, 0, 0.3);
   transform: translate(0, -20px);
 }
 
@@ -43,7 +58,7 @@
   color: black;
   background-clip: text;
   border: 5px solid rgba(255, 130, 130, 1);
-  transition: all 1s;
+  transition: border-radius 1s;
   text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;

@@ -3,17 +3,21 @@ import { Link } from 'gatsby';
 
 type TransitionType = 'left' | 'top';
 
+// The curtain slides with transform (composited, no layout per frame) instead
+// of animating width/height. `invisible` lands after the slide-out finishes
+// (visibility transitions discretely at the end when hiding), which takes the
+// closed menu's links out of the tab order and accessibility tree.
 const style = {
   menu: {
-    default: `overflow-x-hidden md:overflow-hidden transition-all duration-700 fixed z-10 top-0 left-0 bg-black`,
+    default: `overflow-x-hidden md:overflow-hidden fixed inset-0 z-10 bg-black transition-[transform,visibility] duration-300 ease-out`,
     transition: {
       left: {
-        open: `h-full w-full `,
-        close: `w-0 h-full`,
+        open: `translate-x-0 visible`,
+        close: `-translate-x-full invisible`,
       },
       top: {
-        open: `h-full w-full `,
-        close: `w-full h-0`,
+        open: `translate-y-0 visible`,
+        close: `-translate-y-full invisible`,
       },
     },
   },

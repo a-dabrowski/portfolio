@@ -1,7 +1,5 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Helmet from 'react-helmet';
-import { useStaticQuery } from 'gatsby';
 import SEO from './seo';
 import { setupUseStaticQuery } from '../../tests/test-utils';
 
@@ -9,68 +7,64 @@ beforeEach(() => {
   setupUseStaticQuery();
 });
 
+// SEO renders Gatsby Head API elements; Gatsby hoists them into <head> at
+// build time, so in tests they are queried where React rendered them.
+const metaContent = (container: HTMLElement, selector: string) =>
+  container.querySelector(`meta[${selector}]`)?.getAttribute('content');
+
 describe('SEO component', () => {
-  it('sets the page title', () => {
-    render(<SEO title="Test Page" />);
-    const helmet = Helmet.peek();
-    expect(helmet.title).toContain('Test Page');
+  it('sets the page title with the site title suffix', () => {
+    const { container } = render(<SEO title="Test Page" />);
+    expect(container.querySelector('title')).toHaveTextContent(
+      'Test Page | Adam Dabrowski Studio'
+    );
   });
 
   it('sets the meta description from props', () => {
-    render(<SEO title="Test" description="Custom description" />);
-    const helmet = Helmet.peek();
-    const descMeta = helmet.metaTags.find(
-      (m: { name?: string }) => m.name === 'description'
+    const { container } = render(
+      <SEO title="Test" description="Custom description" />
     );
-    expect(descMeta.content).toBe('Custom description');
+    expect(metaContent(container, 'name="description"')).toBe(
+      'Custom description'
+    );
   });
 
   it('falls back to site description when no description prop', () => {
-    render(<SEO title="Test" />);
-    const helmet = Helmet.peek();
-    const descMeta = helmet.metaTags.find(
-      (m: { name?: string }) => m.name === 'description'
-    );
-    expect(descMeta.content).toBe(
+    const { container } = render(<SEO title="Test" />);
+    expect(metaContent(container, 'name="description"')).toBe(
       'Webpage to showcase work of Adam Dabrowski'
     );
   });
 
-  it('sets Open Graph tags', () => {
-    render(<SEO title="OG Test" />);
-    const helmet = Helmet.peek();
-    const ogTitle = helmet.metaTags.find(
-      (m: { property?: string }) => m.property === 'og:title'
-    );
-    const ogType = helmet.metaTags.find(
-      (m: { property?: string }) => m.property === 'og:type'
-    );
-    expect(ogTitle.content).toBe('OG Test');
-    expect(ogType.content).toBe('website');
+  it('sets the Open Graph title', () => {
+    const { container } = render(<SEO title="OG Test" />);
+    expect(metaContent(container, 'property="og:title"')).toBe('OG Test');
   });
 
-  it('sets Twitter card tags', () => {
-    render(<SEO title="Twitter Test" />);
-    const helmet = Helmet.peek();
-    const twitterCard = helmet.metaTags.find(
-      (m: { name?: string }) => m.name === 'twitter:card'
+  it('sets the Open Graph type', () => {
+    const { container } = render(<SEO title="OG Test" />);
+    expect(metaContent(container, 'property="og:type"')).toBe('website');
+  });
+
+  it('sets the Twitter card type', () => {
+    const { container } = render(<SEO title="Twitter Test" />);
+    expect(metaContent(container, 'name="twitter:card"')).toBe('summary');
+  });
+
+  it('sets the Twitter creator from site metadata', () => {
+    const { container } = render(<SEO title="Twitter Test" />);
+    expect(metaContent(container, 'name="twitter:creator"')).toBe(
+      'Adam Dabrowski'
     );
-    const twitterCreator = helmet.metaTags.find(
-      (m: { name?: string }) => m.name === 'twitter:creator'
-    );
-    expect(twitterCard.content).toBe('summary');
-    expect(twitterCreator.content).toBe('Adam Dabrowski');
   });
 
   it('sets html lang attribute', () => {
-    render(<SEO title="Test" lang="pl" />);
-    const helmet = Helmet.peek();
-    expect(helmet.htmlAttributes.lang).toBe('pl');
+    const { container } = render(<SEO title="Test" lang="pl" />);
+    expect(container.querySelector('html')).toHaveAttribute('lang', 'pl');
   });
 
   it('defaults lang to en', () => {
-    render(<SEO title="Test" />);
-    const helmet = Helmet.peek();
-    expect(helmet.htmlAttributes.lang).toBe('en');
+    const { container } = render(<SEO title="Test" />);
+    expect(container.querySelector('html')).toHaveAttribute('lang', 'en');
   });
 });

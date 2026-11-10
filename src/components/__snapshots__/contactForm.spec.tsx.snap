@@ -53,12 +53,14 @@ exports[`ContactForm component matches snapshot 1`] = `
       <button
         class="px-6 py-4 uppercase transition bg-white text-black hover:bg-black hover:text-white border-solid border-2 border-black disabled:bg-gray-300 disabled:text-gray-600 disabled:cursor-not-allowed  "
         disabled=""
+        type="submit"
       >
         Send Form
       </button>
       <button
         class="px-6 py-4 uppercase transition bg-white text-black hover:bg-black hover:text-white border-solid border-2 border-black disabled:bg-gray-300 disabled:text-gray-600 disabled:cursor-not-allowed  ml-3"
         disabled=""
+        type="button"
       >
         Reset
       </button>

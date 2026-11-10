@@ -4,7 +4,7 @@ exports[`Development Page matches snapshot 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="overflow-x-hidden md:overflow-hidden transition-all duration-700 fixed z-10 top-0 left-0 bg-black w-full h-0"
+      class="overflow-x-hidden md:overflow-hidden fixed inset-0 z-10 bg-black transition-[transform,visibility] duration-300 ease-out -translate-y-full invisible"
     >
       <button
         class="absolute top-3 right-3 text-gray-400 hover:text-white"
@@ -100,14 +100,16 @@ exports[`Development Page matches snapshot 1`] = `
           >
             Hello, my name is Adam Dabrowski
           </h2>
+          <img
+            alt="Adam Dabrowski"
+            class="header__image"
+            data-testid="static-image"
+            quality="75"
+            src="../assets/images/adam.jpg"
+          />
           <p
             class="header__paragraph"
           >
-            <img
-              alt="Adam Dabrowski"
-              class="header__image"
-              src="test-file-stub"
-            />
             I'm a self-taught developer, currently working @DaftCode in Warsaw, Poland. I've been learning Front-End technologies from FreeCodeCamp, books and tutorials provided by Udemy and Codecademy. Before working full-time @DaftCode, I've been working on projects from FreeCodeCamp curriculum and ideas I've come up with myself, which I still work on in my spare time (my current personal side project is stock prices scraper).
           </p>
           <p
@@ -169,7 +171,9 @@ exports[`Development Page matches snapshot 1`] = `
                 >
                   <img
                     alt=""
-                    src="./screen/randomquote.png"
+                    decoding="async"
+                    loading="lazy"
+                    src="/screen/randomquote.webp"
                   />
                 </div>
                 <a
@@ -229,7 +233,9 @@ exports[`Development Page matches snapshot 1`] = `
                 >
                   <img
                     alt=""
-                    src="./screen/movieranking.png"
+                    decoding="async"
+                    loading="lazy"
+                    src="/screen/movieranking.webp"
                   />
                 </div>
                 <a
@@ -289,7 +295,9 @@ exports[`Development Page matches snapshot 1`] = `
                 >
                   <img
                     alt=""
-                    src="./screen/tictac.png"
+                    decoding="async"
+                    loading="lazy"
+                    src="/screen/tictac.webp"
                   />
                 </div>
                 <a
@@ -349,7 +357,9 @@ exports[`Development Page matches snapshot 1`] = `
                 >
                   <img
                     alt=""
-                    src="./screen/simon.png"
+                    decoding="async"
+                    loading="lazy"
+                    src="/screen/simon.webp"
                   />
                 </div>
                 <a
@@ -409,7 +419,9 @@ exports[`Development Page matches snapshot 1`] = `
                 >
                   <img
                     alt=""
-                    src="./screen/monochrome.png"
+                    decoding="async"
+                    loading="lazy"
+                    src="/screen/monochrome.webp"
                   />
                 </div>
                 <a
@@ -469,7 +481,9 @@ exports[`Development Page matches snapshot 1`] = `
                 >
                   <img
                     alt=""
-                    src="./screen/weather.png"
+                    decoding="async"
+                    loading="lazy"
+                    src="/screen/weather.webp"
                   />
                 </div>
                 <a
@@ -529,7 +543,9 @@ exports[`Development Page matches snapshot 1`] = `
                 >
                   <img
                     alt=""
-                    src="./screen/calculator.png"
+                    decoding="async"
+                    loading="lazy"
+                    src="/screen/calculator.webp"
                   />
                 </div>
                 <a
@@ -589,7 +605,9 @@ exports[`Development Page matches snapshot 1`] = `
                 >
                   <img
                     alt=""
-                    src="./screen/wiki.png"
+                    decoding="async"
+                    loading="lazy"
+                    src="/screen/wiki.webp"
                   />
                 </div>
                 <a

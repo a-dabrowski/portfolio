@@ -8,7 +8,6 @@ import ContactForm from '../../components/contactForm';
 
 const OfferPhotography = ({ location }: PageProps) => (
   <Layout location={location} title="Photography Offer">
-    <SEO title="Photography offer" />
     <div>
       <h3>Offer</h3>
       <h4>How does the process look like?</h4>
@@ -32,3 +31,5 @@ const OfferPhotography = ({ location }: PageProps) => (
 );
 
 export default OfferPhotography;
+
+export const Head = () => <SEO title="Photography offer" />;

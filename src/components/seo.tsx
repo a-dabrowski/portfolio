@@ -1,21 +1,15 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-
-interface MetaEntry {
-  name?: string;
-  property?: string;
-  content: string;
-}
 
 interface SEOProps {
   description?: string;
   lang?: string;
-  meta?: MetaEntry[];
   title: string;
 }
 
-const SEO = ({ description = '', lang = 'en', meta = [], title }: SEOProps) => {
+// Rendered from each page's exported `Head` (Gatsby Head API), so the tags are
+// written into the static HTML at build time with no client-side head library.
+const SEO = ({ description = '', lang = 'en', title }: SEOProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -33,47 +27,18 @@ const SEO = ({ description = '', lang = 'en', meta = [], title }: SEOProps) => {
   const metaDescription = description || site.siteMetadata.description;
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={([
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ] as MetaEntry[]).concat(meta)}
-    />
+    <>
+      <html lang={lang} />
+      <title>{`${title} | ${site.siteMetadata.title}`}</title>
+      <meta name="description" content={metaDescription} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:creator" content={site.siteMetadata.author} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={metaDescription} />
+    </>
   );
 };
 

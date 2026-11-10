@@ -1,5 +1,6 @@
 import React from 'react';
 import { PageProps } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -12,8 +13,6 @@ import TechnologyIcon from '../../content/assets/svg/computer.svg';
 import ProjectsJSON from '../../content/development/projects.json';
 import StackJSON from '../../content/development/stack.json';
 import { ProjectData, StackItem } from '../types';
-
-import Author from '../assets/images/adam.jpg';
 
 const links = [
   {
@@ -48,15 +47,19 @@ const Technology = (props: TechnologyProps) => (
 const PhotographyIndex = ({ location }: PageProps) => {
   return (
     <Layout location={location} title="Development">
-      <SEO title="Development section" />
       <div>
         <header className="header">
           <h2 className="title--main" id="about">
             Hello, my name is Adam Dabrowski
           </h2>
 
+          <StaticImage
+            className="header__image"
+            src="../assets/images/adam.jpg"
+            alt="Adam Dabrowski"
+            quality={75}
+          />
           <p className="header__paragraph">
-            <img className="header__image" src={Author} alt="Adam Dabrowski" />
             I'm a self-taught developer, currently working @DaftCode in Warsaw,
             Poland. I've been learning Front-End technologies from FreeCodeCamp,
             books and tutorials provided by Udemy and Codecademy. Before working
@@ -118,3 +121,5 @@ const PhotographyIndex = ({ location }: PageProps) => {
   );
 };
 export default PhotographyIndex;
+
+export const Head = () => <SEO title="Development section" />;

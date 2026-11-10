@@ -4,6 +4,7 @@ exports[`MinimalButton component renders properly 1`] = `
 <DocumentFragment>
   <button
     class="px-6 py-4 uppercase transition bg-white text-black hover:bg-black hover:text-white border-solid border-2 border-black disabled:bg-gray-300 disabled:text-gray-600 disabled:cursor-not-allowed  "
+    type="button"
   >
     Button test
   </button>

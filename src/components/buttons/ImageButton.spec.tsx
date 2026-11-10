@@ -1,10 +1,16 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 import ImageButton from './ImageButton';
 
 describe('ImageButton component', () => {
   const defaultProps = {
-    image: '/test-image.jpg',
+    image: {
+      layout: 'constrained',
+      width: 384,
+      height: 384,
+      images: { fallback: { src: '/test-image.webp' } },
+    } as IGatsbyImageData,
     children: 'View Gallery',
   };
 
@@ -13,12 +19,16 @@ describe('ImageButton component', () => {
     expect(getByText('View Gallery')).toBeInTheDocument();
   });
 
-  it('sets background image style', () => {
-    const { container } = render(<ImageButton {...defaultProps} />);
-    const button = container.querySelector('button');
-    expect(button).toHaveStyle({
-      backgroundImage: 'url("/test-image.jpg")',
-    });
+  it('renders the tile as an image element', () => {
+    const { getByTestId } = render(<ImageButton {...defaultProps} />);
+    expect(getByTestId('gatsby-image')).toBeInTheDocument();
+  });
+
+  it('passes the loading strategy to the image', () => {
+    const { getByTestId } = render(
+      <ImageButton {...defaultProps} loading="eager" />
+    );
+    expect(getByTestId('gatsby-image')).toHaveAttribute('loading', 'eager');
   });
 
   it('calls handleClick when clicked', () => {

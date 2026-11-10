@@ -79,12 +79,6 @@ const config: GatsbyConfig = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-113648395-1',
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Caugt Varyat Creations`,
@@ -96,7 +90,6 @@ const config: GatsbyConfig = {
         icon: `content/assets/favicons/ad_mono.png`,
       },
     },
-    `gatsby-plugin-react-helmet`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

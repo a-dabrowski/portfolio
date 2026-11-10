@@ -12,7 +12,6 @@ const MilenaNeonPhotography = ({
   location,
 }: PageProps<GalleryPageData>) => (
   <Layout location={location} title="Milena Neon">
-    <SEO title="Studio photography showcase" />
     <div className="flex flex-col">
       <SimpleGallery galleryID="milenaneon" images={data.allFile.edges} />
       <Link className="m-auto mt-8 text-center" to="/">
@@ -23,6 +22,8 @@ const MilenaNeonPhotography = ({
 );
 
 export default MilenaNeonPhotography;
+
+export const Head = () => <SEO title="Studio photography showcase" />;
 
 export const StudioPhotographyQuery = graphql`
   query MilenaNeonPhotography {
@@ -37,9 +38,9 @@ export const StudioPhotographyQuery = graphql`
         node {
           id
 
-          # Alias 1: Your original full-size settings
+          # Lightbox image. q80 measured 73% smaller than q100 (sources are already lossy WebP)
           full: childImageSharp {
-            gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+            gatsbyImageData(width: 2000, quality: 80, layout: CONSTRAINED)
           }
 
           # Alias 2: The new thumbnail version
@@ -47,7 +48,6 @@ export const StudioPhotographyQuery = graphql`
             gatsbyImageData(
               width: 200 # Much smaller width
               layout: CONSTRAINED
-              placeholder: BLURRED
             )
           }
         }

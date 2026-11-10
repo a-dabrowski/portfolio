@@ -11,7 +11,7 @@ const Project = ({ data }: ProjectProps) => {
     <li className="project">
       <h3 className="project__title">{data.name}</h3>
       <div className="screenshot">
-        <img src={data.image} alt="" />
+        <img src={data.image} alt="" loading="lazy" decoding="async" />
       </div>
       <a
         className="project__link"

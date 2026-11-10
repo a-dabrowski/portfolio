@@ -27,7 +27,6 @@ const BlogIndex = ({ data, location }: PageProps<BlogData>) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
@@ -55,6 +54,8 @@ const BlogIndex = ({ data, location }: PageProps<BlogData>) => {
 };
 
 export default BlogIndex;
+
+export const Head = () => <SEO title="All posts" />;
 
 export const pageQuery = graphql`
   {

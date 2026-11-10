@@ -12,45 +12,64 @@ describe('Menu component', () => {
     expect(getByText('Menu Content')).toBeInTheDocument();
   });
 
-  it('applies open styles for top transition', () => {
+  it('slides into view when open with top transition', () => {
     const { container } = render(
       <Menu open={true} transition="top">
         <span>Open</span>
       </Menu>
     );
     const menu = container.firstChild as HTMLElement;
-    expect(menu.className).toContain('h-full');
-    expect(menu.className).toContain('w-full');
+    expect(menu).toHaveClass('translate-y-0');
   });
 
-  it('applies closed styles for top transition', () => {
+  it('slides above the viewport when closed with top transition', () => {
     const { container } = render(
       <Menu open={false} transition="top">
         <span>Closed</span>
       </Menu>
     );
     const menu = container.firstChild as HTMLElement;
-    expect(menu.className).toContain('h-0');
+    expect(menu).toHaveClass('-translate-y-full');
   });
 
-  it('applies open styles for left transition', () => {
+  it('slides into view when open with left transition', () => {
     const { container } = render(
       <Menu open={true} transition="left">
         <span>Open Left</span>
       </Menu>
     );
     const menu = container.firstChild as HTMLElement;
-    expect(menu.className).toContain('w-full');
+    expect(menu).toHaveClass('translate-x-0');
   });
 
-  it('applies closed styles for left transition', () => {
+  it('slides off the left edge when closed with left transition', () => {
     const { container } = render(
       <Menu open={false} transition="left">
         <span>Closed Left</span>
       </Menu>
     );
     const menu = container.firstChild as HTMLElement;
-    expect(menu.className).toContain('w-0');
+    expect(menu).toHaveClass('-translate-x-full');
+  });
+
+  it('is invisible when closed so its links leave the tab order', () => {
+    const { container } = render(
+      <Menu open={false} transition="top">
+        <span>Closed</span>
+      </Menu>
+    );
+    const menu = container.firstChild as HTMLElement;
+    expect(menu).toHaveClass('invisible');
+  });
+
+  it('animates transform rather than size', () => {
+    const { container } = render(
+      <Menu open={true} transition="top">
+        <span>Open</span>
+      </Menu>
+    );
+    const menu = container.firstChild as HTMLElement;
+    expect(menu).toHaveClass('transition-[transform,visibility]');
   });
 });
 

@@ -7,15 +7,7 @@ interface SimpleGalleryProps {
   images: GalleryImageNode[];
 }
 
-interface GalleryImage {
-  largeURL: string;
-  thumbnailURL: string;
-  width: number;
-  height: number;
-}
-
 export default function SimpleGallery(props: SimpleGalleryProps) {
-  const array: GalleryImage[] = [];
   useEffect(() => {
     let lightbox: PhotoSwipeLightbox | null = new PhotoSwipeLightbox({
       gallery: '#' + props.galleryID,
@@ -24,36 +16,44 @@ export default function SimpleGallery(props: SimpleGalleryProps) {
     });
     lightbox.init();
 
+    // Fetch the PhotoSwipe core chunk now so the first thumbnail click opens
+    // the lightbox without waiting on a network round trip. A failure here is
+    // harmless: pswpModule retries the import on click and surfaces it there.
+    import('photoswipe').catch(() => undefined);
+
     return () => {
       lightbox?.destroy();
       lightbox = null;
     };
   }, []);
 
-  props.images.forEach((image) =>
-    array.push({
-      largeURL: image.node.full.gatsbyImageData.images.fallback.src,
-      thumbnailURL: image.node.thumbnail.gatsbyImageData.images.fallback.src,
-      width: image.node.full.gatsbyImageData.width,
-      height: image.node.full.gatsbyImageData.height,
-    })
-  );
-
   return (
     <div className="pswp-gallery flex flex-wrap" id={props.galleryID}>
-      {array.map((image, index) => (
-        <a
-          href={image.largeURL}
-          data-pswp-width={image.width}
-          data-pswp-height={image.height}
-          key={props.galleryID + '-' + index}
-          target="_blank"
-          rel="noreferrer"
-          className="p-4"
-        >
-          <img src={image.thumbnailURL} alt="" />
-        </a>
-      ))}
+      {props.images.map((image) => {
+        const full = image.node.full.gatsbyImageData;
+        const thumbnail = image.node.thumbnail.gatsbyImageData;
+        return (
+          <a
+            href={full.images.fallback.src}
+            data-pswp-srcset={full.images.fallback.srcSet}
+            data-pswp-width={full.width}
+            data-pswp-height={full.height}
+            key={image.node.id}
+            target="_blank"
+            rel="noreferrer"
+            className="p-4"
+          >
+            <img
+              src={thumbnail.images.fallback.src}
+              width={thumbnail.width}
+              height={thumbnail.height}
+              loading="lazy"
+              decoding="async"
+              alt=""
+            />
+          </a>
+        );
+      })}
     </div>
   );
 }
