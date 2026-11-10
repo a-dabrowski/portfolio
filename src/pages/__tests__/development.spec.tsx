@@ -2,36 +2,18 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { useStaticQuery } from 'gatsby';
 import DevelopmentPage from '../development';
-import {
-  mockLocation,
-  setupUseStaticQuery,
-} from '../../../tests/test-utils';
+import { setupUseStaticQuery } from '../../../tests/test-utils';
 
 beforeEach(() => {
   setupUseStaticQuery();
 });
 
 describe('Development Page', () => {
-  const renderPage = () =>
-    render(
-      <DevelopmentPage
-        data={{}}
-        location={mockLocation}
-        pageContext={{}}
-        path="/development"
-        uri="/development"
-        params={{}}
-        pageResources={{} as any}
-        serverData={{}}
-        children={undefined}
-      />
-    );
+  const renderPage = () => render(<DevelopmentPage />);
 
   it('renders the about section heading', () => {
     const { getByText } = renderPage();
-    expect(
-      getByText('Hello, my name is Adam Dabrowski')
-    ).toBeInTheDocument();
+    expect(getByText('Hello, my name is Adam Dabrowski')).toBeInTheDocument();
   });
 
   it('renders the projects section', () => {
@@ -43,9 +25,7 @@ describe('Development Page', () => {
 
   it('renders the technologies section', () => {
     const { getByText } = renderPage();
-    expect(
-      getByText("Technologies I've worked with")
-    ).toBeInTheDocument();
+    expect(getByText("Technologies I've worked with")).toBeInTheDocument();
   });
 
   it('renders project cards from JSON data', () => {

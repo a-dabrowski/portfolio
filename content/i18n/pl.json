@@ -1,0 +1,105 @@
+{
+  "site": {
+    "brand": "Dąbrowski",
+    "discipline": "Stand-up",
+    "place": "Warszawa, PL",
+    "season": "26—27",
+    "seasonLabel": "Sezon",
+    "copyright": "Dąbrowski Studio",
+    "footerTagline": "Stand-up · Warszawa"
+  },
+  "nav": {
+    "texts": "Teksty",
+    "contact": "Kontakt",
+    "photography": "Fotografia"
+  },
+  "home": {
+    "seoTitle": "Stand-up i teksty",
+    "kicker": ["Teksty pisane", "po to, żeby je", "powiedzieć na głos"],
+    "forms": ["Bity", "Monologi", "Felietony"],
+    "intro": "Komedia obserwacyjna z Warszawy — tramwaje, matki, imieniny i cicha praca bycia uprzejmym w dwóch językach.",
+    "languages": "Występuje po polsku i angielsku",
+    "claim": ["Nie tylko żarty —", "zdania."],
+    "claimNotes": [
+      "Pisane powoli.",
+      "Mówione raz.",
+      "Nigdy dwa razy tak samo."
+    ],
+    "portraitAlt": "Adam Dąbrowski — portret",
+    "countLabel": ["Teksty", "do czytania", "poniżej"],
+    "booking": ["Wolne terminy", "na 2027"],
+    "bookingAction": "Napisz"
+  },
+  "texts": {
+    "heading": "Na papierze",
+    "intro": "Bity, monologi i krótkie felietony — wersje pisane, zanim zmieni je sala.",
+    "readAction": "Czytaj całość"
+  },
+  "contact": {
+    "rail": "Kontakt — Warszawa — 52.23° N",
+    "heading": ["Zamów", "występ"],
+    "intro": "Kluby, teatry, festiwale i wieczory prywatne. Sety od 15 do 75 minut, po polsku lub po angielsku.",
+    "links": [
+      {
+        "label": "Występy",
+        "value": "adam.dabrowski@outlook.com",
+        "href": "mailto:adam.dabrowski@outlook.com"
+      },
+      {
+        "label": "Instagram",
+        "value": "@adam_dabrowski",
+        "href": "https://www.instagram.com/adam_dabrowski/"
+      },
+      {
+        "label": "GitHub",
+        "value": "a-dabrowski",
+        "href": "https://github.com/a-dabrowski"
+      }
+    ]
+  },
+  "article": {
+    "back": "Wszystkie teksty",
+    "position": "Tekst {number} z {count}",
+    "previous": "Poprzedni tekst",
+    "next": "Następny tekst",
+    "filedBy": "Spisał Dąbrowski, który przy tym był",
+    "dateline": "Miejsce akcji",
+    "readingTime": "{minutes} min czytania, czyli jeden przystanek",
+    "scaleLow": "Poważny komentarz",
+    "scaleHigh": "Czysty absurd",
+    "scaleMarker": "Ten tekst",
+    "end": "Koniec. Podobno.",
+    "footnotes": "Przypisy, o które nikt nie prosił",
+    "redaction": "Zaczernione. Najedź, jeśli musisz."
+  },
+  "photography": {
+    "seoTitle": "Fotografia",
+    "back": "Wróć do tekstów",
+    "heading": ["Foto-", "grafia"],
+    "intro": "Między występami — portrety, plenery i studio. Wybierz galerię, żeby zobaczyć ją w całości.",
+    "plate": "Nr {number}",
+    "open": "Otwórz galerię",
+    "allGalleries": "Wszystkie galerie",
+    "count": "{count} zdjęć",
+    "hint": "Kliknij zdjęcie, żeby je powiększyć.",
+    "offerAction": "Umów sesję"
+  },
+  "offer": {
+    "seoTitle": "Sesja zdjęciowa",
+    "heading": "Sesja",
+    "stepsHeading": "Jak wygląda współpraca?",
+    "steps": [
+      "Kontakt przez formularz.",
+      "Ustalamy szczegóły: miejsce, koncepcję, makijaż i stylizacje, w tym ewentualne zmiany ubrań.",
+      "Po wpłacie zadatku ustalamy termin sesji.",
+      "Sesja zdjęciowa.",
+      "Robię selekcję i delikatny retusz, wysyłam zdjęcia do akceptacji, a potem wykonuję retusz zaawansowany."
+    ]
+  },
+  "notFound": {
+    "seoTitle": "404 — nie znaleziono",
+    "heading": "404",
+    "message": "Tej strony nie ma. Podobno nigdy nie było.",
+    "action": "Wróć na stronę główną"
+  }
+}

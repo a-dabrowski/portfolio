@@ -1,8 +1,8 @@
 import React from 'react';
-import { PageProps } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/layout';
+import { Container } from '../components/section';
 import SEO from '../components/seo';
 import Project from '../components/project';
 
@@ -44,10 +44,10 @@ const Technology = (props: TechnologyProps) => (
   </div>
 );
 
-const PhotographyIndex = ({ location }: PageProps) => {
+const PhotographyIndex = () => {
   return (
-    <Layout location={location} title="Development">
-      <div>
+    <Layout>
+      <Container>
         <header className="header">
           <h2 className="title--main" id="about">
             Hello, my name is Adam Dabrowski
@@ -103,11 +103,7 @@ const PhotographyIndex = ({ location }: PageProps) => {
             <ul className="carousel">
               {StackJSON.stack.map((el: StackItem) => (
                 <li>
-                  <Technology
-                    name={el.name}
-                    fill={el.fill}
-                    path={el.path}
-                  />
+                  <Technology name={el.name} fill={el.fill} path={el.path} />
                 </li>
               ))}
             </ul>
@@ -116,7 +112,7 @@ const PhotographyIndex = ({ location }: PageProps) => {
             <h6>Build with React by Adam Dabrowski</h6>
           </footer>
         </main>
-      </div>
+      </Container>
     </Layout>
   );
 };

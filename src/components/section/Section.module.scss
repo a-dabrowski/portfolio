@@ -1,0 +1,46 @@
+.container {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding-inline: var(--page-gutter);
+}
+
+.ruled {
+  border-top: var(--rule) solid var(--color-text);
+}
+
+.rail {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: clamp(16px, 2.5vw, 32px);
+  padding-block: var(--section-padding);
+}
+
+.railLabel {
+  display: flex;
+  justify-content: center;
+  padding-right: clamp(16px, 2.5vw, 32px);
+  border-right: var(--rule) solid var(--color-text);
+}
+
+.railLabelEnd {
+  align-items: flex-end;
+}
+
+// Reads bottom to top along the rule.
+.railText {
+  transform: rotate(180deg);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+}
+
+.rule {
+  flex: none;
+  background: var(--color-text);
+}
+
+.ruleAccent {
+  background: var(--color-accent);
+}

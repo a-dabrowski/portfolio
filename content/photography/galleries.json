@@ -1,0 +1,40 @@
+[
+  {
+    "slug": "zamoyskich_nadia",
+    "directory": "zamoyskich_nadia",
+    "title": "Nadia — Pałac Zamoyskich"
+  },
+  {
+    "slug": "zamoyskich_klaudia",
+    "directory": "zamoyskich_klaudia",
+    "title": "Klaudia — Pałac Zamoyskich"
+  },
+  {
+    "slug": "fort_bema_anna",
+    "directory": "fort_bema_anna",
+    "title": "Anna — Fort Bema"
+  },
+  {
+    "slug": "fort_bema_wiktoria",
+    "directory": "fort_bema_wiktoria",
+    "title": "Wiktoria — Fort Bema"
+  },
+  {
+    "slug": "milena_ania",
+    "directory": "milena_ania",
+    "title": "Milena Ania"
+  },
+  { "slug": "paulina", "directory": "paulina", "title": "Paulina" },
+  {
+    "slug": "studio",
+    "directory": "studio_friends",
+    "title": "F.R.I.E.N.D.S"
+  },
+  { "slug": "balkan", "directory": "balkan", "title": "Bałkany" },
+  { "slug": "milena_neon", "directory": "milena_neon", "title": "Milena" },
+  {
+    "slug": "portrait",
+    "directory": "business_portfolio",
+    "title": "Portret biznesowy"
+  }
+]

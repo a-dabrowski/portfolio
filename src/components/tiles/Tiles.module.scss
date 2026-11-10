@@ -1,0 +1,44 @@
+// Cells separated by 2px rules. Every cell draws its own frame as a shadow
+// into the gap, so a last row with fewer cells leaves no filled-in block.
+.grid {
+  display: grid;
+  gap: var(--rule);
+  padding: var(--rule);
+
+  > * {
+    box-shadow: 0 0 0 var(--rule) var(--line-color);
+  }
+}
+
+.gridInk {
+  --line-color: var(--color-text);
+}
+
+.gridDivider {
+  --line-color: var(--color-divider-solid);
+}
+
+// Sits directly under another grid and shares its rule.
+.joined {
+  margin-top: calc(var(--rule) * -1);
+}
+
+.tile {
+  position: relative;
+  padding: 24px;
+}
+
+.tileInk {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.tileAccent {
+  background: var(--color-accent);
+  color: var(--color-text);
+}
+
+.tilePaper {
+  background: var(--color-bg);
+  color: var(--color-text);
+}

@@ -1,11 +1,13 @@
 import type { GatsbyConfig } from 'gatsby';
 
+import plDictionary from './content/i18n/pl.json';
+
 const config: GatsbyConfig = {
   graphqlTypegen: true,
   siteMetadata: {
-    title: `Adam Dabrowski Studio`,
+    title: `Dąbrowski Studio`,
     author: `Adam Dabrowski`,
-    description: `Webpage to showcase work of Adam Dabrowski`,
+    description: `Stand-up, teksty i fotografia — Adam Dąbrowski, Warszawa`,
     siteUrl: `https://dabrowski.studio`,
     social: {
       twitter: `Dabrowski_AD`,
@@ -28,8 +30,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        path: `${__dirname}/content/texts`,
+        name: `texts`,
       },
     },
     {
@@ -61,7 +63,21 @@ const config: GatsbyConfig = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              // Width of the article text column (Prose.module.scss).
+              maxWidth: 680,
+              quality: 75,
+              // The image alt text becomes the margin caption of the figure.
+              showCaptions: true,
+              linkImagesToOriginal: false,
+            },
+          },
+          // Must run after gatsby-remark-images: it lifts the generated
+          // <figure> out of its paragraph.
+          {
+            // Absolute path: Parcel compiles this file and strips require.resolve.
+            resolve: `${__dirname}/plugins/gatsby-remark-studio-text`,
+            options: {
+              redactionTitle: plDictionary.article.redaction,
             },
           },
           {
@@ -84,8 +100,8 @@ const config: GatsbyConfig = {
         name: `Caugt Varyat Creations`,
         short_name: `CVC`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: `#f3f2f2`,
+        theme_color: `#ec3013`,
         display: `minimal-ui`,
         icon: `content/assets/favicons/ad_mono.png`,
       },

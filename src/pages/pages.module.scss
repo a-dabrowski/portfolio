@@ -1,0 +1,32 @@
+// Shared by the standalone pages (404, offer, legacy pages).
+.page {
+  padding-block: clamp(24px, 4vw, 48px) clamp(40px, 6vw, 80px);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 680px;
+  padding-left: 1.4em;
+  font-size: 16px;
+  line-height: 1.55;
+  list-style: decimal;
+
+  li::marker {
+    color: var(--color-accent-700);
+    font-weight: 800;
+  }
+}
+
+.forms {
+  width: 100%;
+  max-width: 680px;
+}

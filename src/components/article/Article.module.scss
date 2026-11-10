@@ -1,0 +1,472 @@
+// ---- Hero: accent block with number, title, dek and stamp ----------------
+
+.hero {
+  border-top: var(--rule) solid var(--color-text);
+  background: var(--color-accent);
+  color: var(--color-text);
+}
+
+.heroInner {
+  padding-block: clamp(24px, 4vw, 48px) clamp(32px, 5vw, 64px);
+}
+
+.heroMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding-bottom: 16px;
+  border-bottom: var(--rule) solid var(--color-text);
+}
+
+.heroMetaLines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.heroTitle {
+  margin-top: clamp(20px, 3vw, 36px);
+}
+
+.heroFoot {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 32px;
+  align-items: end;
+  margin-top: clamp(24px, 3vw, 40px);
+}
+
+.dek {
+  max-width: 30ch;
+  margin: 0;
+  font-size: clamp(20px, 2vw, 26px);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.3;
+  text-wrap: pretty;
+}
+
+.stamp {
+  justify-self: end;
+  padding: 10px 16px;
+  transform: rotate(-6deg);
+  outline: var(--rule) solid var(--color-text);
+  outline-offset: 4px;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// ---- Dateline strip ------------------------------------------------------
+
+.strip {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.stripRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 12px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+// ---- Absurdity scale -----------------------------------------------------
+
+.scale {
+  padding-block: clamp(24px, 3vw, 36px) 8px;
+  border-bottom: var(--rule) solid var(--color-divider);
+}
+
+.scaleLabels {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.scaleTrack {
+  position: relative;
+  height: var(--rule);
+  background: var(--color-text);
+}
+
+.scaleKnob {
+  position: absolute;
+  top: -9px;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  background: var(--color-accent);
+}
+
+.scaleMarkerRow {
+  position: relative;
+  height: 34px;
+}
+
+.scaleMarker {
+  position: absolute;
+  top: 16px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+// ---- Columns shared by the body, the end mark and the footnotes ----------
+// A margin column for notes and captions, then the 680px text column.
+
+@mixin columns {
+  display: grid;
+  grid-template-columns: minmax(160px, 200px) minmax(0, 680px);
+  column-gap: 40px;
+
+  @media (max-width: 700px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 80px) var(--page-gutter);
+}
+
+.endMark {
+  @include columns;
+  margin-top: 28px;
+}
+
+.endMarkText {
+  grid-column: -2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.endMarkSquare {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  background: var(--color-accent);
+}
+
+// ---- Prose: the markdown body --------------------------------------------
+// The HTML comes from gatsby-transformer-remark, so elements are targeted by
+// tag and by the classes that plugins/gatsby-remark-studio-text adds.
+
+.prose {
+  @include columns;
+  row-gap: 28px;
+
+  > :global(*) {
+    grid-column: -2;
+    margin: 0;
+    min-width: 0;
+  }
+
+  > p,
+  > ul,
+  > ol {
+    font-size: clamp(17px, 1.4vw, 19px);
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  // Drop cap on the opening paragraph.
+  > p:first-of-type:not(:global(.text-stage))::first-letter {
+    float: left;
+    margin: 8px 12px 0 0;
+    color: var(--color-accent);
+    font-size: 128px;
+    font-stretch: var(--stretch-condensed);
+    font-weight: 800;
+    line-height: 0.78;
+  }
+
+  > ul,
+  > ol {
+    padding-left: 1.2em;
+  }
+
+  > ul {
+    list-style: square;
+  }
+
+  > ol {
+    list-style: decimal;
+  }
+
+  > h2,
+  > h3 {
+    margin-top: 12px;
+    font-size: clamp(26px, 2.6vw, 38px);
+    font-stretch: var(--stretch-narrow);
+    letter-spacing: 0;
+    line-height: 1.02;
+    text-transform: uppercase;
+  }
+
+  > h3 {
+    font-size: clamp(20px, 2vw, 26px);
+  }
+
+  // ~~strike~~
+  del {
+    color: var(--color-neutral-700);
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
+  }
+
+  // *highlight*
+  em {
+    padding: 0 3px;
+    background: var(--color-accent);
+    color: var(--color-text);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  strong {
+    font-weight: 800;
+  }
+
+  // ||redaction|| — readable on hover, focus or tap.
+  :global(.text-redacted) {
+    padding: 0 4px;
+    background: var(--color-text);
+    color: var(--color-text);
+    cursor: help;
+
+    &:hover,
+    &:focus {
+      color: var(--color-bg);
+    }
+  }
+
+  // Footnote reference[^1]
+  sup {
+    margin-left: 1px;
+    font-size: 0.65em;
+    font-weight: 800;
+
+    a {
+      color: var(--color-accent-700);
+      text-decoration: none;
+    }
+  }
+
+  // > Pull quote
+  > blockquote {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: clamp(12px, 2vw, 24px);
+    align-items: start;
+    margin-block: clamp(12px, 2vw, 28px);
+    padding-block: clamp(20px, 3vw, 32px);
+    border-block: var(--rule) solid var(--color-text);
+
+    &::before {
+      content: '“';
+      color: var(--color-accent);
+      font-size: clamp(64px, 12vw, 180px);
+      font-weight: 800;
+      line-height: 0.7;
+    }
+
+    p {
+      margin: 0;
+      font-size: clamp(34px, 6.4vw, 104px);
+      font-stretch: var(--stretch-condensed);
+      font-weight: 800;
+      line-height: 0.88;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+
+    // Keeps a multi-paragraph quote in the text column, under the mark.
+    p + p {
+      grid-column: 2;
+    }
+  }
+
+  // [Stage direction]
+  > :global(.text-stage) {
+    justify-self: start;
+    padding: 14px 22px;
+    transform: rotate(-1.5deg);
+    background: var(--color-text);
+    color: var(--color-bg);
+    font-size: clamp(15px, 1.5vw, 20px);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  // >> Margin note — shares a row with the block that follows it.
+  > :global(.text-note) {
+    grid-column: 1;
+    align-self: start;
+    padding-top: 8px;
+    transform: rotate(-2deg);
+    border-top: var(--rule) solid var(--color-accent);
+    color: var(--color-accent-700);
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.35;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // ![Caption](image) — caption in the margin, image in the text column.
+  > figure {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    row-gap: 12px;
+    align-items: start;
+
+    > :global(.gatsby-resp-image-wrapper) {
+      grid-column: -2;
+      grid-row: 1;
+      // Overrides the plugin's inline auto margins and max-width.
+      max-width: none !important;
+      margin: 0 !important;
+      // Room for the accent square that overhangs the corner.
+      margin-top: 14px !important;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: -14px;
+        right: -14px;
+        width: 56px;
+        height: 56px;
+        background: var(--color-accent);
+      }
+
+      img {
+        filter: grayscale(1) contrast(1.08);
+      }
+    }
+
+    > figcaption {
+      grid-column: 1;
+      grid-row: 1;
+      padding-top: 8px;
+      transform: rotate(2deg);
+      border-top: var(--rule) solid var(--color-text);
+      font-size: 14px;
+      font-style: italic;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 700px) {
+      > :global(.gatsby-resp-image-wrapper) {
+        margin-right: 14px !important;
+      }
+
+      > figcaption {
+        grid-row: 2;
+      }
+    }
+  }
+}
+
+// ---- Footnotes -----------------------------------------------------------
+
+.footnotes {
+  border-top: var(--rule) solid var(--color-text);
+}
+
+.footnotesInner {
+  @include columns;
+  row-gap: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 48px) var(--page-gutter);
+}
+
+.footnotesList {
+  :global(hr) {
+    display: none;
+  }
+
+  ol {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: footnote;
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr) auto;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    counter-increment: footnote;
+
+    &::before {
+      content: counter(footnote);
+      color: var(--color-accent-700);
+      font-weight: 800;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  :global(.footnote-backref) {
+    margin-left: 6px;
+    text-decoration: none;
+  }
+}
+
+// ---- Next text -----------------------------------------------------------
+
+.next {
+  display: block;
+  border-top: var(--rule) solid var(--color-text);
+  background: var(--color-accent);
+  color: var(--color-text);
+  text-decoration: none;
+
+  &:hover {
+    background: var(--color-accent-600);
+    color: var(--color-text);
+  }
+}
+
+.nextInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  padding-block: clamp(28px, 4vw, 48px);
+}
+
+.nextLabel {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.nextArrow {
+  font-size: clamp(48px, 6vw, 96px);
+  line-height: 1;
+}

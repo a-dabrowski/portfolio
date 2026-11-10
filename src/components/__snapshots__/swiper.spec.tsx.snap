@@ -3,11 +3,11 @@
 exports[`SimpleGallery component matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="pswp-gallery flex flex-wrap"
+    class="pswp-gallery"
     id="test-gallery"
   >
     <a
-      class="p-4"
+      data-cropped="true"
       data-pswp-height="1333"
       data-pswp-srcset="/static/test-full-500.webp 500w,
 /static/test-full.webp 2000w"
@@ -26,7 +26,7 @@ exports[`SimpleGallery component matches snapshot 1`] = `
       />
     </a>
     <a
-      class="p-4"
+      data-cropped="true"
       data-pswp-height="1500"
       data-pswp-width="2000"
       href="/static/test-full-2.webp"

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Gatsby 5 portfolio/photography website for dabrowski.studio. Combines a photography gallery, development project showcase, and blog. Hosted on Netlify. Written in TypeScript.
+Gatsby 5 website for dabrowski.studio. Main purpose: stand-up texts (markdown articles) and booking contact; photography galleries live on their own pages. Polish is the primary language. Hosted on Netlify. Written in TypeScript.
 
 ## Commands
 
@@ -26,33 +26,90 @@ Gatsby 5 portfolio/photography website for dabrowski.studio. Combines a photogra
 
 **Framework**: Gatsby 5 with React 18, TypeScript, GraphQL data layer, static site generation. GraphQL typegen is enabled in `gatsby-config.ts`.
 
-**Routing**: File-based via `src/pages/`. Blog posts are generated dynamically in `gatsby-node.ts` from markdown in `content/blog/` using `src/templates/blog-post.tsx`.
+**Routing**: `gatsby-node.ts` creates the main pages per language from `src/templates/`: `home.tsx` (`/`), `text.tsx` (`/texts/<slug>/`), `photography.tsx` (`/photography/`), `gallery.tsx` (`/photography/<slug>/`). Standalone pages (`404`, `photography/offer`, legacy `development`, `recommended`) are file-based in `src/pages/`. Old URLs redirect via `static/_redirects`.
+
+**Languages**: `src/i18n/locales.ts` lists the languages (`LOCALES`, default `pl` at the site root, others under `/<code>/`). UI strings are JSON (`content/i18n/<code>.json`, read with `useDictionary()` or `dictionaries[locale]`); texts are markdown in one folder per language (`content/texts/<code>/<slug>.md`). Never hard-code visible copy in components. To add English: add `'en'` to `LOCALES`, create `content/i18n/en.json` (TypeScript enforces the same shape as `pl.json`), register it in `src/i18n/index.tsx`, add `content/texts/en/*.md`.
+
+**Writing a text** (no JSX needed; `plugins/gatsby-remark-studio-text` + `src/components/article/Article.module.scss` map markdown to the design):
+
+| Markdown | Renders as |
+|---|---|
+| frontmatter `title`, `date`, `form`, `dek`, `lede`, `stamp`, `dateline`, `scale` (0–1) | hero, home card, stamp, dateline strip, absurdity scale (only `title` and `date` are required) |
+| first paragraph | drop cap (automatic) |
+| `~~text~~` | accent strike-through |
+| `*text*` | highlighter mark (`**text**` stays bold) |
+| `\|\|text\|\|` | redaction, readable on hover/focus |
+| `[^1]` + `[^1]: note` | footnote, listed in its own section |
+| `> quote` | full-width pull quote |
+| `>> note` (placed before a paragraph) | margin note next to that paragraph |
+| paragraph that is only `[bracketed]` | stage direction box |
+| `![Caption](../images/file.jpg)` on its own line | figure with margin caption |
+
+Text numbers ("01") follow publication date, oldest first, so they stay stable.
 
 **Content sources**:
-- Blog posts: Markdown files in `content/blog/` (frontmatter: title, date, description)
+- Texts: Markdown files in `content/texts/<locale>/`, images in `content/texts/images/`
+- UI strings: `content/i18n/<locale>.json`
+- Gallery list (slug, image folder, title): `content/photography/galleries.json` — add an entry to publish a new gallery
 - Projects & stack: JSON files in `content/development/` (imported directly in components)
 - Photography images: WebP files in `content/assets/photography/`, queried via GraphQL with `sourceInstanceName: "photography"`
 
 **Type definitions**: Shared types in `src/types/index.ts` (`GalleryPageData`, `GalleryImageNode`, `ProjectData`, `StackItem`, `MarkdownRemarkNode`, etc.). Module declarations for SVG, SCSS modules, and image imports in `src/types/declarations.d.ts`.
 
-**Styling** (three approaches coexist):
+**Design system** (v2, "Modernist"): tokens in `src/styles/tokens.css`, base element styles in `src/components/globalStyle.css`, Archivo variable font (width + weight axes). Build pages from the primitives instead of ad-hoc markup: `typography` (`Display`, `Heading`, `Numeral`, `Label`, `Body`, `Accent`, `Lines`), `links` (`SmartLink`, `ArrowLink`, `RowLink`), `buttons/Button`, `section` (`Container`, `RailSection`, `Rule`), `tiles` (`TileGrid`, `Tile`), `article/*`, `textCard`, `site/SiteHeader|SiteFooter`. Primitive stylesheets are imported in a fixed order in `gatsby-browser.ts`; add new primitives there. Pre-v2 components (`Cta`, `MinimalButton`, `ImageButton`, `curtainMenu`, `mainMenu`, `bio`, `header`, `foldingDoor`, `diagonalBox`, `testimonial`, `project`) are legacy.
+
+**Styling** (three approaches coexist; new code uses SCSS modules with camelCase class names + tokens):
 - **Tailwind CSS** — primary utility classes, configured via `tailwind.config.js` + PostCSS
 - **SCSS Modules** — component-scoped styles (`*.module.scss`), color palettes in `src/components/colors.scss`
 - **Plain CSS** — some component-specific files (`Cta.css`, `Project.css`, `globalStyle.css`)
 
-**Image galleries**: PhotoSwipe 5 lightbox, wrapped in `src/components/swiper.tsx`. Each photography page has its own GraphQL query fetching full + thumbnail image variants. Pages use the shared `GalleryPageData` type.
+**Image galleries**: PhotoSwipe 5 lightbox, wrapped in `src/components/swiper.tsx`. `src/templates/gallery.tsx` queries full + square thumbnail variants for one folder (`$directory`); it uses the shared `GalleryPageData` type.
 
 **Forms**: react-final-form with Netlify Forms integration (`data-netlify="true"`, submitted via fetch to `/`).
 
-**SEO**: React Helmet in `src/components/seo.tsx` with `useStaticQuery` for site metadata.
+**SEO**: Gatsby Head API. Each page exports `export const Head = () => <SEO title="..." />`; `src/components/seo.tsx` renders `<title>`/`<meta>`/`<html lang>` with `useStaticQuery` for site metadata. Don't render `<SEO>` inside the page body — it only works from `Head`.
+
+**Images**: Never ship `publicURL` of a photography source file to the browser — always go through `childImageSharp { gatsbyImageData(...) }` so sharp resizes it. Sources are already lossy WebP; keep `quality` at 75–80 (q100 re-encoding measured ~3.7x larger with no visible gain). Raw `<img>` tags need `width`/`height` and `loading="lazy"`.
+
+**CSS bundling**: Gatsby merges all CSS into one global `styles.css` inlined on every page, regardless of where it's imported — moving a CSS import into a component does not code-split it.
 
 ## Key Configuration
 
 - **TypeScript**: `tsconfig.json` — strict mode, noEmit (Gatsby handles compilation via Babel)
 - **Gatsby config**: `gatsby-config.ts` — plugins, site metadata, filesystem sources, graphqlTypegen
-- **Gatsby node**: `gatsby-node.ts` — dynamic blog page creation, slug generation
+- **Gatsby node**: `gatsby-node.ts` — per-language page creation, `locale`/`slug` fields on texts, frontmatter schema
 - **Gatsby browser**: `gatsby-browser.ts` — global style imports (Prism, PhotoSwipe, Tailwind)
+- **Gatsby SSR**: `gatsby-ssr.tsx` — font `<link>`/`preconnect` tags in `<head>` (Google Fonts: Archivo). Don't add fonts via CSS `@import`; it delays first paint.
 - **Jest**: `jest.config.js` — babel transform for TS/TSX, CSS module mocking, setup in `tests/`
+
+## Testing
+
+**Stack**: Jest 29 + React Testing Library + `@testing-library/jest-dom`
+
+| Command | Description |
+|---------|-------------|
+| `npm test` | Run all tests |
+| `npm test -- --verbose` | Run with detailed output |
+| `npm test -- --coverage` | Run with coverage report |
+| `npm test -- src/components/bio.spec.tsx` | Run a single test file |
+| `npm test -- --testPathPattern="buttons"` | Run tests matching a pattern |
+
+**Test structure**:
+- Unit tests live next to their component (e.g. `src/components/buttons/Cta.spec.tsx`)
+- Integration tests (pages/templates) live in `__tests__/` subdirectories (e.g. `src/pages/__tests__/blog.spec.tsx`)
+- Shared fixtures and helpers in `tests/test-utils.tsx` (`mockSiteMetadata`, `mockGalleryImages`, `mockBlogPost`, `mockProjectData`, `mockLocation`, `setupUseStaticQuery`)
+
+**Mocks** (in `tests/__mocks__/`):
+- `gatsby.js` — mocks `graphql`, `Link`, `useStaticQuery`, `StaticQuery`
+- `gatsby-plugin-image.js` — mocks `GatsbyImage` and `StaticImage` as plain `<img>` tags
+- `photoswipe/lightbox.js` — mocks `PhotoSwipeLightbox` with no-op `init()`/`destroy()`
+- `file-mock.js` — stubs image/media imports
+
+**Writing new tests**:
+- Use `.spec.tsx` suffix, place next to the component
+- Import `setupUseStaticQuery` from `tests/test-utils` for components that use `useStaticQuery` (SEO, Bio, or any page using Layout + SEO)
+- Call `setupUseStaticQuery()` in a `beforeEach` block
+- Use `mockLocation` from `tests/test-utils` when rendering page components that require a `location` prop
 
 ## Conventions
 

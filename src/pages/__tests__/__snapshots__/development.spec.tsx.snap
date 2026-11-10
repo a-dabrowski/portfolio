@@ -3,94 +3,67 @@
 exports[`Development Page matches snapshot 1`] = `
 <DocumentFragment>
   <div>
-    <div
-      class="overflow-x-hidden md:overflow-hidden fixed inset-0 z-10 bg-black transition-[transform,visibility] duration-300 ease-out -translate-y-full invisible"
-    >
-      <button
-        class="absolute top-3 right-3 text-gray-400 hover:text-white"
-      >
-        <test-file-stub
-          classname="fill-current"
-          width="24"
-        />
-      </button>
+    <header>
       <div
-        class="relative top-1/4 w-full text-center mt-8"
-      >
-        <div
-          class="p-2"
-        >
-          <a
-            class="text-3xl text-gray-400 cursor-pointer hover:text-white"
-            href="/"
-          >
-            Homepage
-          </a>
-        </div>
-        <div
-          class="p-2"
-        >
-          <a
-            class="text-3xl text-gray-400 cursor-pointer hover:text-white"
-            href="/photography/offer"
-          >
-            Photography Services
-          </a>
-        </div>
-        <div
-          class="p-2"
-        >
-          <a
-            class="text-3xl text-gray-400 cursor-pointer hover:text-white"
-            href="/photography"
-          >
-            Photography Portfolio
-          </a>
-        </div>
-        <div
-          class="p-2"
-        >
-          <a
-            class="text-3xl text-gray-400 cursor-pointer hover:text-white"
-            href="/"
-          >
-            About Me
-          </a>
-        </div>
-      </div>
-    </div>
-    <header
-      class="p-4 border-b bg-white"
-    >
-      <div
-        class="flex flex-row justify-between items-center"
+        class=""
       >
         <a
-          class="no-underline hover:underline"
           href="/"
-          style="box-shadow: none; color: inherit;"
         >
-          <h3
-            class="m-auto inline mr-3"
-          >
-            Dabrowski Studio
-          </h3>
+          <span>
+            Dąbrowski
+          </span>
+          <span>
+            Stand-up
+          </span>
+          <span>
+            Warszawa, PL
+          </span>
         </a>
-        <div
-          class="flex flex-col sm:flex-row"
-        >
-          <button
-            class="uppercase"
+        <nav>
+          <a
+            href="/#texts"
           >
-            Menu
-          </button>
+            → Teksty
+          </a>
+          <a
+            href="/#contact"
+          >
+            → Kontakt
+          </a>
+          <a
+            href="/photography/"
+          >
+            → Fotografia
+          </a>
+        </nav>
+        <div>
+          <span>
+            pl
+          </span>
+           / 
+          <span>
+            en
+          </span>
+        </div>
+        <div>
+          <span
+            class=""
+          >
+            26—27
+          </span>
+          <span
+            class=""
+          >
+            Sezon
+          </span>
         </div>
       </div>
     </header>
-    <main
-      class="max-w-screen-lg m-auto py-0 px-5"
-    >
-      <div>
+    <main>
+      <div
+        class=""
+      >
         <header
           class="header"
         >
@@ -830,10 +803,20 @@ exports[`Development Page matches snapshot 1`] = `
         </main>
       </div>
     </main>
-    <footer
-      class="text-center p-4"
-    >
-      © 2026 - Built with ☕ by Adam Dabrowski
+    <footer>
+      <div
+        class=""
+      >
+        <span>
+          © 2026 Dąbrowski Studio
+        </span>
+        <span>
+          <span>
+            ●
+          </span>
+           Stand-up · Warszawa
+        </span>
+      </div>
     </footer>
   </div>
 </DocumentFragment>

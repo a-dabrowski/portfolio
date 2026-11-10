@@ -1,0 +1,94 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+.main {
+  flex: 1;
+}
+
+.header {
+  border-bottom: var(--rule) solid var(--color-text);
+  background: var(--color-bg);
+}
+
+.headerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  align-items: start;
+  padding-block: 18px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-text);
+  font-size: 12px;
+  line-height: 1.4;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+.brandName {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.languages {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.languageCurrent {
+  font-weight: 800;
+}
+
+.languageLink {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.languageInactive {
+  color: var(--color-neutral-600);
+}
+
+.season {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-self: end;
+}
+
+.footer {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.footerRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 18px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

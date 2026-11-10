@@ -1292,9 +1292,9 @@ type MarkdownRemark = Node & {
   readonly children: ReadonlyArray<Node>;
   readonly excerpt: Maybe<Scalars['String']>;
   readonly excerptAst: Maybe<Scalars['JSON']>;
-  readonly fields: Maybe<MarkdownRemarkFields>;
+  readonly fields: TextFields;
   readonly fileAbsolutePath: Maybe<Scalars['String']>;
-  readonly frontmatter: Maybe<MarkdownRemarkFrontmatter>;
+  readonly frontmatter: TextFrontmatter;
   readonly headings: Maybe<ReadonlyArray<Maybe<MarkdownHeading>>>;
   readonly html: Maybe<Scalars['String']>;
   readonly htmlAst: Maybe<Scalars['JSON']>;
@@ -1382,9 +1382,9 @@ type MarkdownRemarkFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
   readonly excerptAst: InputMaybe<FieldSelectorEnum>;
-  readonly fields: InputMaybe<MarkdownRemarkFieldsFieldSelector>;
+  readonly fields: InputMaybe<TextFieldsFieldSelector>;
   readonly fileAbsolutePath: InputMaybe<FieldSelectorEnum>;
-  readonly frontmatter: InputMaybe<MarkdownRemarkFrontmatterFieldSelector>;
+  readonly frontmatter: InputMaybe<TextFrontmatterFieldSelector>;
   readonly headings: InputMaybe<MarkdownHeadingFieldSelector>;
   readonly html: InputMaybe<FieldSelectorEnum>;
   readonly htmlAst: InputMaybe<FieldSelectorEnum>;
@@ -1397,29 +1397,13 @@ type MarkdownRemarkFieldSelector = {
   readonly wordCount: InputMaybe<MarkdownWordCountFieldSelector>;
 };
 
-type MarkdownRemarkFields = {
-  readonly slug: Maybe<Scalars['String']>;
-};
-
-type MarkdownRemarkFieldsFieldSelector = {
-  readonly slug: InputMaybe<FieldSelectorEnum>;
-};
-
-type MarkdownRemarkFieldsFilterInput = {
-  readonly slug: InputMaybe<StringQueryOperatorInput>;
-};
-
-type MarkdownRemarkFieldsSortInput = {
-  readonly slug: InputMaybe<SortOrderEnum>;
-};
-
 type MarkdownRemarkFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
   readonly excerptAst: InputMaybe<JSONQueryOperatorInput>;
-  readonly fields: InputMaybe<MarkdownRemarkFieldsFilterInput>;
+  readonly fields: InputMaybe<TextFieldsFilterInput>;
   readonly fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
-  readonly frontmatter: InputMaybe<MarkdownRemarkFrontmatterFilterInput>;
+  readonly frontmatter: InputMaybe<TextFrontmatterFilterInput>;
   readonly headings: InputMaybe<MarkdownHeadingFilterListInput>;
   readonly html: InputMaybe<StringQueryOperatorInput>;
   readonly htmlAst: InputMaybe<JSONQueryOperatorInput>;
@@ -1434,38 +1418,6 @@ type MarkdownRemarkFilterInput = {
 
 type MarkdownRemarkFilterListInput = {
   readonly elemMatch: InputMaybe<MarkdownRemarkFilterInput>;
-};
-
-type MarkdownRemarkFrontmatter = {
-  readonly date: Maybe<Scalars['Date']>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly title: Maybe<Scalars['String']>;
-};
-
-
-type MarkdownRemarkFrontmatter_dateArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-type MarkdownRemarkFrontmatterFieldSelector = {
-  readonly date: InputMaybe<FieldSelectorEnum>;
-  readonly description: InputMaybe<FieldSelectorEnum>;
-  readonly title: InputMaybe<FieldSelectorEnum>;
-};
-
-type MarkdownRemarkFrontmatterFilterInput = {
-  readonly date: InputMaybe<DateQueryOperatorInput>;
-  readonly description: InputMaybe<StringQueryOperatorInput>;
-  readonly title: InputMaybe<StringQueryOperatorInput>;
-};
-
-type MarkdownRemarkFrontmatterSortInput = {
-  readonly date: InputMaybe<SortOrderEnum>;
-  readonly description: InputMaybe<SortOrderEnum>;
-  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type MarkdownRemarkGroupConnection = {
@@ -1513,9 +1465,9 @@ type MarkdownRemarkSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
   readonly excerptAst: InputMaybe<SortOrderEnum>;
-  readonly fields: InputMaybe<MarkdownRemarkFieldsSortInput>;
+  readonly fields: InputMaybe<TextFieldsSortInput>;
   readonly fileAbsolutePath: InputMaybe<SortOrderEnum>;
-  readonly frontmatter: InputMaybe<MarkdownRemarkFrontmatterSortInput>;
+  readonly frontmatter: InputMaybe<TextFrontmatterSortInput>;
   readonly headings: InputMaybe<MarkdownHeadingSortInput>;
   readonly html: InputMaybe<SortOrderEnum>;
   readonly htmlAst: InputMaybe<SortOrderEnum>;
@@ -1816,9 +1768,9 @@ type Query_markdownRemarkArgs = {
   children: InputMaybe<NodeFilterListInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
   excerptAst: InputMaybe<JSONQueryOperatorInput>;
-  fields: InputMaybe<MarkdownRemarkFieldsFilterInput>;
+  fields: InputMaybe<TextFieldsFilterInput>;
   fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
-  frontmatter: InputMaybe<MarkdownRemarkFrontmatterFilterInput>;
+  frontmatter: InputMaybe<TextFrontmatterFilterInput>;
   headings: InputMaybe<MarkdownHeadingFilterListInput>;
   html: InputMaybe<StringQueryOperatorInput>;
   htmlAst: InputMaybe<JSONQueryOperatorInput>;
@@ -2711,6 +2663,78 @@ type StringQueryOperatorInput = {
   readonly regex: InputMaybe<Scalars['String']>;
 };
 
+type TextFields = {
+  readonly locale: Scalars['String'];
+  readonly slug: Scalars['String'];
+};
+
+type TextFieldsFieldSelector = {
+  readonly locale: InputMaybe<FieldSelectorEnum>;
+  readonly slug: InputMaybe<FieldSelectorEnum>;
+};
+
+type TextFieldsFilterInput = {
+  readonly locale: InputMaybe<StringQueryOperatorInput>;
+  readonly slug: InputMaybe<StringQueryOperatorInput>;
+};
+
+type TextFieldsSortInput = {
+  readonly locale: InputMaybe<SortOrderEnum>;
+  readonly slug: InputMaybe<SortOrderEnum>;
+};
+
+type TextFrontmatter = {
+  readonly date: Scalars['Date'];
+  readonly dateline: Maybe<Scalars['String']>;
+  readonly dek: Maybe<Scalars['String']>;
+  readonly form: Maybe<Scalars['String']>;
+  readonly lede: Maybe<Scalars['String']>;
+  readonly scale: Maybe<Scalars['Float']>;
+  readonly stamp: Maybe<Scalars['String']>;
+  readonly title: Scalars['String'];
+};
+
+
+type TextFrontmatter_dateArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type TextFrontmatterFieldSelector = {
+  readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly dateline: InputMaybe<FieldSelectorEnum>;
+  readonly dek: InputMaybe<FieldSelectorEnum>;
+  readonly form: InputMaybe<FieldSelectorEnum>;
+  readonly lede: InputMaybe<FieldSelectorEnum>;
+  readonly scale: InputMaybe<FieldSelectorEnum>;
+  readonly stamp: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
+
+type TextFrontmatterFilterInput = {
+  readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly dateline: InputMaybe<StringQueryOperatorInput>;
+  readonly dek: InputMaybe<StringQueryOperatorInput>;
+  readonly form: InputMaybe<StringQueryOperatorInput>;
+  readonly lede: InputMaybe<StringQueryOperatorInput>;
+  readonly scale: InputMaybe<FloatQueryOperatorInput>;
+  readonly stamp: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+};
+
+type TextFrontmatterSortInput = {
+  readonly date: InputMaybe<SortOrderEnum>;
+  readonly dateline: InputMaybe<SortOrderEnum>;
+  readonly dek: InputMaybe<SortOrderEnum>;
+  readonly form: InputMaybe<SortOrderEnum>;
+  readonly lede: InputMaybe<SortOrderEnum>;
+  readonly scale: InputMaybe<SortOrderEnum>;
+  readonly stamp: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+};
+
 type TransformOptions = {
   readonly cropFocus: InputMaybe<ImageCropFocus>;
   readonly duotone: InputMaybe<DuotoneGradient>;
@@ -2724,32 +2748,17 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
-type AnnaFortBemaQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AnnaFortBemaQuery = { readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly full: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> } };
-
-type BalkanPhotographyQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type BalkanPhotographyQuery = { readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly full: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> } };
-
 type BioQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type BioQueryQuery = { readonly avatar: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly site: { readonly siteMetadata: { readonly author: string | null, readonly social: { readonly twitter: string | null, readonly instagram: string | null } | null } | null } | null };
 
-type BlogPostBySlugQueryVariables = Exact<{
-  slug: Scalars['String'];
+type GalleryImagesQueryVariables = Exact<{
+  directory: Scalars['String'];
 }>;
 
 
-type BlogPostBySlugQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null, readonly markdownRemark: { readonly id: string, readonly excerpt: string | null, readonly html: string | null, readonly frontmatter: { readonly title: string | null, readonly date: string | null, readonly description: string | null } | null } | null };
-
-type FortBemaWiktoriaQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type FortBemaWiktoriaQuery = { readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly full: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> } };
+type GalleryImagesQuery = { readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly full: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> } };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
@@ -2777,52 +2786,31 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
-type HomeTileFragment = { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null };
-
-type MilenaNeonPhotographyQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type MilenaNeonPhotographyQuery = { readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly full: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> } };
-
-type PhotoMilenaAniaQueryVariables = Exact<{ [key: string]: never; }>;
+type HomeTextsQueryVariables = Exact<{
+  locale: Scalars['String'];
+}>;
 
 
-type PhotoMilenaAniaQuery = { readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly full: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> } };
+type HomeTextsQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly title: string, readonly form: string | null, readonly lede: string | null, readonly year: string } }> } };
 
-type PhotoPaulinaQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type PhotoPaulinaQuery = { readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly full: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> } };
-
-type PhotoStudioQueryVariables = Exact<{ [key: string]: never; }>;
+type PhotographyCoversQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type PhotoStudioQuery = { readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly full: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> } };
+type PhotographyCoversQuery = { readonly allFile: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly nodes: ReadonlyArray<{ readonly lead: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null, readonly tile: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null }> }> } };
 
-type PortraitIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type PortraitIndexQueryQuery = { readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly full: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> } };
-
-type StartPageQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type TextByIdQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
 
 
-type StartPageQueryQuery = { readonly zamoyskichNadia: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly zamoyskichKlaudia: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly bemaAnna: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly bemaWiktoria: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly paulina: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly balkan: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly studioFriends: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly milena: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly milenaNeon: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
+type TextByIdQuery = { readonly markdownRemark: { readonly html: string | null, readonly excerpt: string | null, readonly timeToRead: number | null, readonly frontmatter: { readonly title: string, readonly form: string | null, readonly stamp: string | null, readonly scale: number | null, readonly dateline: string | null, readonly dek: string | null, readonly lede: string | null, readonly year: string } } | null };
 
-type ZamoyskichKlaudiaQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ZamoyskichKlaudiaQuery = { readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly full: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> } };
-
-type ZamoyskichNadiaQueryVariables = Exact<{ [key: string]: never; }>;
+type TextsByLocaleQueryVariables = Exact<{
+  locale: Scalars['String'];
+}>;
 
 
-type ZamoyskichNadiaQuery = { readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly full: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } }> } };
-
-type AllBlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AllBlogPostsQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly title: string | null } | null } }> } };
+type TextsByLocaleQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly title: string } }> } };
 
 
 }

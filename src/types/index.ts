@@ -74,3 +74,30 @@ export interface BlogPostNode {
     frontmatter: { title: string };
   };
 }
+
+export interface TextFrontmatter {
+  title: string;
+  year: string;
+  form: string | null;
+  stamp: string | null;
+  scale: number | null;
+  dateline: string | null;
+  dek: string | null;
+  lede: string | null;
+}
+
+export interface TextSummaryNode {
+  id: string;
+  fields: { slug: string };
+  frontmatter: Pick<TextFrontmatter, 'title' | 'year' | 'form' | 'lede'>;
+}
+
+export interface LocalePageContext {
+  locale: 'pl';
+}
+
+export interface Gallery {
+  slug: string;
+  directory: string;
+  title: string;
+}

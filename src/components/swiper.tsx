@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
+import classNames from 'classnames';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
 import { GalleryImageNode } from '../types';
+import * as Styles from './gallery/Gallery.module.scss';
 
 interface SimpleGalleryProps {
   galleryID: string;
@@ -28,7 +31,10 @@ export default function SimpleGallery(props: SimpleGalleryProps) {
   }, []);
 
   return (
-    <div className="pswp-gallery flex flex-wrap" id={props.galleryID}>
+    <div
+      className={classNames('pswp-gallery', Styles.grid)}
+      id={props.galleryID}
+    >
       {props.images.map((image) => {
         const full = image.node.full.gatsbyImageData;
         const thumbnail = image.node.thumbnail.gatsbyImageData;
@@ -38,13 +44,18 @@ export default function SimpleGallery(props: SimpleGalleryProps) {
             data-pswp-srcset={full.images.fallback.srcSet}
             data-pswp-width={full.width}
             data-pswp-height={full.height}
+            // The thumbnail is a square crop of the full image; without this
+            // the lightbox zoom animation starts from the wrong frame.
+            data-cropped="true"
             key={image.node.id}
             target="_blank"
             rel="noreferrer"
-            className="p-4"
+            className={Styles.plate}
           >
             <img
               src={thumbnail.images.fallback.src}
+              srcSet={thumbnail.images.fallback.srcSet}
+              sizes={thumbnail.images.fallback.sizes}
               width={thumbnail.width}
               height={thumbnail.height}
               loading="lazy"

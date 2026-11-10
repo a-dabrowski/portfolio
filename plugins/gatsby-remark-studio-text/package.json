@@ -1,0 +1,7 @@
+{
+  "name": "gatsby-remark-studio-text",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Maps plain markdown conventions to the stand-up text design blocks",
+  "main": "index.js"
+}

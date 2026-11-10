@@ -1,0 +1,38 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: clamp(32px, 5vw, 64px);
+}
+
+.pitch {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.mark {
+  display: flex;
+  align-items: center;
+}
+
+.square {
+  flex: none;
+  width: clamp(72px, 8vw, 112px);
+  aspect-ratio: 1;
+  background: var(--color-accent);
+}
+
+.line {
+  flex: 1;
+}
+
+.intro {
+  max-width: 440px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  border-top: var(--rule) solid var(--color-text);
+}

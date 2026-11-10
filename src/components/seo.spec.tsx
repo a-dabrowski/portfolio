@@ -63,8 +63,8 @@ describe('SEO component', () => {
     expect(container.querySelector('html')).toHaveAttribute('lang', 'pl');
   });
 
-  it('defaults lang to en', () => {
+  it('defaults lang to pl', () => {
     const { container } = render(<SEO title="Test" />);
-    expect(container.querySelector('html')).toHaveAttribute('lang', 'en');
+    expect(container.querySelector('html')).toHaveAttribute('lang', 'pl');
   });
 });

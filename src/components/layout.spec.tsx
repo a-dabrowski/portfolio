@@ -1,81 +1,44 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Layout from './layout';
-import { mockLocation } from '../../tests/test-utils';
+import pl from '../../content/i18n/pl.json';
+
+const renderLayout = () =>
+  render(
+    <Layout>
+      <p>Page Content</p>
+    </Layout>
+  );
 
 describe('Layout component', () => {
-  const defaultProps = {
-    location: mockLocation,
-    title: 'Test Site',
-  };
-
   it('renders children content', () => {
-    const { getByText } = render(
-      <Layout {...defaultProps}>
-        <p>Page Content</p>
-      </Layout>
-    );
+    const { getByText } = renderLayout();
     expect(getByText('Page Content')).toBeInTheDocument();
   });
 
-  it('renders the site title link', () => {
-    const { getByText } = render(
-      <Layout {...defaultProps}>
-        <p>Content</p>
-      </Layout>
-    );
-    expect(getByText('Dabrowski Studio')).toBeInTheDocument();
+  it('links the brand to the home page', () => {
+    const { getByText } = renderLayout();
+    expect(getByText(pl.site.brand).closest('a')).toHaveAttribute('href', '/');
   });
 
-  it('renders footer with copyright', () => {
-    const { container } = render(
-      <Layout {...defaultProps}>
-        <p>Content</p>
-      </Layout>
-    );
-    const footer = container.querySelector('footer');
-    expect(footer).toHaveTextContent('Adam Dabrowski');
-    expect(footer).toHaveTextContent(new Date().getFullYear().toString());
+  it.each([
+    [pl.nav.texts, '/#texts'],
+    [pl.nav.contact, '/#contact'],
+    [pl.nav.photography, '/photography/'],
+  ])('links "%s" in the navigation to %s', (label, href) => {
+    const { getByText } = renderLayout();
+    expect(getByText(`→ ${label}`)).toHaveAttribute('href', href);
   });
 
-  it('renders the Menu button', () => {
-    const { getByText } = render(
-      <Layout {...defaultProps}>
-        <p>Content</p>
-      </Layout>
-    );
-    expect(getByText('Menu')).toBeInTheDocument();
+  it('shows a language without content as inactive text, not a link', () => {
+    const { getByText } = renderLayout();
+    expect(getByText('en').tagName).toBe('SPAN');
   });
 
-  it('opens the menu when Menu button is clicked', () => {
-    const { getByText, container } = render(
-      <Layout {...defaultProps}>
-        <p>Content</p>
-      </Layout>
+  it('renders footer with the current year', () => {
+    const { container } = renderLayout();
+    expect(container.querySelector('footer')).toHaveTextContent(
+      `© ${new Date().getFullYear()} ${pl.site.copyright}`
     );
-    fireEvent.click(getByText('Menu'));
-    // After clicking, menu items should be visible
-    expect(getByText('Homepage')).toBeInTheDocument();
-    expect(getByText('Photography Services')).toBeInTheDocument();
-    expect(getByText('Photography Portfolio')).toBeInTheDocument();
-  });
-
-  it('renders the home link pointing to /', () => {
-    const { container } = render(
-      <Layout {...defaultProps}>
-        <p>Content</p>
-      </Layout>
-    );
-    const homeLink = container.querySelector('a[href="/"]');
-    expect(homeLink).toBeInTheDocument();
-  });
-
-  it('matches snapshot', () => {
-    const { asFragment } = render(
-      <Layout {...defaultProps}>
-        <p>Snapshot Content</p>
-      </Layout>
-    );
-    expect(asFragment()).toMatchSnapshot();
   });
 });

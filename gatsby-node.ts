@@ -1,6 +1,24 @@
 import path from 'path';
-import { createFilePath } from 'gatsby-source-filesystem';
 import type { GatsbyNode } from 'gatsby';
+
+import galleries from './content/photography/galleries.json';
+import {
+  LOCALES,
+  PHOTOGRAPHY_PATH,
+  galleryPath,
+  localizedPath,
+  textPath,
+} from './src/i18n/locales';
+
+interface TextsQueryResult {
+  allMarkdownRemark: {
+    nodes: Array<{
+      id: string;
+      fields: { slug: string };
+      frontmatter: { title: string };
+    }>;
+  };
+}
 
 export const createPages: GatsbyNode['createPages'] = async ({
   graphql,
@@ -8,22 +26,42 @@ export const createPages: GatsbyNode['createPages'] = async ({
 }) => {
   const { createPage } = actions;
 
-  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
-  const result = await graphql<{
-    allMarkdownRemark: {
-      edges: Array<{
-        node: {
-          fields: { slug: string };
-          frontmatter: { title: string };
-        };
-      }>;
-    };
-  }>(
-    `
-      query AllBlogPosts {
-        allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 1000) {
-          edges {
-            node {
+  for (const locale of LOCALES) {
+    createPage({
+      path: localizedPath(locale, '/'),
+      component: path.resolve(`./src/templates/home.tsx`),
+      context: { locale },
+    });
+
+    createPage({
+      path: localizedPath(locale, `${PHOTOGRAPHY_PATH}/`),
+      component: path.resolve(`./src/templates/photography.tsx`),
+      context: { locale },
+    });
+
+    galleries.forEach((gallery, index) => {
+      createPage({
+        path: galleryPath(locale, gallery.slug),
+        component: path.resolve(`./src/templates/gallery.tsx`),
+        context: {
+          locale,
+          directory: gallery.directory,
+          title: gallery.title,
+          number: index + 1,
+        },
+      });
+    });
+
+    // Oldest first, so a text keeps its number when newer ones are added.
+    const result = await graphql<TextsQueryResult>(
+      `
+        query TextsByLocale($locale: String!) {
+          allMarkdownRemark(
+            filter: { fields: { locale: { eq: $locale } } }
+            sort: { frontmatter: { date: ASC } }
+          ) {
+            nodes {
+              id
               fields {
                 slug
               }
@@ -33,45 +71,89 @@ export const createPages: GatsbyNode['createPages'] = async ({
             }
           }
         }
-      }
-    `
-  );
+      `,
+      { locale }
+    );
 
-  if (result.errors) {
-    throw result.errors;
-  }
+    if (result.errors) {
+      throw result.errors;
+    }
 
-  const posts = result.data!.allMarkdownRemark.edges;
+    const texts = result.data!.allMarkdownRemark.nodes;
 
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
+    texts.forEach((text, index) => {
+      // Reading order runs newest to oldest and wraps around, like the list
+      // on the home page.
+      const nextIndex = (index - 1 + texts.length) % texts.length;
+      const previousIndex = (index + 1) % texts.length;
 
-    createPage({
-      path: post.node.fields.slug,
-      component: blogPost,
-      context: {
-        slug: post.node.fields.slug,
-        previous,
-        next,
-      },
+      createPage({
+        path: textPath(locale, text.fields.slug),
+        component: path.resolve(`./src/templates/text.tsx`),
+        context: {
+          id: text.id,
+          locale,
+          number: index + 1,
+          count: texts.length,
+          previousPath: textPath(locale, texts[previousIndex].fields.slug),
+          next: {
+            path: textPath(locale, texts[nextIndex].fields.slug),
+            title: texts[nextIndex].frontmatter.title,
+            number: nextIndex + 1,
+          },
+        },
+      });
     });
-  });
+  }
 };
 
+// content/texts/<locale>/<slug>.md — the folder is the language, the file name
+// is the URL slug. The same file name in two language folders is one text in
+// two languages.
 export const onCreateNode: GatsbyNode['onCreateNode'] = ({
   node,
   actions,
   getNode,
 }) => {
-  const { createNodeField } = actions;
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    });
+  if (node.internal.type !== `MarkdownRemark` || !node.parent) {
+    return;
   }
+
+  const file = getNode(node.parent);
+  if (!file || file.sourceInstanceName !== `texts`) {
+    return;
+  }
+
+  actions.createNodeField({
+    node,
+    name: `locale`,
+    value: file.relativeDirectory,
+  });
+  actions.createNodeField({ node, name: `slug`, value: file.name });
 };
+
+// Declared explicitly so an optional field that no text uses yet (or a
+// language folder with no texts) does not break the page queries.
+export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] =
+  ({ actions }) => {
+    actions.createTypes(`
+      type MarkdownRemark implements Node {
+        frontmatter: TextFrontmatter!
+        fields: TextFields!
+      }
+      type TextFrontmatter {
+        title: String!
+        date: Date! @dateformat
+        form: String
+        stamp: String
+        scale: Float
+        dateline: String
+        dek: String
+        lede: String
+      }
+      type TextFields {
+        slug: String!
+        locale: String!
+      }
+    `);
+  };

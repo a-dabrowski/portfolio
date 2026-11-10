@@ -1,0 +1,5 @@
+# URLs that existed before the v2 redesign.
+/portrait   /photography/portrait/   301
+/portrait/  /photography/portrait/   301
+/blog       /#texts                  301
+/blog/      /#texts                  301

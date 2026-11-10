@@ -1,0 +1,73 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: var(--space-2) calc(var(--space-3) * 1.2);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: var(--font-weight-heading);
+  line-height: 1.2;
+  text-decoration: none;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+  }
+}
+
+.primary {
+  background: var(--color-accent);
+  color: var(--color-bg);
+
+  &:hover {
+    background: var(--color-accent-600);
+    color: var(--color-bg);
+  }
+
+  &:active {
+    background: var(--color-accent-700);
+  }
+}
+
+.secondary {
+  border-color: var(--color-divider);
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-text) 7%, transparent);
+    color: var(--color-text);
+  }
+
+  &:active {
+    background: color-mix(in srgb, var(--color-text) 14%, transparent);
+  }
+}
+
+.ghost {
+  padding-inline: var(--space-1);
+  color: var(--color-accent-700);
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  }
+
+  &:active {
+    background: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  }
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+}
+
+// Label on the left, arrow on the right ("Czytaj całość →").
+.spread {
+  min-width: 150px;
+  justify-content: space-between;
+}

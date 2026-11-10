@@ -16,10 +16,7 @@ describe('Contact component', () => {
   it('renders email link', () => {
     const { getByText } = render(<Contact />);
     const link = getByText('adam.dabrowski@outlook.com').closest('a');
-    expect(link).toHaveAttribute(
-      'href',
-      'mailto:adam.dabrowski@outlook.com'
-    );
+    expect(link).toHaveAttribute('href', 'mailto:adam.dabrowski@outlook.com');
   });
 
   it('renders GitHub link', () => {
@@ -30,8 +27,10 @@ describe('Contact component', () => {
   });
 
   it('renders contact heading', () => {
-    const { getByText } = render(<Contact />);
-    expect(getByText('Kontakt')).toBeInTheDocument();
+    const { getByRole } = render(<Contact />);
+    expect(getByRole('heading', { level: 2 })).toHaveTextContent(
+      'Zamówwystęp.'
+    );
   });
 
   it('matches snapshot', () => {

@@ -1,0 +1,158 @@
+.hero {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.heroInner {
+  padding-top: clamp(20px, 3vw, 36px);
+}
+
+.heroTop {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  align-items: center;
+  padding-bottom: clamp(20px, 3vw, 36px);
+}
+
+.kicker {
+  font-size: clamp(13px, 1.2vw, 16px);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.heroLine {
+  display: flex;
+  flex: 1 1 60px;
+  align-items: center;
+}
+
+.heroLineRule {
+  flex: 1;
+  height: var(--rule);
+  background: var(--color-bg);
+}
+
+.heroLineDot {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+.heroName {
+  padding-bottom: 0.2em;
+}
+
+.discipline {
+  padding-top: 0.1em;
+}
+
+.pitchGrid {
+  margin-top: clamp(20px, 3vw, 40px);
+}
+
+.pitchTile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 320px;
+}
+
+.pitchFoot {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.claimFoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  padding-top: 14px;
+  border-top: var(--rule) solid var(--color-text);
+}
+
+.claimArrow {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.portrait {
+  min-height: 320px;
+  padding: 0;
+}
+
+.portraitImage {
+  position: absolute !important;
+  inset: 0;
+  filter: grayscale(1) contrast(1.08);
+}
+
+.indexGrid {
+  margin-bottom: clamp(40px, 6vw, 80px);
+}
+
+.indexTile {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 24px;
+}
+
+.indexList {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 4px;
+}
+
+.indexLink {
+  display: flex;
+  gap: 14px;
+  color: var(--color-text);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+.indexNumber {
+  color: var(--color-accent-700);
+  font-weight: 600;
+}
+
+.booking {
+  justify-content: space-between;
+}
+
+.textsHead {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 32px;
+}
+
+.textsIntro {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+}

@@ -1,0 +1,28 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 340px;
+  padding: 28px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.meta {
+  line-height: 1.5;
+  text-align: right;
+}
+
+.lede {
+  flex: 1;
+}
+
+.action {
+  align-self: flex-start;
+  min-width: 180px;
+}

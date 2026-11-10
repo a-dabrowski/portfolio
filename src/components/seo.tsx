@@ -9,7 +9,7 @@ interface SEOProps {
 
 // Rendered from each page's exported `Head` (Gatsby Head API), so the tags are
 // written into the static HTML at build time with no client-side head library.
-const SEO = ({ description = '', lang = 'en', title }: SEOProps) => {
+const SEO = ({ description = '', lang = 'pl', title }: SEOProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
