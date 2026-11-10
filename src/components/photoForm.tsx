@@ -2,9 +2,9 @@ import React from 'react';
 
 export const PhotographyForm = () => (
   <iframe
-    className="m-auto"
+    className="m-auto w-full max-w-[480px]"
     src="https://docs.google.com/forms/d/e/1FAIpQLSeKcTuN83kkpE-owtjrDHiiJXCpa81PNoggL4hGv5NFgGNbIQ/viewform?embedded=true"
-    width="480"
+    loading="lazy"
     height="1246"
     frameBorder="0"
     marginHeight={0}

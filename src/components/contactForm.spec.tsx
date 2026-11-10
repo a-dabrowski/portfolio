@@ -59,6 +59,14 @@ describe('ContactForm component', () => {
     expect(hidden).toHaveAttribute('value', 'photoContact');
   });
 
+  it('Reset clears the entered values', () => {
+    const { getByPlaceholderText, getByText } = render(<ContactForm />);
+    const nameInput = getByPlaceholderText('First and Last Name');
+    fireEvent.change(nameInput, { target: { value: 'Jan Kowalski' } });
+    fireEvent.click(getByText('Reset'));
+    expect(nameInput).toHaveValue('');
+  });
+
   it('has data-netlify attribute on form', () => {
     const { container } = render(<ContactForm />);
     const form = container.querySelector('form');

@@ -9,6 +9,8 @@ exports[`SimpleGallery component matches snapshot 1`] = `
     <a
       class="p-4"
       data-pswp-height="1333"
+      data-pswp-srcset="/static/test-full-500.webp 500w,
+/static/test-full.webp 2000w"
       data-pswp-width="2000"
       href="/static/test-full.webp"
       rel="noreferrer"
@@ -16,7 +18,11 @@ exports[`SimpleGallery component matches snapshot 1`] = `
     >
       <img
         alt=""
+        decoding="async"
+        height="133"
+        loading="lazy"
         src="/static/test-thumb.webp"
+        width="200"
       />
     </a>
     <a
@@ -29,7 +35,11 @@ exports[`SimpleGallery component matches snapshot 1`] = `
     >
       <img
         alt=""
+        decoding="async"
+        height="150"
+        loading="lazy"
         src="/static/test-thumb-2.webp"
+        width="200"
       />
     </a>
   </div>

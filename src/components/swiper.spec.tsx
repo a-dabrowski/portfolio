@@ -43,6 +43,27 @@ describe('SimpleGallery component', () => {
     expect(links[0]).toHaveAttribute('data-pswp-height', '1333');
   });
 
+  it('passes the full-size srcset to PhotoSwipe', () => {
+    const { container } = render(<SimpleGallery {...defaultProps} />);
+    const links = container.querySelectorAll('a');
+    expect(links[0]).toHaveAttribute(
+      'data-pswp-srcset',
+      '/static/test-full-500.webp 500w,\n/static/test-full.webp 2000w'
+    );
+  });
+
+  it('lazy-loads thumbnails', () => {
+    const { container } = render(<SimpleGallery {...defaultProps} />);
+    const images = container.querySelectorAll('img');
+    expect(images[0]).toHaveAttribute('loading', 'lazy');
+  });
+
+  it('reserves thumbnail dimensions to avoid layout shift', () => {
+    const { container } = render(<SimpleGallery {...defaultProps} />);
+    const images = container.querySelectorAll('img');
+    expect(images[1]).toHaveAttribute('height', '150');
+  });
+
   it('renders with pswp-gallery class', () => {
     const { container } = render(<SimpleGallery {...defaultProps} />);
     const gallery = container.querySelector('.pswp-gallery');
