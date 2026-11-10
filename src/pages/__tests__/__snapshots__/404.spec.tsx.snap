@@ -4,7 +4,7 @@ exports[`404 Page matches snapshot 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="overflow-x-hidden md:overflow-hidden transition-all duration-700 fixed z-10 top-0 left-0 bg-black w-full h-0"
+      class="overflow-x-hidden md:overflow-hidden fixed inset-0 z-10 bg-black transition-[transform,visibility] duration-300 ease-out -translate-y-full invisible"
     >
       <button
         class="absolute top-3 right-3 text-gray-400 hover:text-white"

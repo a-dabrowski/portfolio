@@ -7,7 +7,6 @@ import SEO from '../components/seo';
 
 const RecommendedIndex = ({ location }: PageProps) => (
   <Layout location={location} title="Recommended materials">
-    <SEO title="Recommended Content" />
     <div className="flex flex-row flex-wrap">
       <h1>Section in development</h1>
     </div>
@@ -16,3 +15,5 @@ const RecommendedIndex = ({ location }: PageProps) => (
 );
 
 export default RecommendedIndex;
+
+export const Head = () => <SEO title="Recommended Content" />;

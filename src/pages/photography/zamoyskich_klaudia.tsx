@@ -13,7 +13,6 @@ const ZamoyskichKlaudiaPhotography = ({
 }: PageProps<GalleryPageData>) => {
   return (
     <Layout location={location} title="Klaudia - Zamoyskich Palace">
-      <SEO title="Studio photography showcase" />
       <div className="flex flex-col">
         <SimpleGallery
           galleryID="zamoyskichklaudia"
@@ -28,6 +27,8 @@ const ZamoyskichKlaudiaPhotography = ({
 };
 export default ZamoyskichKlaudiaPhotography;
 
+export const Head = () => <SEO title="Studio photography showcase" />;
+
 export const ZamoyskichKlaudiaQuery = graphql`
   query ZamoyskichKlaudia {
     allFile(
@@ -41,9 +42,9 @@ export const ZamoyskichKlaudiaQuery = graphql`
         node {
           id
 
-          # Alias 1: Your original full-size settings
+          # Lightbox image. q80 measured 73% smaller than q100 (sources are already lossy WebP)
           full: childImageSharp {
-            gatsbyImageData(width: 2000, quality: 100, layout: CONSTRAINED)
+            gatsbyImageData(width: 2000, quality: 80, layout: CONSTRAINED)
           }
 
           # Alias 2: The new thumbnail version
@@ -51,7 +52,6 @@ export const ZamoyskichKlaudiaQuery = graphql`
             gatsbyImageData(
               width: 200 # Much smaller width
               layout: CONSTRAINED
-              placeholder: BLURRED
             )
           }
         }
