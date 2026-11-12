@@ -71,3 +71,27 @@ export const Rule = ({
     style={{ width, height }}
   />
 );
+
+interface BandProps {
+  // Left and right ends of the top row; a rule ending in a dot joins them.
+  start: React.ReactNode;
+  end: React.ReactNode;
+  children: React.ReactNode;
+}
+
+// Dark header block of a page: a meta row, then the poster title.
+export const Band = ({ start, end, children }: BandProps) => (
+  <section className={Styles.band}>
+    <Container className={Styles.bandInner}>
+      <div className={Styles.bandTop}>
+        {start}
+        <div className={Styles.bandLine}>
+          <div className={Styles.bandLineRule} />
+          <div className={Styles.bandLineDot} />
+        </div>
+        {end}
+      </div>
+      {children}
+    </Container>
+  </section>
+);

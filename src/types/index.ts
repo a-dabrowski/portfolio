@@ -86,10 +86,21 @@ export interface TextFrontmatter {
   lede: string | null;
 }
 
+// Shape of the TextSummary GraphQL fragment (src/templates/texts.tsx).
 export interface TextSummaryNode {
   id: string;
+  timeToRead: number;
   fields: { slug: string };
-  frontmatter: Pick<TextFrontmatter, 'title' | 'year' | 'form' | 'lede'>;
+  frontmatter: Pick<
+    TextFrontmatter,
+    'title' | 'year' | 'form' | 'dek' | 'stamp' | 'scale'
+  >;
+}
+
+// A text as the list pages show it: with its number and URL.
+export interface ListedText extends TextSummaryNode {
+  number: string;
+  path: string;
 }
 
 export interface LocalePageContext {

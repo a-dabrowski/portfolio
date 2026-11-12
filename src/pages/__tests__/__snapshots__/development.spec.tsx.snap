@@ -22,7 +22,7 @@ exports[`Development Page matches snapshot 1`] = `
         </a>
         <nav>
           <a
-            href="/#texts"
+            href="/texts/"
           >
             → Teksty
           </a>

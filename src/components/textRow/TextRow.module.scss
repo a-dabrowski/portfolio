@@ -1,0 +1,101 @@
+// Whole row is the link; it inverts on hover.
+@mixin row {
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--color-text);
+  text-decoration: none;
+
+  &:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+}
+
+.row {
+  @include row;
+  align-items: center;
+  gap: 16px 32px;
+  padding: clamp(24px, 2.6vw, 36px) 20px;
+  border-bottom: var(--rule) solid var(--color-text);
+}
+
+.number {
+  flex: 0 0 auto;
+  width: clamp(64px, 7vw, 108px);
+}
+
+.main {
+  display: flex;
+  flex: 1 1 320px;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.dek {
+  max-width: 56ch;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.meta {
+  display: flex;
+  flex: 0 1 220px;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 180px;
+}
+
+.scale {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scaleTrack {
+  position: relative;
+  flex: 1;
+  height: var(--rule);
+  background: currentColor;
+}
+
+.scaleKnob {
+  position: absolute;
+  top: -5px;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  background: var(--color-accent);
+}
+
+.arrow {
+  flex: 0 0 auto;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1;
+}
+
+// ---- Compact row for the home teaser ---------------------------------------
+
+.teaser {
+  @include row;
+  align-items: baseline;
+  gap: 8px 24px;
+  padding: 20px;
+  border-bottom: var(--rule) solid var(--color-divider);
+}
+
+.teaserNumber {
+  color: var(--color-accent);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.teaserTitle {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.teaserMeta {
+  white-space: nowrap;
+}

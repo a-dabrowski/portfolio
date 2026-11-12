@@ -26,14 +26,24 @@
       "Nigdy dwa razy tak samo."
     ],
     "portraitAlt": "Adam Dąbrowski — portret",
-    "countLabel": ["Teksty", "do czytania", "poniżej"],
+    "countLabel": ["Teksty", "na", "papierze"],
     "booking": ["Wolne terminy", "na 2027"],
     "bookingAction": "Napisz"
   },
   "texts": {
+    "seoTitle": "Teksty",
     "heading": "Na papierze",
-    "intro": "Bity, monologi i krótkie felietony — wersje pisane, zanim zmieni je sala.",
-    "readAction": "Czytaj całość"
+    "openIndex": "Otwórz spis",
+    "indexHeading": "Teksty",
+    "indexRail": "Spis — Teksty",
+    "home": "Strona główna",
+    "tagline": ["Bity, monologi", "i felietony"],
+    "filter": "Filtr",
+    "allForms": "Wszystkie",
+    "random": "Wylosuj mi jeden",
+    "minutes": "{minutes} min",
+    "scaleLow": "Serio",
+    "scaleHigh": "Absurd"
   },
   "contact": {
     "rail": "Kontakt — Warszawa — 52.23° N",
@@ -70,7 +80,13 @@
     "scaleMarker": "Ten tekst",
     "end": "Koniec. Podobno.",
     "footnotes": "Przypisy, o które nikt nie prosił",
-    "redaction": "Zaczernione. Najedź, jeśli musisz."
+    "redaction": "Zaczernione. Najedź, jeśli musisz.",
+    "lengthLabel": "Długość tekstu",
+    "longForm": "Wersja długa",
+    "shortForm": "Wersja krótka",
+    "shortTagline": "Wersja na jeden przystanek",
+    "shortEnd": "I to by było na tyle.",
+    "readLong": "Czytaj wersję długą · {minutes} min"
   },
   "photography": {
     "seoTitle": "Fotografia",

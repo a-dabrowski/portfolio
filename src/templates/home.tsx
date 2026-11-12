@@ -6,9 +6,9 @@ import classNames from 'classnames';
 import { Button } from '../components/buttons';
 import Contact from '../components/contact';
 import Layout from '../components/layout';
-import { Container, RailSection, Rule } from '../components/section';
+import { Band, Container, RailSection, Rule } from '../components/section';
 import SEO from '../components/seo';
-import TextCard from '../components/textCard/TextCard';
+import { TextTeaserRow } from '../components/textRow';
 import { Tile, TileGrid } from '../components/tiles';
 import {
   Accent,
@@ -19,58 +19,50 @@ import {
   Lines,
   Numeral,
 } from '../components/typography';
-import { dictionaries, padNumber, textPath } from '../i18n';
+import { dictionaries, padNumber, textsIndexPath } from '../i18n';
 import { LocalePageContext, TextSummaryNode } from '../types';
+import { listTexts, yearRange } from '../utils/texts';
 import * as Styles from './home.module.scss';
 
 interface HomeData {
   allMarkdownRemark: { nodes: TextSummaryNode[] };
 }
 
-// The shortcut list in the hero is drawn for four rows in the design; the
-// full list follows in the "texts" section.
+// Row counts drawn in the design: four shortcuts in the hero tile, three
+// rows in the teaser. The full list is on the texts index page.
 const SHORTCUT_COUNT = 4;
+const TEASER_COUNT = 3;
 
 const Home = ({
   data,
   pageContext: { locale },
 }: PageProps<HomeData, LocalePageContext>) => {
   const { site, nav, home, texts: textsCopy } = dictionaries[locale];
-  // Newest first. Numbers count from the oldest text, so they never change
-  // when a new text is published.
-  const texts = data.allMarkdownRemark.nodes.map((node, index, nodes) => ({
-    ...node,
-    number: padNumber(nodes.length - index),
-    path: textPath(locale, node.fields.slug),
-  }));
-  const years = texts.map((text) => text.frontmatter.year);
+  const texts = listTexts(data.allMarkdownRemark.nodes, locale);
 
   return (
     <Layout locale={locale}>
-      <section className={Styles.hero}>
-        <Container className={Styles.heroInner}>
-          <div className={Styles.heroTop}>
-            <div className={Styles.kicker}>
-              <Lines lines={home.kicker} />
-              <Accent>.</Accent>
-            </div>
-            <div className={Styles.heroLine}>
-              <div className={Styles.heroLineRule} />
-              <div className={Styles.heroLineDot} />
-            </div>
-            <div className={Styles.forms}>
-              {home.forms.map((form) => (
-                <Label key={form}>
-                  <Accent>→</Accent> {form}
-                </Label>
-              ))}
-            </div>
+      <Band
+        start={
+          <div className={Styles.kicker}>
+            <Lines lines={home.kicker} />
+            <Accent>.</Accent>
           </div>
-          <Display as="h1" size="hero" className={Styles.heroName}>
-            {site.brand}
-          </Display>
-        </Container>
-      </section>
+        }
+        end={
+          <div className={Styles.forms}>
+            {home.forms.map((form) => (
+              <Label key={form}>
+                <Accent>→</Accent> {form}
+              </Label>
+            ))}
+          </div>
+        }
+      >
+        <Display as="h1" size="hero" className={Styles.heroName}>
+          {site.brand}
+        </Display>
+      </Band>
 
       <Container as="section">
         <Display as="div" size="giant" className={Styles.discipline}>
@@ -139,35 +131,26 @@ const Home = ({
 
       <RailSection
         id="texts"
-        rail={[
-          nav.texts,
-          // Oldest and newest publication year, e.g. "2024–2026".
-          [...new Set([years[years.length - 1], years[0]])].join('–'),
-        ]
-          .filter(Boolean)
-          .join(' — ')}
+        rail={[nav.texts, yearRange(texts)].filter(Boolean).join(' — ')}
       >
-        <div className={Styles.textsHead}>
-          <Display>{textsCopy.heading}</Display>
-          <div className={Styles.textsIntro}>
-            <Rule />
-            <Body size="large">{textsCopy.intro}</Body>
+        <div className={Styles.teaser}>
+          <div className={Styles.teaserHead}>
+            <Display>{textsCopy.heading}</Display>
+            <Button
+              variant="primary"
+              to={textsIndexPath(locale)}
+              arrow="→"
+              className={Styles.teaserAction}
+            >
+              {textsCopy.openIndex}
+            </Button>
+          </div>
+          <div className={Styles.teaserList}>
+            {texts.slice(0, TEASER_COUNT).map((text) => (
+              <TextTeaserRow key={text.id} text={text} />
+            ))}
           </div>
         </div>
-        <TileGrid minColumnWidth={380} lineTone="divider">
-          {texts.map((text) => (
-            <TextCard
-              key={text.id}
-              number={text.number}
-              title={text.frontmatter.title}
-              form={text.frontmatter.form}
-              year={text.frontmatter.year}
-              lede={text.frontmatter.lede}
-              to={text.path}
-              actionLabel={textsCopy.readAction}
-            />
-          ))}
-        </TileGrid>
       </RailSection>
 
       <Contact />
@@ -190,16 +173,7 @@ export const pageQuery = graphql`
       sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
-        id
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          year: date(formatString: "YYYY")
-          form
-          lede
-        }
+        ...TextSummary
       }
     }
   }

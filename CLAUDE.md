@@ -26,7 +26,7 @@ Gatsby 5 website for dabrowski.studio. Main purpose: stand-up texts (markdown ar
 
 **Framework**: Gatsby 5 with React 18, TypeScript, GraphQL data layer, static site generation. GraphQL typegen is enabled in `gatsby-config.ts`.
 
-**Routing**: `gatsby-node.ts` creates the main pages per language from `src/templates/`: `home.tsx` (`/`), `text.tsx` (`/texts/<slug>/`), `photography.tsx` (`/photography/`), `gallery.tsx` (`/photography/<slug>/`). Standalone pages (`404`, `photography/offer`, legacy `development`, `recommended`) are file-based in `src/pages/`. Old URLs redirect via `static/_redirects`.
+**Routing**: `gatsby-node.ts` creates the main pages per language from `src/templates/`: `home.tsx` (`/`), `texts.tsx` (`/texts/`, the index with form filter), `text.tsx` (`/texts/<slug>/`, long/short switch), `photography.tsx` (`/photography/`), `gallery.tsx` (`/photography/<slug>/`). Standalone pages (`404`, `photography/offer`, legacy `development`, `recommended`) are file-based in `src/pages/`. Old URLs redirect via `static/_redirects`.
 
 **Languages**: `src/i18n/locales.ts` lists the languages (`LOCALES`, default `pl` at the site root, others under `/<code>/`). UI strings are JSON (`content/i18n/<code>.json`, read with `useDictionary()` or `dictionaries[locale]`); texts are markdown in one folder per language (`content/texts/<code>/<slug>.md`). Never hard-code visible copy in components. To add English: add `'en'` to `LOCALES`, create `content/i18n/en.json` (TypeScript enforces the same shape as `pl.json`), register it in `src/i18n/index.tsx`, add `content/texts/en/*.md`.
 
@@ -45,6 +45,8 @@ Gatsby 5 website for dabrowski.studio. Main purpose: stand-up texts (markdown ar
 | paragraph that is only `[bracketed]` | stage direction box |
 | `![Caption](../images/file.jpg)` on its own line | figure with margin caption |
 
+The short form of a text is built automatically from `lede` plus the first `> quote`; a text without `lede` has no short form.
+
 Text numbers ("01") follow publication date, oldest first, so they stay stable.
 
 **Content sources**:
@@ -56,7 +58,7 @@ Text numbers ("01") follow publication date, oldest first, so they stay stable.
 
 **Type definitions**: Shared types in `src/types/index.ts` (`GalleryPageData`, `GalleryImageNode`, `ProjectData`, `StackItem`, `MarkdownRemarkNode`, etc.). Module declarations for SVG, SCSS modules, and image imports in `src/types/declarations.d.ts`.
 
-**Design system** (v2, "Modernist"): tokens in `src/styles/tokens.css`, base element styles in `src/components/globalStyle.css`, Archivo variable font (width + weight axes). Build pages from the primitives instead of ad-hoc markup: `typography` (`Display`, `Heading`, `Numeral`, `Label`, `Body`, `Accent`, `Lines`), `links` (`SmartLink`, `ArrowLink`, `RowLink`), `buttons/Button`, `section` (`Container`, `RailSection`, `Rule`), `tiles` (`TileGrid`, `Tile`), `article/*`, `textCard`, `site/SiteHeader|SiteFooter`. Primitive stylesheets are imported in a fixed order in `gatsby-browser.ts`; add new primitives there. Pre-v2 components (`Cta`, `MinimalButton`, `ImageButton`, `curtainMenu`, `mainMenu`, `bio`, `header`, `foldingDoor`, `diagonalBox`, `testimonial`, `project`) are legacy.
+**Design system** (v2, "Modernist"): tokens in `src/styles/tokens.css`, base element styles in `src/components/globalStyle.css`, Archivo variable font (width + weight axes). Build pages from the primitives instead of ad-hoc markup: `typography` (`Display`, `Heading`, `Numeral`, `Label`, `Body`, `Accent`, `Lines`), `links` (`SmartLink`, `ArrowLink`, `RowLink`), `buttons/Button`, `buttons/Toggle`, `section` (`Container`, `RailSection`, `Band`, `Rule`), `tiles` (`TileGrid`, `Tile`), `article/*`, `textRow`, `site/SiteHeader|SiteFooter`. Primitive stylesheets are imported in a fixed order in `gatsby-browser.ts`; add new primitives there. Pre-v2 components (`Cta`, `MinimalButton`, `ImageButton`, `curtainMenu`, `mainMenu`, `bio`, `header`, `foldingDoor`, `diagonalBox`, `testimonial`, `project`) are legacy.
 
 **Styling** (three approaches coexist; new code uses SCSS modules with camelCase class names + tokens):
 - **Tailwind CSS** — primary utility classes, configured via `tailwind.config.js` + PostCSS

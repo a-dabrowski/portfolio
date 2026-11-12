@@ -6,6 +6,7 @@ import {
   LOCALES,
   PHOTOGRAPHY_PATH,
   localizedPath,
+  textsIndexPath,
   useDictionary,
   useLocale,
 } from '../../i18n';
@@ -28,9 +29,7 @@ const SiteHeader = () => {
           <span>{site.place}</span>
         </Link>
         <nav className={Styles.nav}>
-          <ArrowLink to={localizedPath(locale, '/#texts')}>
-            {nav.texts}
-          </ArrowLink>
+          <ArrowLink to={textsIndexPath(locale)}>{nav.texts}</ArrowLink>
           <ArrowLink to={localizedPath(locale, '/#contact')}>
             {nav.contact}
           </ArrowLink>

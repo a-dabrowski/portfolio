@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { graphql, HeadProps, navigate, PageProps } from 'gatsby';
 
 import {
@@ -8,15 +8,17 @@ import {
   Footnotes,
   NextText,
   Prose,
+  ShortForm,
   splitFootnotes,
 } from '../components/article';
-import { Button } from '../components/buttons';
+import { Button, Toggle, ToggleGroup } from '../components/buttons';
 import Layout from '../components/layout';
 import { Container } from '../components/section';
 import SEO from '../components/seo';
 import { Label } from '../components/typography';
-import { dictionaries, format, localizedPath, padNumber } from '../i18n';
+import { dictionaries, format, padNumber, textsIndexPath } from '../i18n';
 import { LocalePageContext, TextFrontmatter } from '../types';
+import { firstPullQuote } from '../utils/texts';
 import * as Styles from './text.module.scss';
 
 interface TextData {
@@ -43,6 +45,10 @@ const TextTemplate = ({
   const { article } = dictionaries[locale];
   const { html, timeToRead, frontmatter } = data.markdownRemark;
   const { body, footnotes } = splitFootnotes(html);
+  // The short form is the lede plus the first pull quote; a text without a
+  // lede has no short form and shows no switch.
+  const [isShortFormChosen, setIsShortFormChosen] = useState(false);
+  const isShort = isShortFormChosen && frontmatter.lede !== null;
 
   // Left and right arrow keys page through the texts.
   useEffect(() => {
@@ -63,11 +69,27 @@ const TextTemplate = ({
       <Container className={Styles.bar}>
         <Button
           variant="ghost"
-          to={localizedPath(locale, '/#texts')}
+          to={textsIndexPath(locale)}
           className={Styles.back}
         >
           ← {article.back}
         </Button>
+        {frontmatter.lede !== null && (
+          <ToggleGroup label={article.lengthLabel}>
+            <Toggle
+              isPressed={!isShort}
+              onClick={() => setIsShortFormChosen(false)}
+            >
+              {article.longForm}
+            </Toggle>
+            <Toggle
+              isPressed={isShort}
+              onClick={() => setIsShortFormChosen(true)}
+            >
+              {article.shortForm}
+            </Toggle>
+          </ToggleGroup>
+        )}
         <div className={Styles.pager}>
           <Label className={Styles.position}>
             {format(article.position, {
@@ -100,10 +122,12 @@ const TextTemplate = ({
         stamp={frontmatter.stamp}
       />
       <ArticleStrip
-        start={[article.dateline, frontmatter.dateline]
-          .filter(Boolean)
-          .join(' — ')}
-        end={format(article.readingTime, { minutes: timeToRead })}
+        start={
+          frontmatter.dateline
+            ? `${article.dateline} — ${frontmatter.dateline}`
+            : ''
+        }
+        end={format(article.readingTime, { minutes: isShort ? 1 : timeToRead })}
       />
       {frontmatter.scale !== null && (
         <AbsurdityScale
@@ -114,8 +138,26 @@ const TextTemplate = ({
         />
       )}
 
-      <Prose html={body} endLabel={article.end} />
-      {footnotes && <Footnotes heading={article.footnotes} html={footnotes} />}
+      {isShort && frontmatter.lede !== null ? (
+        <ShortForm
+          tagline={[article.shortForm, article.shortTagline]}
+          lede={frontmatter.lede}
+          quoteHtml={firstPullQuote(body)}
+          endLabel={article.shortEnd}
+          longFormLabel={format(article.readLong, { minutes: timeToRead })}
+          onReadLongForm={() => {
+            setIsShortFormChosen(false);
+            window.scrollTo(0, 0);
+          }}
+        />
+      ) : (
+        <>
+          <Prose html={body} endLabel={article.end} />
+          {footnotes && (
+            <Footnotes heading={article.footnotes} html={footnotes} />
+          )}
+        </>
+      )}
 
       <NextText
         to={next.path}

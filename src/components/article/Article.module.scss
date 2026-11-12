@@ -384,6 +384,69 @@
   }
 }
 
+// ---- Short form ----------------------------------------------------------
+
+.short {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 48px);
+}
+
+// Same margin column as the long form; the text column is wider (760px)
+// because the short form is set in larger type.
+.shortColumns {
+  display: grid;
+  grid-template-columns: minmax(160px, 200px) minmax(0, 760px);
+  gap: 12px 40px;
+  align-items: start;
+
+  @media (max-width: 700px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.shortTagline {
+  padding-top: 8px;
+  border-top: var(--rule) solid var(--color-text);
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+}
+
+.shortTaglineDetail {
+  font-weight: 500;
+}
+
+.shortLede {
+  margin: 0;
+  font-size: clamp(24px, 2.6vw, 36px);
+  font-weight: 600;
+  line-height: 1.3;
+  text-wrap: pretty;
+
+  &::first-letter {
+    float: left;
+    margin: 6px 14px 0 0;
+    color: var(--color-accent);
+    font-size: clamp(120px, 12vw, 168px);
+    font-stretch: var(--stretch-condensed);
+    font-weight: 800;
+    line-height: 0.78;
+  }
+}
+
+.shortFoot {
+  grid-column: -2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.shortAction {
+  min-width: 240px;
+}
+
 // ---- Footnotes -----------------------------------------------------------
 
 .footnotes {

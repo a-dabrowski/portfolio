@@ -20,6 +20,8 @@ const toneClasses: Record<Tone, string> = {
 type DisplaySize =
   | 'hero'
   | 'giant'
+  | 'index'
+  | 'row'
   | 'section'
   | 'contact'
   | 'page'
@@ -29,6 +31,8 @@ type DisplaySize =
 const displayClasses: Record<DisplaySize, string> = {
   hero: Styles.displayHero,
   giant: Styles.displayGiant,
+  index: Styles.displayIndex,
+  row: Styles.displayRow,
   section: Styles.displaySection,
   contact: Styles.displayContact,
   page: Styles.displayPage,
@@ -48,11 +52,12 @@ export const Display = ({
   </Tag>
 );
 
-type HeadingSize = 'card' | 'tile' | 'compact';
+type HeadingSize = 'card' | 'tile' | 'row' | 'compact';
 
 const headingClasses: Record<HeadingSize, string> = {
   card: Styles.headingCard,
   tile: Styles.headingTile,
+  row: Styles.headingRow,
   compact: Styles.headingCompact,
 };
 
@@ -68,12 +73,14 @@ export const Heading = ({
   </Tag>
 );
 
-type NumeralSize = 'small' | 'medium' | 'large' | 'season';
+type NumeralSize = 'small' | 'medium' | 'large' | 'count' | 'row' | 'season';
 
 const numeralClasses: Record<NumeralSize, string> = {
   small: Styles.numeralSmall,
   medium: Styles.numeralMedium,
   large: Styles.numeralLarge,
+  count: Styles.numeralCount,
+  row: Styles.numeralRow,
   season: Styles.numeralSeason,
 };
 

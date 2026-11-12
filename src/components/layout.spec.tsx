@@ -22,7 +22,7 @@ describe('Layout component', () => {
   });
 
   it.each([
-    [pl.nav.texts, '/#texts'],
+    [pl.nav.texts, '/texts/'],
     [pl.nav.contact, '/#contact'],
     [pl.nav.photography, '/photography/'],
   ])('links "%s" in the navigation to %s', (label, href) => {

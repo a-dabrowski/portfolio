@@ -8,6 +8,7 @@ import {
   galleryPath,
   localizedPath,
   textPath,
+  textsIndexPath,
 } from './src/i18n/locales';
 
 interface TextsQueryResult {
@@ -36,6 +37,12 @@ export const createPages: GatsbyNode['createPages'] = async ({
     createPage({
       path: localizedPath(locale, `${PHOTOGRAPHY_PATH}/`),
       component: path.resolve(`./src/templates/photography.tsx`),
+      context: { locale },
+    });
+
+    createPage({
+      path: textsIndexPath(locale),
+      component: path.resolve(`./src/templates/texts.tsx`),
       context: { locale },
     });
 
@@ -82,8 +89,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
     const texts = result.data!.allMarkdownRemark.nodes;
 
     texts.forEach((text, index) => {
-      // Reading order runs newest to oldest and wraps around, like the list
-      // on the home page.
+      // Reading order runs newest to oldest and wraps around, like the
+      // texts index.
       const nextIndex = (index - 1 + texts.length) % texts.length;
       const previousIndex = (index + 1) % texts.length;
 

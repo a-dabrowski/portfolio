@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import classNames from 'classnames';
 
+import { scalePercent } from '../../utils/texts';
+import { Button } from '../buttons';
 import { Container } from '../section';
 import { Accent, Display, Label, Numeral } from '../typography';
 import * as Styles from './Article.module.scss';
@@ -75,7 +78,7 @@ export const AbsurdityScale = ({
   highLabel,
   markerLabel,
 }: AbsurdityScaleProps) => {
-  const left = `${Math.round(Math.min(1, Math.max(0, value)) * 100)}%`;
+  const left = scalePercent(value);
 
   return (
     <Container className={Styles.scale}>
@@ -130,6 +133,61 @@ export const Prose = ({ html, endLabel }: ProseProps) => (
         <span className={Styles.endMarkSquare} />
         {endLabel}
       </Label>
+    </div>
+  </article>
+);
+
+interface ShortFormProps {
+  tagline: string[];
+  // The text's lede, shown as one large paragraph.
+  lede: string;
+  // Inner HTML of the text's first pull quote, if it has one.
+  quoteHtml: string | null;
+  endLabel: string;
+  longFormLabel: string;
+  onReadLongForm: () => void;
+}
+
+// One-paragraph version of a text: lede, first pull quote, link to the rest.
+export const ShortForm = ({
+  tagline,
+  lede,
+  quoteHtml,
+  endLabel,
+  longFormLabel,
+  onReadLongForm,
+}: ShortFormProps) => (
+  <article className={classNames(Styles.body, Styles.short)}>
+    <div className={Styles.shortColumns}>
+      <Label size="extraSmall" isStrong className={Styles.shortTagline}>
+        {tagline[0]}
+        <br />
+        <span className={Styles.shortTaglineDetail}>{tagline[1]}</span>
+      </Label>
+      <p className={Styles.shortLede}>{lede}</p>
+    </div>
+    {quoteHtml && (
+      <div className={Styles.prose}>
+        <blockquote>
+          <p dangerouslySetInnerHTML={{ __html: quoteHtml }} />
+        </blockquote>
+      </div>
+    )}
+    <div className={Styles.shortColumns}>
+      <div className={Styles.shortFoot}>
+        <Label isStrong className={Styles.endMarkText}>
+          <span className={Styles.endMarkSquare} />
+          {endLabel}
+        </Label>
+        <Button
+          variant="primary"
+          arrow="→"
+          className={Styles.shortAction}
+          onClick={onReadLongForm}
+        >
+          {longFormLabel}
+        </Button>
+      </div>
     </div>
   </article>
 );

@@ -17,6 +17,9 @@ export const PHOTOGRAPHY_PATH = '/photography';
 export const localizedPath = (locale: string, path: string): string =>
   locale === DEFAULT_LOCALE ? path : `/${locale}${path}`;
 
+export const textsIndexPath = (locale: string): string =>
+  localizedPath(locale, `${TEXTS_PATH}/`);
+
 export const textPath = (locale: string, slug: string): string =>
   localizedPath(locale, `${TEXTS_PATH}/${slug}/`);
 

@@ -20,6 +20,17 @@
   line-height: 0.84;
 }
 
+.displayIndex {
+  font-size: clamp(96px, 24vw, 360px);
+  line-height: 0.8;
+}
+
+.displayRow {
+  font-size: clamp(36px, 4.6vw, 72px);
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
 .displaySection {
   font-size: clamp(60px, 11vw, 168px);
   line-height: 0.8;
@@ -68,6 +79,11 @@
   line-height: 0.95;
 }
 
+.headingRow {
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.05;
+}
+
 .headingCompact {
   font-size: 15px;
   font-stretch: 100%;
@@ -93,6 +109,16 @@
 .numeralLarge {
   font-size: clamp(96px, 14vw, 220px);
   line-height: 0.75;
+}
+
+.numeralCount {
+  font-size: clamp(64px, 9vw, 144px);
+  line-height: 0.8;
+}
+
+.numeralRow {
+  font-size: clamp(56px, 6vw, 96px);
+  line-height: 0.8;
 }
 
 .numeralSeason {

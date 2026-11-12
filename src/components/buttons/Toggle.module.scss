@@ -1,0 +1,32 @@
+.toggle {
+  display: inline-flex;
+  gap: 8px;
+  padding: 8px 14px;
+  border: var(--rule) solid var(--color-text);
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+
+  &[aria-pressed='true'] {
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+}
+
+.detail {
+  font-weight: 500;
+}
+
+// Joins toggles into one segmented control with shared borders.
+.group {
+  display: inline-flex;
+
+  .toggle + .toggle {
+    margin-left: calc(var(--rule) * -1);
+  }
+}

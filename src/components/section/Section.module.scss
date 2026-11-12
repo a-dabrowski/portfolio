@@ -44,3 +44,42 @@
 .ruleAccent {
   background: var(--color-accent);
 }
+
+// ---- Band: dark page header ------------------------------------------------
+
+.band {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.bandInner {
+  padding-top: clamp(20px, 3vw, 36px);
+}
+
+.bandTop {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  align-items: center;
+  padding-bottom: clamp(20px, 3vw, 36px);
+}
+
+.bandLine {
+  display: flex;
+  flex: 1 1 60px;
+  align-items: center;
+}
+
+.bandLineRule {
+  flex: 1;
+  height: var(--rule);
+  background: var(--color-bg);
+}
+
+.bandLineDot {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}

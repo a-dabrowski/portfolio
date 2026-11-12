@@ -1,46 +1,9 @@
-.hero {
-  background: var(--color-text);
-  color: var(--color-bg);
-}
-
-.heroInner {
-  padding-top: clamp(20px, 3vw, 36px);
-}
-
-.heroTop {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px 24px;
-  align-items: center;
-  padding-bottom: clamp(20px, 3vw, 36px);
-}
-
 .kicker {
   font-size: clamp(13px, 1.2vw, 16px);
   font-weight: 800;
   letter-spacing: 0.02em;
   line-height: 1.15;
   text-transform: uppercase;
-}
-
-.heroLine {
-  display: flex;
-  flex: 1 1 60px;
-  align-items: center;
-}
-
-.heroLineRule {
-  flex: 1;
-  height: var(--rule);
-  background: var(--color-bg);
-}
-
-.heroLineDot {
-  flex: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--color-accent);
 }
 
 .forms {
@@ -142,17 +105,25 @@
   justify-content: space-between;
 }
 
-.textsHead {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  gap: 24px;
-  align-items: end;
-  margin-bottom: 32px;
-}
-
-.textsIntro {
+.teaser {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  max-width: 400px;
+  gap: 28px;
+  min-width: 0;
+}
+
+.teaserHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.teaserAction {
+  min-width: 220px;
+}
+
+.teaserList {
+  border-top: var(--rule) solid var(--color-text);
 }

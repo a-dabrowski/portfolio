@@ -2791,7 +2791,7 @@ type HomeTextsQueryVariables = Exact<{
 }>;
 
 
-type HomeTextsQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly title: string, readonly form: string | null, readonly lede: string | null, readonly year: string } }> } };
+type HomeTextsQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly timeToRead: number | null, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly title: string, readonly form: string | null, readonly dek: string | null, readonly stamp: string | null, readonly scale: number | null, readonly year: string } }> } };
 
 type PhotographyCoversQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2804,6 +2804,15 @@ type TextByIdQueryVariables = Exact<{
 
 
 type TextByIdQuery = { readonly markdownRemark: { readonly html: string | null, readonly excerpt: string | null, readonly timeToRead: number | null, readonly frontmatter: { readonly title: string, readonly form: string | null, readonly stamp: string | null, readonly scale: number | null, readonly dateline: string | null, readonly dek: string | null, readonly lede: string | null, readonly year: string } } | null };
+
+type TextsIndexQueryVariables = Exact<{
+  locale: Scalars['String'];
+}>;
+
+
+type TextsIndexQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly timeToRead: number | null, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly title: string, readonly form: string | null, readonly dek: string | null, readonly stamp: string | null, readonly scale: number | null, readonly year: string } }> } };
+
+type TextSummaryFragment = { readonly id: string, readonly timeToRead: number | null, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly title: string, readonly form: string | null, readonly dek: string | null, readonly stamp: string | null, readonly scale: number | null, readonly year: string } };
 
 type TextsByLocaleQueryVariables = Exact<{
   locale: Scalars['String'];
