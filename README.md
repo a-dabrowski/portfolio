@@ -60,6 +60,8 @@ Body syntax:
 
 Leave an empty line between blocks. There is no italic: `*text*` is the highlighter.
 
+Full tutorial with every field and markdown element explained, a complete example and a list of common mistakes: [docs/writing-texts.md](docs/writing-texts.md).
+
 ### A short text
 
 There are two different things called "short":
