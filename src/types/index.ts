@@ -39,21 +39,6 @@ export interface SiteMetadata {
   };
 }
 
-export interface ProjectData {
-  name: string;
-  image: string;
-  demo: string;
-  code: string;
-  description: string;
-}
-
-export interface StackItem {
-  name: string;
-  path: string;
-  fill?: string;
-  description?: string;
-}
-
 export interface MarkdownRemarkNode {
   id: string;
   excerpt: string;
@@ -101,6 +86,18 @@ export interface TextSummaryNode {
 export interface ListedText extends TextSummaryNode {
   number: string;
   path: string;
+}
+
+// One row of the home page newsboard (content/news/<locale>.json).
+export interface NewsEntry {
+  // YYYY-MM-DD; after today is listed as upcoming, today or earlier as recent.
+  date: string;
+  title: string;
+  tag?: string;
+  place?: string;
+  note?: string;
+  // Site path ("/texts/slug/") or web address; makes the row a link.
+  href?: string;
 }
 
 export interface LocalePageContext {

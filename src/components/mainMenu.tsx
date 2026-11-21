@@ -10,9 +10,6 @@ export const MainMenu = () => {
       <Link className="m-auto mt-4 text-center" to="/">
         <MinimalButton isFixedWidth>Photography</MinimalButton>
       </Link>
-      <Link className="m-auto mt-4 text-center" to="/development">
-        <MinimalButton isFixedWidth>Development</MinimalButton>
-      </Link>
       <Link className="m-auto mt-4 text-center" to="/recommended">
         <MinimalButton isFixedWidth>Recommended materials</MinimalButton>
       </Link>

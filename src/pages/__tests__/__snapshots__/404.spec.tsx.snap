@@ -27,6 +27,11 @@ exports[`404 Page matches snapshot 1`] = `
             → Teksty
           </a>
           <a
+            href="/#news"
+          >
+            → Afisz
+          </a>
+          <a
             href="/#contact"
           >
             → Kontakt

@@ -1,0 +1,98 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding-block: clamp(32px, 5vw, 64px);
+}
+
+.summary {
+  max-width: 640px;
+}
+
+.contents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+}
+
+.group {
+  padding-block: clamp(32px, 5vw, 64px);
+  border-top: var(--rule) solid var(--color-text);
+}
+
+.groupHead {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: clamp(24px, 4vw, 48px);
+}
+
+.specimen {
+  padding-bottom: clamp(32px, 4vw, 56px);
+}
+
+// The indicator above each example: the code on a dark chip, then the note.
+.tag {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 14px;
+  padding-bottom: 14px;
+}
+
+.code {
+  padding: 4px 8px;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.note {
+  flex: 1 1 280px;
+  color: var(--color-neutral-700);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px 28px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.wideButton {
+  min-width: 220px;
+}
+
+.outline {
+  padding: 20px;
+  border: 1px dashed var(--color-text);
+}
+
+.syntax {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 14px;
+  }
+}

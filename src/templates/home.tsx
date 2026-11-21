@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import { Button } from '../components/buttons';
 import Contact from '../components/contact';
 import Layout from '../components/layout';
+import Newsboard from '../components/newsboard';
 import { Band, Container, RailSection, Rule } from '../components/section';
 import SEO from '../components/seo';
 import { TextTeaserRow } from '../components/textRow';
@@ -21,11 +22,16 @@ import {
 } from '../components/typography';
 import { dictionaries, padNumber, textsIndexPath } from '../i18n';
 import { LocalePageContext, TextSummaryNode } from '../types';
+import { newsByLocale } from '../utils/news';
 import { listTexts, yearRange } from '../utils/texts';
 import * as Styles from './home.module.scss';
 
 interface HomeData {
   allMarkdownRemark: { nodes: TextSummaryNode[] };
+}
+
+interface HomeContext extends LocalePageContext {
+  buildDate: string;
 }
 
 // Row counts drawn in the design: four shortcuts in the hero tile, three
@@ -35,8 +41,8 @@ const TEASER_COUNT = 3;
 
 const Home = ({
   data,
-  pageContext: { locale },
-}: PageProps<HomeData, LocalePageContext>) => {
+  pageContext: { locale, buildDate },
+}: PageProps<HomeData, HomeContext>) => {
   const { site, nav, home, texts: textsCopy } = dictionaries[locale];
   const texts = listTexts(data.allMarkdownRemark.nodes, locale);
 
@@ -129,6 +135,8 @@ const Home = ({
         </TileGrid>
       </Container>
 
+      <Newsboard entries={newsByLocale[locale]} buildDate={buildDate} />
+
       <RailSection
         id="texts"
         rail={[nav.texts, yearRange(texts)].filter(Boolean).join(' — ')}
@@ -162,7 +170,7 @@ export default Home;
 
 export const Head = ({
   pageContext: { locale },
-}: HeadProps<HomeData, LocalePageContext>) => (
+}: HeadProps<HomeData, HomeContext>) => (
   <SEO title={dictionaries[locale].home.seoTitle} lang={locale} />
 );
 

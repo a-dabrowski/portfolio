@@ -30,6 +30,7 @@ const SiteHeader = () => {
         </Link>
         <nav className={Styles.nav}>
           <ArrowLink to={textsIndexPath(locale)}>{nav.texts}</ArrowLink>
+          <ArrowLink to={localizedPath(locale, '/#news')}>{nav.news}</ArrowLink>
           <ArrowLink to={localizedPath(locale, '/#contact')}>
             {nav.contact}
           </ArrowLink>

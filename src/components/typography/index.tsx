@@ -73,7 +73,14 @@ export const Heading = ({
   </Tag>
 );
 
-type NumeralSize = 'small' | 'medium' | 'large' | 'count' | 'row' | 'season';
+type NumeralSize =
+  | 'small'
+  | 'medium'
+  | 'large'
+  | 'count'
+  | 'row'
+  | 'date'
+  | 'season';
 
 const numeralClasses: Record<NumeralSize, string> = {
   small: Styles.numeralSmall,
@@ -81,6 +88,7 @@ const numeralClasses: Record<NumeralSize, string> = {
   large: Styles.numeralLarge,
   count: Styles.numeralCount,
   row: Styles.numeralRow,
+  date: Styles.numeralDate,
   season: Styles.numeralSeason,
 };
 

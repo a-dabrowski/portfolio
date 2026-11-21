@@ -1,0 +1,83 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 0;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px clamp(24px, 4vw, 56px);
+  align-items: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.columnHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: var(--rule) solid var(--color-text);
+}
+
+// Accent square that marks the upcoming column.
+.live {
+  width: 10px;
+  height: 10px;
+  background: var(--color-accent);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 12px;
+  border-bottom: var(--rule) solid var(--color-divider);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+a.row:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.date {
+  display: flex;
+  flex: 0 0 76px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.title {
+  font-size: clamp(20px, 1.8vw, 26px);
+}
+
+.arrow {
+  flex: 0 0 auto;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.empty {
+  max-width: 400px;
+  padding-top: 18px;
+}

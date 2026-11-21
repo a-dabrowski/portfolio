@@ -121,6 +121,11 @@
   line-height: 0.8;
 }
 
+.numeralDate {
+  font-size: clamp(40px, 4vw, 56px);
+  line-height: 0.8;
+}
+
 .numeralSeason {
   font-size: 32px;
   font-stretch: var(--stretch-narrow);
