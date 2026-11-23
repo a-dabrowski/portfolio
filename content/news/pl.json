@@ -1,0 +1,27 @@
+[
+  {
+    "date": "2026-12-05",
+    "title": "Open mic — nowe pięć minut",
+    "tag": "Występ",
+    "place": "Warszawa",
+    "note": "Start 20:00"
+  },
+  {
+    "date": "2027-01-16",
+    "title": "Wieczór stand-upu",
+    "tag": "Występ",
+    "place": "Warszawa",
+    "note": "Set 20 minut"
+  },
+  {
+    "date": "2026-11-15",
+    "title": "Nowa strona. Mniej zdjęć, więcej zdań.",
+    "tag": "Strona"
+  },
+  {
+    "date": "2026-03-14",
+    "title": "Nowy tekst: Tramwaj to parlament",
+    "tag": "Tekst",
+    "href": "/texts/tramwaj-to-parlament/"
+  }
+]

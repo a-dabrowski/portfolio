@@ -10,6 +10,7 @@
   },
   "nav": {
     "texts": "Teksty",
+    "news": "Afisz",
     "contact": "Kontakt",
     "photography": "Fotografia"
   },
@@ -44,6 +45,13 @@
     "minutes": "{minutes} min",
     "scaleLow": "Serio",
     "scaleHigh": "Absurd"
+  },
+  "news": {
+    "rail": "Afisz — Występy i nowości",
+    "heading": "Afisz",
+    "upcoming": "Nadchodzi",
+    "recent": "Ostatnio",
+    "empty": "Na razie pusto w kalendarzu. Napisz, to się zmieni."
   },
   "contact": {
     "rail": "Kontakt — Warszawa — 52.23° N",

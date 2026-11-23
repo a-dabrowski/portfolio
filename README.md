@@ -104,6 +104,39 @@ Photos are ordered by file name. The first one is the gallery cover on `/photogr
 
 The position in the file is the order on `/photography/` and gives the number ("Nr 03"). The first entry is the large lead photo. To hide a gallery, remove its entry; the files can stay.
 
+### A news entry (upcoming show, recent update)
+
+The "Afisz" board on the home page is one list: `content/news/pl.json`. Add an entry anywhere in the file:
+
+```json
+{
+  "date": "2026-12-05",
+  "title": "Open mic — nowe pięć minut",
+  "tag": "Występ",
+  "place": "Warszawa",
+  "note": "Start 20:00",
+  "href": "https://adres-biletow.pl"
+}
+```
+
+| Field   | Required | What it does                                                                    |
+| ------- | -------- | ------------------------------------------------------------------------------- |
+| `date`  | yes      | `YYYY-MM-DD`. Decides the column and the order (see below)                      |
+| `title` | yes      | the headline of the row                                                         |
+| `tag`   | no       | short label under the title: `Występ`, `Tekst`, `Podcast`                       |
+| `place` | no       | shown after the tag                                                             |
+| `note`  | no       | shown after the place: hour, set length, ticket price                           |
+| `href`  | no       | makes the row a link; a site path (`/texts/slug/`) or a full `https://` address |
+
+The date sorts the entry by itself:
+
+- after today → column "Nadchodzi", soonest first, all entries shown;
+- today or earlier → column "Ostatnio", latest first, the 4 latest shown.
+
+A show moves from "Nadchodzi" to "Ostatnio" on its own on the day it happens; no edit or deploy is needed. To announce something already done ("Nowy tekst", "Nagranie podcastu"), give it the date it happened.
+
+With nothing upcoming, the left column shows the `news.empty` line from `content/i18n/pl.json`. With an empty file, the board is not shown.
+
 ### Site copy, contact links, season
 
 Headings, button labels, the hero copy, the contact rows and the season in the header are all in `content/i18n/pl.json`.
@@ -113,7 +146,7 @@ Headings, button labels, the hero copy, the contact rows and the season in the h
 Polish is the only language switched on. To add English:
 
 1. Add `'en'` to `LOCALES` in `src/i18n/locales.ts`.
-2. Copy `content/i18n/pl.json` to `en.json` and translate it; register it in `src/i18n/index.tsx`.
+2. Copy `content/i18n/pl.json` to `en.json` and translate it; register it in `src/i18n/index.tsx`. Do the same for the news list: `content/news/en.json`, registered in `src/utils/news.ts`.
 3. Put translated texts in `content/texts/en/`. The same file name as in `pl/` means the same text.
 
 English pages are then published under `/en/`.

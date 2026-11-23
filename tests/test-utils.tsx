@@ -82,14 +82,6 @@ export const mockBlogPost = {
   },
 };
 
-export const mockProjectData = {
-  name: 'Test Project',
-  image: '/screenshots/test.png',
-  demo: 'https://example.com/demo',
-  code: 'https://github.com/test/project',
-  description: 'A test project description',
-};
-
 export const mockLocation = {
   pathname: '/',
   search: '',

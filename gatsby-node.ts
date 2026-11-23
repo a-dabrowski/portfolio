@@ -10,6 +10,7 @@ import {
   textPath,
   textsIndexPath,
 } from './src/i18n/locales';
+import { isoDate } from './src/utils/news';
 
 interface TextsQueryResult {
   allMarkdownRemark: {
@@ -31,7 +32,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
     createPage({
       path: localizedPath(locale, '/'),
       component: path.resolve(`./src/templates/home.tsx`),
-      context: { locale },
+      // buildDate: the newsboard's "today" in the static HTML.
+      context: { locale, buildDate: isoDate(new Date()) },
     });
 
     createPage({
