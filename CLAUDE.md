@@ -8,17 +8,17 @@ Gatsby 5 website for dabrowski.studio. Main purpose: stand-up texts (markdown ar
 
 ## Commands
 
-| Task | Command |
-|------|---------|
-| Dev server | `make start` or `gatsby develop` |
-| Build | `make build` or `gatsby build` |
-| Type check | `npm run type-check` (tsc --noEmit) |
-| Format | `make format` or `prettier --write "**/*.{js,jsx,ts,tsx,json,md}"` |
-| Test all | `npm test` (Jest) |
-| Test single | `npx jest path/to/file.spec.tsx` |
-| Serve build | `gatsby serve` |
-| Clean cache | `gatsby clean` |
-| Convert images to WebP | `bash scripts/convert_to_webp.sh` |
+| Task                   | Command                                                            |
+| ---------------------- | ------------------------------------------------------------------ |
+| Dev server             | `make start` or `gatsby develop`                                   |
+| Build                  | `make build` or `gatsby build`                                     |
+| Type check             | `npm run type-check` (tsc --noEmit)                                |
+| Format                 | `make format` or `prettier --write "**/*.{js,jsx,ts,tsx,json,md}"` |
+| Test all               | `npm test` (Jest)                                                  |
+| Test single            | `npx jest path/to/file.spec.tsx`                                   |
+| Serve build            | `gatsby serve`                                                     |
+| Clean cache            | `gatsby clean`                                                     |
+| Convert images to WebP | `bash scripts/convert_to_webp.sh`                                  |
 
 **Node version**: 18.9.0 (see `.nvmrc`). If sharp fails on install, delete `node_modules` + `package-lock.json` and reinstall with `npm i --legacy-peer-deps`.
 
@@ -26,41 +26,43 @@ Gatsby 5 website for dabrowski.studio. Main purpose: stand-up texts (markdown ar
 
 **Framework**: Gatsby 5 with React 18, TypeScript, GraphQL data layer, static site generation. GraphQL typegen is enabled in `gatsby-config.ts`.
 
-**Routing**: `gatsby-node.ts` creates the main pages per language from `src/templates/`: `home.tsx` (`/`), `texts.tsx` (`/texts/`, the index with form filter), `text.tsx` (`/texts/<slug>/`, long/short switch), `photography.tsx` (`/photography/`), `gallery.tsx` (`/photography/<slug>/`). Standalone pages (`404`, `photography/offer`, legacy `development`, `recommended`) are file-based in `src/pages/`. Old URLs redirect via `static/_redirects`.
+**Routing**: `gatsby-node.ts` creates the main pages per language from `src/templates/`: `home.tsx` (`/`), `texts.tsx` (`/texts/`, the index with form filter), `text.tsx` (`/texts/<slug>/`, long/short switch), `photography.tsx` (`/photography/`), `gallery.tsx` (`/photography/<slug>/`). Standalone pages (`404`, `photography/offer`, legacy `recommended`) are file-based in `src/pages/`. Old URLs redirect via `static/_redirects`.
 
-**Languages**: `src/i18n/locales.ts` lists the languages (`LOCALES`, default `pl` at the site root, others under `/<code>/`). UI strings are JSON (`content/i18n/<code>.json`, read with `useDictionary()` or `dictionaries[locale]`); texts are markdown in one folder per language (`content/texts/<code>/<slug>.md`). Never hard-code visible copy in components. To add English: add `'en'` to `LOCALES`, create `content/i18n/en.json` (TypeScript enforces the same shape as `pl.json`), register it in `src/i18n/index.tsx`, add `content/texts/en/*.md`.
+**Languages**: `src/i18n/locales.ts` lists the languages (`LOCALES`, default `pl` at the site root, others under `/<code>/`). UI strings are JSON (`content/i18n/<code>.json`, read with `useDictionary()` or `dictionaries[locale]`); texts are markdown in one folder per language (`content/texts/<code>/<slug>.md`). Never hard-code visible copy in components. To add English: add `'en'` to `LOCALES`, create `content/i18n/en.json` and `content/news/en.json` (TypeScript enforces the same shape as `pl.json`), register it in `src/i18n/index.tsx`, add `content/texts/en/*.md`.
 
 **Writing a text** (no JSX needed; `plugins/gatsby-remark-studio-text` + `src/components/article/Article.module.scss` map markdown to the design):
 
-| Markdown | Renders as |
-|---|---|
+| Markdown                                                                               | Renders as                                                                                     |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | frontmatter `title`, `date`, `form`, `dek`, `lede`, `stamp`, `dateline`, `scale` (0–1) | hero, home card, stamp, dateline strip, absurdity scale (only `title` and `date` are required) |
-| first paragraph | drop cap (automatic) |
-| `~~text~~` | accent strike-through |
-| `*text*` | highlighter mark (`**text**` stays bold) |
-| `\|\|text\|\|` | redaction, readable on hover/focus |
-| `[^1]` + `[^1]: note` | footnote, listed in its own section |
-| `> quote` | full-width pull quote |
-| `>> note` (placed before a paragraph) | margin note next to that paragraph |
-| paragraph that is only `[bracketed]` | stage direction box |
-| `![Caption](../images/file.jpg)` on its own line | figure with margin caption |
+| first paragraph                                                                        | drop cap (automatic)                                                                           |
+| `~~text~~`                                                                             | accent strike-through                                                                          |
+| `*text*`                                                                               | highlighter mark (`**text**` stays bold)                                                       |
+| `\|\|text\|\|`                                                                         | redaction, readable on hover/focus                                                             |
+| `[^1]` + `[^1]: note`                                                                  | footnote, listed in its own section                                                            |
+| `> quote`                                                                              | full-width pull quote                                                                          |
+| `>> note` (placed before a paragraph)                                                  | margin note next to that paragraph                                                             |
+| paragraph that is only `[bracketed]`                                                   | stage direction box                                                                            |
+| `![Caption](../images/file.jpg)` on its own line                                       | figure with margin caption                                                                     |
 
 The short form of a text is built automatically from `lede` plus the first `> quote`; a text without `lede` has no short form.
 
 Text numbers ("01") follow publication date, oldest first, so they stay stable.
 
 **Content sources**:
+
 - Texts: Markdown files in `content/texts/<locale>/`, images in `content/texts/images/`
 - UI strings: `content/i18n/<locale>.json`
+- Newsboard ("Afisz" on the home page): `content/news/<locale>.json`, registered in `src/utils/news.ts`. Entries are split by `date` into upcoming and recent; the split is redone in the browser so it stays correct between deploys
 - Gallery list (slug, image folder, title): `content/photography/galleries.json` — add an entry to publish a new gallery
-- Projects & stack: JSON files in `content/development/` (imported directly in components)
 - Photography images: WebP files in `content/assets/photography/`, queried via GraphQL with `sourceInstanceName: "photography"`
 
-**Type definitions**: Shared types in `src/types/index.ts` (`GalleryPageData`, `GalleryImageNode`, `ProjectData`, `StackItem`, `MarkdownRemarkNode`, etc.). Module declarations for SVG, SCSS modules, and image imports in `src/types/declarations.d.ts`.
+**Type definitions**: Shared types in `src/types/index.ts` (`GalleryPageData`, `GalleryImageNode`, `MarkdownRemarkNode`, etc.). Module declarations for SVG, SCSS modules, and image imports in `src/types/declarations.d.ts`.
 
-**Design system** (v2, "Modernist"): tokens in `src/styles/tokens.css`, base element styles in `src/components/globalStyle.css`, Archivo variable font (width + weight axes). Build pages from the primitives instead of ad-hoc markup: `typography` (`Display`, `Heading`, `Numeral`, `Label`, `Body`, `Accent`, `Lines`), `links` (`SmartLink`, `ArrowLink`, `RowLink`), `buttons/Button`, `buttons/Toggle`, `section` (`Container`, `RailSection`, `Band`, `Rule`), `tiles` (`TileGrid`, `Tile`), `article/*`, `textRow`, `site/SiteHeader|SiteFooter`. Primitive stylesheets are imported in a fixed order in `gatsby-browser.ts`; add new primitives there. Pre-v2 components (`Cta`, `MinimalButton`, `ImageButton`, `curtainMenu`, `mainMenu`, `bio`, `header`, `foldingDoor`, `diagonalBox`, `testimonial`, `project`) are legacy.
+**Design system** (v2, "Modernist"): tokens in `src/styles/tokens.css`, base element styles in `src/components/globalStyle.css`, Archivo variable font (width + weight axes). Build pages from the primitives instead of ad-hoc markup: `typography` (`Display`, `Heading`, `Numeral`, `Label`, `Body`, `Accent`, `Lines`), `links` (`SmartLink`, `ArrowLink`, `RowLink`), `buttons/Button`, `buttons/Toggle`, `section` (`Container`, `RailSection`, `Band`, `Rule`), `tiles` (`TileGrid`, `Tile`), `article/*`, `textRow`, `newsboard`, `site/SiteHeader|SiteFooter`. `/styleguide/` (`src/pages/styleguide.tsx`, noindex) renders every primitive under a tag with the code that produces it; add new primitives and variants there. Primitive stylesheets are imported in a fixed order in `gatsby-browser.ts`; add new primitives there. Pre-v2 components (`Cta`, `MinimalButton`, `ImageButton`, `curtainMenu`, `mainMenu`, `bio`, `header`, `foldingDoor`, `diagonalBox`, `testimonial`) are legacy.
 
 **Styling** (three approaches coexist; new code uses SCSS modules with camelCase class names + tokens):
+
 - **Tailwind CSS** — primary utility classes, configured via `tailwind.config.js` + PostCSS
 - **SCSS Modules** — component-scoped styles (`*.module.scss`), color palettes in `src/components/colors.scss`
 - **Plain CSS** — some component-specific files (`Cta.css`, `Project.css`, `globalStyle.css`)
@@ -88,26 +90,29 @@ Text numbers ("01") follow publication date, oldest first, so they stay stable.
 
 **Stack**: Jest 29 + React Testing Library + `@testing-library/jest-dom`
 
-| Command | Description |
-|---------|-------------|
-| `npm test` | Run all tests |
-| `npm test -- --verbose` | Run with detailed output |
-| `npm test -- --coverage` | Run with coverage report |
-| `npm test -- src/components/bio.spec.tsx` | Run a single test file |
+| Command                                   | Description                  |
+| ----------------------------------------- | ---------------------------- |
+| `npm test`                                | Run all tests                |
+| `npm test -- --verbose`                   | Run with detailed output     |
+| `npm test -- --coverage`                  | Run with coverage report     |
+| `npm test -- src/components/bio.spec.tsx` | Run a single test file       |
 | `npm test -- --testPathPattern="buttons"` | Run tests matching a pattern |
 
 **Test structure**:
+
 - Unit tests live next to their component (e.g. `src/components/buttons/Cta.spec.tsx`)
 - Integration tests (pages/templates) live in `__tests__/` subdirectories (e.g. `src/pages/__tests__/blog.spec.tsx`)
-- Shared fixtures and helpers in `tests/test-utils.tsx` (`mockSiteMetadata`, `mockGalleryImages`, `mockBlogPost`, `mockProjectData`, `mockLocation`, `setupUseStaticQuery`)
+- Shared fixtures and helpers in `tests/test-utils.tsx` (`mockSiteMetadata`, `mockGalleryImages`, `mockBlogPost`, `mockLocation`, `setupUseStaticQuery`)
 
 **Mocks** (in `tests/__mocks__/`):
+
 - `gatsby.js` — mocks `graphql`, `Link`, `useStaticQuery`, `StaticQuery`
 - `gatsby-plugin-image.js` — mocks `GatsbyImage` and `StaticImage` as plain `<img>` tags
 - `photoswipe/lightbox.js` — mocks `PhotoSwipeLightbox` with no-op `init()`/`destroy()`
 - `file-mock.js` — stubs image/media imports
 
 **Writing new tests**:
+
 - Use `.spec.tsx` suffix, place next to the component
 - Import `setupUseStaticQuery` from `tests/test-utils` for components that use `useStaticQuery` (SEO, Bio, or any page using Layout + SEO)
 - Call `setupUseStaticQuery()` in a `beforeEach` block
